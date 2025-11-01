@@ -1,0 +1,326 @@
+# AiReading Site Configuration
+# This file defines SEO, UX, Memory, and AI Optimization settings
+# Based on S|U|Memory|AI best practices
+
+site:
+  name: "AiReading"
+  domain: "aireading.com"  # 官方域名
+  locales: ["en", "zh", "th", "id"]
+  defaultLocale: "en"
+  darkMode: true
+  compliance:
+    cookie_consent: true
+    privacy_page: "/privacy"
+    terms_page: "/terms"
+    gdpr_compliant: true
+
+# ==========================================
+# S - SEO Configuration
+# ==========================================
+seo:
+  # Keyword mapping for each major page type
+  keyword_map:
+    - page: "/"
+      primary: "AI book summaries"
+      secondary:
+        - "audiobook summaries online"
+        - "AI book discussion"
+        - "multilingual book summaries"
+        - "free book summary app"
+
+    - page: "/browse"
+      primary: "book categories"
+      secondary:
+        - "business book summaries"
+        - "self-help audiobooks"
+        - "psychology books"
+
+    - page: "/book/[id]"
+      primary: "[Book Title] summary"
+      secondary:
+        - "[Book Title] audiobook"
+        - "[Book Title] key insights"
+        - "[Author] book summary"
+
+    - page: "/category/business"
+      primary: "business book summaries"
+      secondary:
+        - "best business books"
+        - "business leadership books"
+        - "productivity books"
+
+    - page: "/category/psychology"
+      primary: "psychology book summaries"
+      secondary:
+        - "self-help books"
+        - "mental health books"
+
+  # Topic cluster strategy for internal linking
+  topic_clusters:
+    - hub: "/category/business"
+      spokes:
+        - "/category/business/leadership"
+        - "/category/business/productivity"
+        - "/category/business/entrepreneurship"
+
+    - hub: "/category/psychology"
+      spokes:
+        - "/category/psychology/self-help"
+        - "/category/psychology/relationships"
+        - "/category/psychology/mindfulness"
+
+    - hub: "/guides/ai-reading"
+      spokes:
+        - "/guides/how-to-chat-with-books"
+        - "/guides/note-taking-with-ai"
+        - "/guides/multilingual-learning"
+
+  # Technical SEO features
+  open_graph: true
+  twitter_cards: true
+  canonical: true
+  sitemap: true
+  robots: true
+
+  # Structured data (JSON-LD)
+  jsonld:
+    enabled: true
+    types:
+      - route: "/"
+        type: "WebSite"
+      - route: "/book/[id]"
+        type: "Book"
+      - route: "/book/[id]"
+        type: "AudioObject"
+      - route: "/category/[slug]"
+        type: "CollectionPage"
+      - route: "/help"
+        type: "FAQPage"
+      - route: "/about"
+        type: "Organization"
+
+  # hreflang for multilingual support
+  hreflang: true
+
+  # Image optimization
+  image_optimization:
+    lazy_load: true
+    webp: true
+    alt_text_required: true
+    max_size_kb: 100
+
+# ==========================================
+# U - User Experience & Accessibility
+# ==========================================
+ux:
+  # Performance targets
+  lighthouse_target: 90
+  core_web_vitals:
+    lcp_target: 2.5  # seconds
+    fid_target: 100  # ms
+    cls_target: 0.1
+
+  # Accessibility
+  a11y: true
+  wcag_level: "AA"
+  color_contrast_ratio: 4.5
+  keyboard_navigation: true
+  screen_reader_optimized: true
+
+  # Call-to-Action configuration
+  cta:
+    primary_text: "开始听书 / Start Listening"
+    secondary_text: "浏览书库 / Browse Library"
+    tertiary_text: "了解更多 / Learn More"
+
+  # Navigation
+  nav:
+    breadcrumbs: true
+    max_depth: 3
+    mobile_menu: "hamburger"
+
+  # Internationalization
+  i18n_switcher: true
+  auto_detect_language: true
+
+  # Mobile optimization
+  mobile_first: true
+  touch_target_size: 44  # pixels
+
+  # Forms
+  max_form_fields: 6
+  inline_validation: true
+
+  # Progressive Web App
+  pwa:
+    enabled: true
+    offline_support: true
+    install_prompt: true
+
+# ==========================================
+# Memory & Personalization
+# ==========================================
+memory:
+  enabled: true
+  mode: "anonymous"  # "anonymous" | "account"
+
+  # Storage strategy
+  store:
+    client: "localStorage"
+    server: "optional"  # Sync when user is logged in
+    max_items: 100
+    ttl_days: 90
+
+  # Event tracking
+  track_events:
+    - "page_view"
+    - "scroll_depth"        # 25%, 50%, 75%, 100%
+    - "cta_click"
+    - "search_query"
+    - "book_play"
+    - "book_complete"
+    - "chat_message"
+    - "note_created"
+    - "book_favorite"
+    - "language_switch"
+
+  # Personalization slots
+  personalization_slots:
+    - id: "home_recommendations"
+      strategy: "recent_category"
+      fallback: "popular_now"
+
+    - id: "continue_listening"
+      strategy: "playback_history"
+      max_items: 3
+
+    - id: "suggested_books"
+      strategy: "category_affinity"
+      max_items: 10
+
+    - id: "cta_copy"
+      strategy: "best_performing"
+      variants: ["Start Listening", "Listen Now", "Play Book"]
+
+    - id: "hero_title"
+      strategy: "user_language"
+      variants:
+        en: "Understand Any Book in 15 Minutes"
+        zh: "15 分钟听懂一本书"
+        th: "เข้าใจหนังสือใดก็ได้ใน 15 นาที"
+        id: "Pahami Buku Apapun dalam 15 Menit"
+
+  # Privacy controls
+  privacy:
+    user_can_disable: true
+    clear_data_option: true
+    export_data_option: true
+
+# ==========================================
+# AI Optimization & A/B Testing
+# ==========================================
+ai_optimization:
+  # A/B testing
+  ab_test: "on"  # "on" | "off"
+  bandit: "on"   # Multi-armed bandit for faster convergence
+
+  # Analytics provider
+  analytics: "plausible"  # "plausible" | "umami" | "ga4"
+  analytics_config:
+    domain: "aireading.com"
+    api_host: "https://plausible.io"
+    privacy_mode: true  # No cookies
+
+  # Optimization goals
+  goals:
+    primary:
+      - name: "book_play"
+        weight: 1.0
+      - name: "chat_engagement"
+        weight: 0.8
+    secondary:
+      - name: "scroll_depth_75"
+        weight: 0.3
+      - name: "time_on_page_2min"
+        weight: 0.2
+
+  # Weekly recommendations
+  weekly_recommendations: true
+  report_schedule: "every_monday_9am"
+
+  # Variant testing (see /ai/ab-variants.json for details)
+  variant_testing:
+    enabled: true
+    min_sample_size: 100
+    confidence_level: 0.95
+
+# ==========================================
+# Content Strategy
+# ==========================================
+content:
+  # Content curation model
+  curation_ratio:
+    editorial: 80
+    ugc: 20
+
+  # Quality thresholds
+  quality_score_min: 8.0
+
+  # Publishing schedule
+  new_books_per_week: 20
+
+  # Internal linking strategy
+  related_books_count: 5
+  category_books_display: 20
+
+  # Content freshness
+  update_frequency:
+    homepage: "daily"
+    category_pages: "weekly"
+    book_pages: "monthly"
+
+# ==========================================
+# Performance & Monitoring
+# ==========================================
+performance:
+  # Caching
+  cache:
+    homepage_ttl: 300      # 5 minutes
+    book_page_ttl: 3600    # 1 hour
+    category_ttl: 1800     # 30 minutes
+    static_assets_ttl: 2592000  # 30 days
+
+  # CDN
+  cdn:
+    enabled: true
+    provider: "vercel"
+    regions: ["us-east", "eu-central", "asia-southeast"]
+
+  # Monitoring
+  monitoring:
+    uptime: true
+    error_tracking: "sentry"
+    performance_tracking: "datadog"
+    lighthouse_ci: true
+    lighthouse_schedule: "daily"
+
+# ==========================================
+# Build & Deployment
+# ==========================================
+build:
+  framework: "nextjs"
+  mode: "app_router"
+
+  # Automatic generation
+  auto_generate:
+    - sitemap
+    - robots
+    - rss_feed
+    - og_images
+
+  # CI/CD checks
+  ci_checks:
+    - lighthouse_score_min: 90
+    - bundle_size_max: 200  # KB
+    - no_console_errors: true
+    - accessibility_violations: 0

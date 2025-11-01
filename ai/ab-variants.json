@@ -1,0 +1,386 @@
+{
+  "homepage": {
+    "hero_title": {
+      "variants": [
+        {
+          "id": "A",
+          "content": {
+            "en": "Understand Any Book in 15 Minutes with AI",
+            "zh": "用 AI 15 分钟听懂一本书",
+            "th": "เข้าใจหนังสือใดก็ได้ใน 15 นาทีด้วย AI",
+            "id": "Pahami Buku Apapun dalam 15 Menit dengan AI"
+          },
+          "weight": 0.5
+        },
+        {
+          "id": "B",
+          "content": {
+            "en": "Listen, Learn, and Discuss Books with AI",
+            "zh": "听书、学习、与 AI 对话",
+            "th": "ฟัง เรียนรู้ และพูดคุยเกี่ยวกับหนังสือกับ AI",
+            "id": "Dengarkan, Pelajari, dan Diskusikan Buku dengan AI"
+          },
+          "weight": 0.5
+        }
+      ],
+      "goal": "book_play",
+      "status": "active"
+    },
+
+    "hero_subtitle": {
+      "variants": [
+        {
+          "id": "A",
+          "content": {
+            "en": "AI-generated summaries, audiobooks, and intelligent Q&A in multiple languages",
+            "zh": "AI 生成摘要、音频讲书、智能问答，支持多语言",
+            "th": "สรุปหนังสือที่สร้างโดย AI หนังสือเสียง และ Q&A อัจฉริยะในหลายภาษา",
+            "id": "Ringkasan yang dihasilkan AI, buku audio, dan tanya jawab cerdas dalam berbagai bahasa"
+          },
+          "weight": 1.0
+        }
+      ],
+      "status": "active"
+    },
+
+    "cta_primary": {
+      "variants": [
+        {
+          "id": "A",
+          "content": {
+            "en": "Start Listening Free",
+            "zh": "免费开始听书",
+            "th": "เริ่มฟังฟรี",
+            "id": "Mulai Dengarkan Gratis"
+          },
+          "weight": 0.4
+        },
+        {
+          "id": "B",
+          "content": {
+            "en": "Listen Now",
+            "zh": "立即收听",
+            "th": "ฟังตอนนี้",
+            "id": "Dengarkan Sekarang"
+          },
+          "weight": 0.3
+        },
+        {
+          "id": "C",
+          "content": {
+            "en": "Explore Books",
+            "zh": "探索书籍",
+            "th": "สำรวจหนังสือ",
+            "id": "Jelajahi Buku"
+          },
+          "weight": 0.3
+        }
+      ],
+      "goal": "cta_click",
+      "status": "active"
+    },
+
+    "section_order": {
+      "variants": [
+        {
+          "id": "default",
+          "content": [
+            "hero_banner",
+            "continue_listening",
+            "editors_picks",
+            "popular_now",
+            "ai_playlists",
+            "quick_3min",
+            "new_arrivals",
+            "community_picks"
+          ],
+          "weight": 0.7
+        },
+        {
+          "id": "popular_first",
+          "content": [
+            "hero_banner",
+            "popular_now",
+            "continue_listening",
+            "editors_picks",
+            "quick_3min",
+            "ai_playlists",
+            "new_arrivals",
+            "community_picks"
+          ],
+          "weight": 0.3
+        }
+      ],
+      "goal": "scroll_depth_50",
+      "status": "testing"
+    }
+  },
+
+  "book_detail": {
+    "cta_text": {
+      "variants": [
+        {
+          "id": "A",
+          "content": {
+            "en": "Play 3-Min Summary",
+            "zh": "播放 3 分钟摘要",
+            "th": "เล่นสรุป 3 นาที",
+            "id": "Putar Ringkasan 3 Menit"
+          },
+          "weight": 0.5
+        },
+        {
+          "id": "B",
+          "content": {
+            "en": "Listen to Quick Summary",
+            "zh": "收听快速摘要",
+            "th": "ฟังสรุปย่อ",
+            "id": "Dengarkan Ringkasan Cepat"
+          },
+          "weight": 0.5
+        }
+      ],
+      "goal": "book_play",
+      "status": "active"
+    },
+
+    "tab_order": {
+      "variants": [
+        {
+          "id": "default",
+          "content": ["overview", "listen", "chat", "notes"],
+          "weight": 0.6
+        },
+        {
+          "id": "listen_first",
+          "content": ["listen", "overview", "chat", "notes"],
+          "weight": 0.4
+        }
+      ],
+      "goal": "time_on_page_5min",
+      "status": "testing"
+    },
+
+    "suggested_questions": {
+      "variants": [
+        {
+          "id": "A",
+          "content": {
+            "count": 3,
+            "style": "direct"
+          },
+          "weight": 0.5
+        },
+        {
+          "id": "B",
+          "content": {
+            "count": 5,
+            "style": "conversational"
+          },
+          "weight": 0.5
+        }
+      ],
+      "goal": "chat_engagement",
+      "status": "active"
+    }
+  },
+
+  "category_page": {
+    "description_length": {
+      "variants": [
+        {
+          "id": "short",
+          "content": {
+            "max_words": 50
+          },
+          "weight": 0.4
+        },
+        {
+          "id": "medium",
+          "content": {
+            "max_words": 150
+          },
+          "weight": 0.6
+        }
+      ],
+      "goal": "scroll_depth_75",
+      "status": "testing"
+    },
+
+    "books_per_row": {
+      "variants": [
+        {
+          "id": "4_books",
+          "content": {
+            "desktop": 4,
+            "tablet": 3,
+            "mobile": 2
+          },
+          "weight": 0.5
+        },
+        {
+          "id": "5_books",
+          "content": {
+            "desktop": 5,
+            "tablet": 3,
+            "mobile": 2
+          },
+          "weight": 0.5
+        }
+      ],
+      "goal": "book_click",
+      "status": "active"
+    }
+  },
+
+  "library_page": {
+    "default_tab": {
+      "variants": [
+        {
+          "id": "currently_reading",
+          "content": "currently_reading",
+          "weight": 0.6
+        },
+        {
+          "id": "want_to_listen",
+          "content": "want_to_listen",
+          "weight": 0.4
+        }
+      ],
+      "goal": "book_play",
+      "status": "active"
+    },
+
+    "upload_cta_visibility": {
+      "variants": [
+        {
+          "id": "subtle",
+          "content": {
+            "button_style": "secondary",
+            "position": "top-right"
+          },
+          "weight": 0.7
+        },
+        {
+          "id": "prominent",
+          "content": {
+            "button_style": "primary",
+            "position": "center-banner"
+          },
+          "weight": 0.3
+        }
+      ],
+      "goal": "upload_initiated",
+      "status": "testing"
+    }
+  },
+
+  "search_page": {
+    "result_display": {
+      "variants": [
+        {
+          "id": "list_view",
+          "content": "list",
+          "weight": 0.5
+        },
+        {
+          "id": "grid_view",
+          "content": "grid",
+          "weight": 0.5
+        }
+      ],
+      "goal": "book_click",
+      "status": "active"
+    },
+
+    "filter_position": {
+      "variants": [
+        {
+          "id": "sidebar",
+          "content": "left_sidebar",
+          "weight": 0.6
+        },
+        {
+          "id": "top",
+          "content": "horizontal_top",
+          "weight": 0.4
+        }
+      ],
+      "goal": "filter_used",
+      "status": "testing"
+    }
+  },
+
+  "mini_player": {
+    "controls_layout": {
+      "variants": [
+        {
+          "id": "minimal",
+          "content": {
+            "buttons": ["play_pause", "progress", "volume"],
+            "expand_button": true
+          },
+          "weight": 0.7
+        },
+        {
+          "id": "full",
+          "content": {
+            "buttons": ["previous", "play_pause", "next", "progress", "volume", "speed"],
+            "expand_button": false
+          },
+          "weight": 0.3
+        }
+      ],
+      "goal": "playback_completion",
+      "status": "active"
+    }
+  },
+
+  "global": {
+    "color_theme": {
+      "variants": [
+        {
+          "id": "default",
+          "content": {
+            "primary": "#4F46E5",
+            "secondary": "#10B981"
+          },
+          "weight": 0.8
+        },
+        {
+          "id": "warm",
+          "content": {
+            "primary": "#F59E0B",
+            "secondary": "#EF4444"
+          },
+          "weight": 0.2
+        }
+      ],
+      "goal": "session_duration",
+      "status": "testing"
+    },
+
+    "font_family": {
+      "variants": [
+        {
+          "id": "inter",
+          "content": {
+            "heading": "Inter",
+            "body": "Inter"
+          },
+          "weight": 0.6
+        },
+        {
+          "id": "source_sans",
+          "content": {
+            "heading": "Source Sans Pro",
+            "body": "Source Sans Pro"
+          },
+          "weight": 0.4
+        }
+      ],
+      "goal": "reading_time",
+      "status": "active"
+    }
+  }
+}
