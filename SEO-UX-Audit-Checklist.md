@@ -1,6 +1,7 @@
 # AiReading - SEO & UX Audit Checklist
 
 ## Document Info
+
 - **Project**: AiReading - AI Book Summaries Platform
 - **Version**: 1.0
 - **Last Audit**: 2025-11-01
@@ -13,6 +14,7 @@
 ### 📋 Technical SEO
 
 #### Meta Tags & Titles
+
 - [ ] Each page has unique `<title>` tag (50-60 characters)
 - [ ] Each page has unique meta description (150-160 characters)
 - [ ] Primary keyword included in title tag
@@ -25,6 +27,7 @@
 - [ ] Canonical URLs defined on all pages
 
 #### Open Graph & Social Media
+
 - [ ] Open Graph tags present (og:title, og:description, og:image, og:url)
 - [ ] Twitter Card tags present (twitter:card, twitter:title, twitter:image)
 - [ ] OG images are 1200x630px (optimal for Facebook/LinkedIn)
@@ -33,6 +36,7 @@
 - [ ] og:type appropriate for each page (website, article, book)
 
 #### Structured Data (JSON-LD)
+
 - [ ] **Homepage**: WebSite schema with search action
 - [ ] **Book Detail Pages**: Book schema with author, ISBN, ratings
 - [ ] **Book Detail Pages**: AudioObject schema for audio summaries
@@ -44,6 +48,7 @@
 - [ ] No schema errors or warnings
 
 #### URLs & Site Structure
+
 - [ ] Clean, descriptive URLs (no unnecessary parameters)
 - [ ] URL structure: `/[locale]/[type]/[slug]`
 - [ ] URLs use hyphens (not underscores)
@@ -54,6 +59,7 @@
 - [ ] Maximum URL length < 100 characters
 
 #### Sitemap & Robots
+
 - [ ] XML sitemap generated automatically (`/sitemap.xml`)
 - [ ] Sitemap includes all indexable pages
 - [ ] Sitemap submitted to Google Search Console
@@ -64,6 +70,7 @@
 - [ ] Sitemap URL listed in `robots.txt`
 
 #### Internationalization (i18n)
+
 - [ ] `hreflang` tags present for all language versions
 - [ ] `x-default` hreflang defined
 - [ ] Each language version has proper locale in HTML tag
@@ -73,6 +80,7 @@
 - [ ] Separate URLs for each language (no query params)
 
 #### Page Speed & Core Web Vitals
+
 - [ ] Lighthouse Performance score ≥ 90
 - [ ] LCP (Largest Contentful Paint) < 2.5s
 - [ ] FID (First Input Delay) < 100ms
@@ -90,6 +98,7 @@
 ### 📝 On-Page SEO
 
 #### Content Quality
+
 - [ ] Unique content on every page (no duplication)
 - [ ] Book summaries are 1000+ words (combined content)
 - [ ] Category pages have 200-300 word descriptions
@@ -100,6 +109,7 @@
 - [ ] Content updated regularly (freshness signals)
 
 #### Heading Structure
+
 - [ ] Each page has exactly one `<h1>` tag
 - [ ] H1 contains primary keyword
 - [ ] Logical heading hierarchy (H1 → H2 → H3)
@@ -108,6 +118,7 @@
 - [ ] No heading levels skipped (e.g., H2 to H4)
 
 #### Internal Linking
+
 - [ ] Homepage links to all major category pages
 - [ ] Book detail pages link to related books
 - [ ] Book detail pages link to author pages (if available)
@@ -119,6 +130,7 @@
 - [ ] Topic cluster structure implemented
 
 #### Images & Media
+
 - [ ] All images have descriptive `alt` text
 - [ ] Alt text includes book title and author for covers
 - [ ] File names are descriptive (atomic-habits-cover.jpg)
@@ -131,6 +143,7 @@
 ### 🔗 Off-Page SEO (To be tracked)
 
 #### Backlinks
+
 - [ ] Domain Authority tracking setup (Moz/Ahrefs)
 - [ ] Backlink monitoring enabled
 - [ ] Link building strategy documented
@@ -140,6 +153,7 @@
 - [ ] Directory submissions (book/education sites)
 
 #### Social Signals
+
 - [ ] Social sharing buttons on book detail pages
 - [ ] Twitter account active and linked
 - [ ] Facebook page created and linked
@@ -153,6 +167,7 @@
 ### 🎯 First Impressions & Value Proposition
 
 #### Homepage
+
 - [ ] Value proposition clear within 3 seconds
 - [ ] Hero section communicates "what we do"
 - [ ] Hero section shows "who it's for"
@@ -163,6 +178,7 @@
 - [ ] Page loads within 3 seconds on 3G
 
 #### Navigation
+
 - [ ] Main navigation is intuitive and clear
 - [ ] Navigation items use familiar language
 - [ ] Mobile hamburger menu works smoothly
@@ -175,6 +191,7 @@
 ### 📱 Mobile Optimization
 
 #### Responsive Design
+
 - [ ] Site tested on iPhone (Safari)
 - [ ] Site tested on Android (Chrome)
 - [ ] Site tested on iPad/tablets
@@ -187,6 +204,7 @@
 - [ ] Modals/popups don't cover critical content
 
 #### Mobile Performance
+
 - [ ] Mobile Lighthouse score ≥ 85
 - [ ] Mobile page load < 3 seconds
 - [ ] No intrusive interstitials on mobile
@@ -195,6 +213,7 @@
 ### ♿ Accessibility (WCAG 2.1 AA)
 
 #### Color & Contrast
+
 - [ ] Text-to-background contrast ratio ≥ 4.5:1
 - [ ] Large text contrast ratio ≥ 3:1
 - [ ] Interactive elements have sufficient contrast
@@ -202,6 +221,7 @@
 - [ ] Dark mode maintains contrast standards
 
 #### Keyboard Navigation
+
 - [ ] All interactive elements are keyboard accessible
 - [ ] Tab order is logical and intuitive
 - [ ] Focus states are clearly visible
@@ -210,6 +230,7 @@
 - [ ] Dropdown menus work with keyboard
 
 #### Screen Readers
+
 - [ ] All images have alt text
 - [ ] Landmarks used (header, nav, main, footer)
 - [ ] ARIA labels on custom components
@@ -219,6 +240,7 @@
 - [ ] Button purposes are clear ("Play Book" not just "Play")
 
 #### Forms & Inputs
+
 - [ ] All form fields have labels
 - [ ] Required fields marked with asterisk + text
 - [ ] Inline validation messages clear
@@ -229,6 +251,7 @@
 ### 🚀 User Flow & Conversion
 
 #### Critical Paths
+
 - [ ] "Listen to a book" flow = max 2 clicks
 - [ ] "Search for a book" flow = max 2 clicks
 - [ ] "Sign up" flow = max 3 steps
@@ -237,6 +260,7 @@
 - [ ] No dead ends (every page has next action)
 
 #### Call-to-Actions
+
 - [ ] Primary CTA on every page
 - [ ] CTA text is action-oriented
 - [ ] CTA buttons stand out visually
@@ -244,6 +268,7 @@
 - [ ] Multiple CTAs don't compete (clear hierarchy)
 
 #### Trust & Credibility
+
 - [ ] Privacy policy linked in footer
 - [ ] Terms of service linked in footer
 - [ ] Cookie consent banner (GDPR/CCPA)
@@ -259,6 +284,7 @@
 ### 📊 Event Tracking
 
 #### Events Captured
+
 - [ ] Page views tracked
 - [ ] Scroll depth tracked (25%, 50%, 75%, 100%)
 - [ ] CTA clicks tracked
@@ -270,6 +296,7 @@
 - [ ] Language switches logged
 
 #### Storage
+
 - [ ] LocalStorage used for anonymous users
 - [ ] Data persists across sessions
 - [ ] Data does not exceed storage limits
@@ -279,6 +306,7 @@
 ### 🎨 Personalization
 
 #### Implemented Features
+
 - [ ] "Continue Listening" section shows recent books
 - [ ] Home recommendations based on category affinity
 - [ ] Search results influenced by history (optional)
@@ -288,6 +316,7 @@
 - [ ] Recently viewed books tracked
 
 #### Privacy Controls
+
 - [ ] User can disable personalization
 - [ ] User can clear all stored data
 - [ ] User can export their data (GDPR)
@@ -301,6 +330,7 @@
 ### 🧪 A/B Testing Setup
 
 #### Infrastructure
+
 - [ ] A/B testing library integrated (custom or tool)
 - [ ] Variant assignment is consistent per user
 - [ ] Variants defined in `/ai/ab-variants.json`
@@ -308,6 +338,7 @@
 - [ ] Statistical significance target set (95%)
 
 #### Active Tests
+
 - [ ] Homepage hero title (2 variants)
 - [ ] Homepage CTA text (3 variants)
 - [ ] Book detail CTA text (2 variants)
@@ -315,6 +346,7 @@
 - [ ] Tab order on book detail page (2 variants)
 
 #### Goals Defined
+
 - [ ] Primary goal: book_play (plays initiated)
 - [ ] Secondary goal: chat_engagement (messages sent)
 - [ ] Secondary goal: scroll_depth_75 (content consumed)
@@ -323,6 +355,7 @@
 ### 📈 Analytics & Monitoring
 
 #### Tools Configured
+
 - [ ] Plausible/Umami/GA4 installed
 - [ ] Custom events tracked
 - [ ] Goals configured in analytics tool
@@ -330,6 +363,7 @@
 - [ ] Dashboard created for key metrics
 
 #### Weekly Reporting
+
 - [ ] Automated weekly report generated
 - [ ] Report includes A/B test results
 - [ ] Report includes winning variants
@@ -341,6 +375,7 @@
 ## 🚨 Critical Issues (Must Fix Before Launch)
 
 ### SEO Blockers
+
 - [ ] No pages blocked by robots.txt unintentionally
 - [ ] No duplicate content issues
 - [ ] All pages return 200 status (no 404s/500s)
@@ -348,6 +383,7 @@
 - [ ] No mixed content warnings (HTTP on HTTPS)
 
 ### UX Blockers
+
 - [ ] No broken links on homepage
 - [ ] Forms all submit successfully
 - [ ] Audio player works on all browsers
@@ -355,11 +391,13 @@
 - [ ] No console JavaScript errors
 
 ### Performance Blockers
+
 - [ ] Lighthouse Performance ≥ 80 (minimum)
 - [ ] Homepage loads in < 5s on 3G
 - [ ] Images not blocking page render
 
 ### Privacy/Compliance Blockers
+
 - [ ] Cookie consent obtained before tracking
 - [ ] Privacy policy published
 - [ ] GDPR data export functional
@@ -370,6 +408,7 @@
 ## 📊 Success Metrics (Post-Launch)
 
 ### SEO KPIs (6 Months)
+
 - [ ] Organic traffic: 10,000 visits/month
 - [ ] Top 10 rankings for 50+ keywords
 - [ ] Domain Authority ≥ 30
@@ -377,17 +416,20 @@
 - [ ] Average CTR from search: 5%+
 
 ### UX KPIs
+
 - [ ] Bounce rate: < 50%
 - [ ] Average session duration: > 3 minutes
 - [ ] Mobile traffic: > 60%
 - [ ] Form completion rate: > 40%
 
 ### Personalization KPIs
+
 - [ ] "Continue Listening" click-through: > 30%
 - [ ] Personalized recommendations CTR: > 10%
 - [ ] Return visitor rate: > 40%
 
 ### AI Optimization KPIs
+
 - [ ] Winning variant identified for 80% of tests
 - [ ] Conversion lift from A/B tests: > 10%
 - [ ] Weekly recommendations implemented: > 50%
@@ -397,6 +439,7 @@
 ## 🔄 Continuous Improvement
 
 ### Monthly Tasks
+
 - [ ] Review Google Search Console for errors
 - [ ] Check Core Web Vitals report
 - [ ] Audit new backlinks (quality check)
@@ -405,6 +448,7 @@
 - [ ] Test site on new devices/browsers
 
 ### Quarterly Tasks
+
 - [ ] Comprehensive SEO audit (this checklist)
 - [ ] Competitor analysis (keywords, backlinks)
 - [ ] Content gap analysis
@@ -420,6 +464,7 @@
 **Overall Status**: 🟢 Good / 🟡 Needs Improvement / 🔴 Critical Issues
 
 **Next Steps**:
+
 1. [Action item 1]
 2. [Action item 2]
 3. [Action item 3]

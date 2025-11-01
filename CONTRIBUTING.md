@@ -63,6 +63,7 @@ git checkout -b feature/your-feature-name
 ```
 
 分支命名规范：
+
 - `feature/xxx` - 新功能
 - `fix/xxx` - Bug 修复
 - `docs/xxx` - 文档更新
@@ -321,6 +322,7 @@ Closes #123"
 ### Scope 范围
 
 常用的 scope：
+
 - `book` - 书籍相关
 - `chat` - AI 对话
 - `player` - 音频播放器
@@ -398,6 +400,7 @@ Related to #456
 - [ ] 手动测试完成
 
 测试场景：
+
 1. 测试场景 1
 2. 测试场景 2
 
@@ -415,6 +418,7 @@ Related to #456
 所有 PR 必须经过至少一名维护者的审核才能合并。
 
 审核重点：
+
 - 代码质量和可读性
 - 测试覆盖率
 - 性能影响
@@ -430,6 +434,7 @@ Related to #456
 使用 [Bug Report 模板](../../issues/new?template=bug_report.md) 创建 Issue。
 
 请包含：
+
 - 问题描述
 - 复现步骤
 - 预期行为
@@ -444,6 +449,7 @@ Related to #456
 在 iOS Safari 上播放音频时，进度条不更新。
 
 **复现步骤**
+
 1. 在 iOS Safari 打开书籍详情页
 2. 点击播放按钮
 3. 观察进度条
@@ -455,6 +461,7 @@ Related to #456
 进度条保持在 0%。
 
 **环境**
+
 - 设备：iPhone 13
 - 系统：iOS 16.5
 - 浏览器：Safari 16.5
@@ -467,6 +474,7 @@ Related to #456
 使用 [Feature Request 模板](../../issues/new?template=feature_request.md) 创建 Issue。
 
 请包含：
+
 - 功能描述
 - 使用场景
 - 期望的解决方案

@@ -110,6 +110,7 @@ aireading/
 ## 🛠️ 技术栈
 
 ### 前端
+
 - **框架**: Next.js 14 (App Router)
 - **UI 库**: shadcn/ui + Tailwind CSS
 - **语言**: TypeScript
@@ -118,6 +119,7 @@ aireading/
 - **移动端**: React Native (Expo)
 
 ### 后端
+
 - **API**: FastAPI (Python) 或 Node.js + Express
 - **数据库**: PostgreSQL 15 + pgvector
 - **缓存**: Redis
@@ -125,12 +127,14 @@ aireading/
 - **存储**: MinIO / AWS S3
 
 ### AI & ML
+
 - **LLM**: OpenAI GPT-4 / Anthropic Claude / Google Gemini
 - **TTS**: OpenAI TTS / ElevenLabs / Azure TTS
 - **翻译**: DeepL / NLLB
 - **Embeddings**: OpenAI text-embedding-3
 
 ### DevOps
+
 - **容器化**: Docker + Docker Compose
 - **CI/CD**: GitHub Actions
 - **部署**: Vercel (前端) + Fly.io (后端)
@@ -140,21 +144,22 @@ aireading/
 
 ## 📖 核心文档
 
-| 文档 | 描述 |
-|------|------|
-| [项目文档](AiReadingProject.md) | 项目愿景、产品定位、功能规划 |
-| [Web 设计](AIReadingWebDesign.md) | 页面清单和结构设计 |
-| [技术规范](TechnicalSpecification.md) | 系统架构、数据库设计、API 规范 |
-| [开发任务](DevelopmentTaskList.md) | 详细的开发任务清单（157 个任务） |
-| [SEO 审核](SEO-UX-Audit-Checklist.md) | SEO 和 UX 审核清单 |
-| [域名配置](DOMAIN_CONFIG.md) | 域名和 DNS 配置文档 |
-| [OpenSpec](openspec/project.md) | OpenSpec 项目上下文 |
+| 文档                                  | 描述                             |
+| ------------------------------------- | -------------------------------- |
+| [项目文档](AiReadingProject.md)       | 项目愿景、产品定位、功能规划     |
+| [Web 设计](AIReadingWebDesign.md)     | 页面清单和结构设计               |
+| [技术规范](TechnicalSpecification.md) | 系统架构、数据库设计、API 规范   |
+| [开发任务](DevelopmentTaskList.md)    | 详细的开发任务清单（157 个任务） |
+| [SEO 审核](SEO-UX-Audit-Checklist.md) | SEO 和 UX 审核清单               |
+| [域名配置](DOMAIN_CONFIG.md)          | 域名和 DNS 配置文档              |
+| [OpenSpec](openspec/project.md)       | OpenSpec 项目上下文              |
 
 ---
 
 ## 🎯 开发路线图
 
 ### Phase 1: MVP (0-3 个月) ✅ 进行中
+
 - [x] 项目初始化
 - [ ] 核心页面开发（首页、书籍详情、书架、搜索）
 - [ ] 后端 API（书籍、用户、认证）
@@ -164,6 +169,7 @@ aireading/
 - [ ] MVP 上线（20+ 本种子书籍）
 
 ### Phase 2: Enhancement (3-6 个月)
+
 - [ ] 移动端 App（iOS + Android）
 - [ ] UGC 用户上传功能
 - [ ] CMS 编辑后台
@@ -171,6 +177,7 @@ aireading/
 - [ ] 个性化推荐系统
 
 ### Phase 3: Scale (6-12 个月)
+
 - [ ] 企业版 API
 - [ ] AI 讲师人格化
 - [ ] 知识图谱
@@ -196,21 +203,21 @@ aireading/
 - 前端：ESLint + Prettier + TypeScript strict mode
 - 后端：Black (Python) / Prettier (Node.js)
 - 提交信息：遵循 [Conventional Commits](https://www.conventionalcommits.org/)
-- Git 分支：GitFlow (main, develop, feature/*, hotfix/*)
+- Git 分支：GitFlow (main, develop, feature/_, hotfix/_)
 
 ---
 
 ## 📊 项目统计
 
-| 指标 | 数值 |
-|------|------|
-| 总任务数 | 157 个 |
-| 前端任务 | 62 个 |
-| 后端任务 | 53 个 |
-| AI/ML 任务 | 26 个 |
-| DevOps 任务 | 16 个 |
-| 支持语言 | 4 种（en, zh, th, id） |
-| 预计上线 | 3 个月 MVP |
+| 指标        | 数值                   |
+| ----------- | ---------------------- |
+| 总任务数    | 157 个                 |
+| 前端任务    | 62 个                  |
+| 后端任务    | 53 个                  |
+| AI/ML 任务  | 26 个                  |
+| DevOps 任务 | 16 个                  |
+| 支持语言    | 4 种（en, zh, th, id） |
+| 预计上线    | 3 个月 MVP             |
 
 ---
 
@@ -268,4 +275,4 @@ aireading/
 
 **Built with ❤️ by the AiReading Team**
 
-*让每个人都能与知识对话*
+_让每个人都能与知识对话_

@@ -1,6 +1,7 @@
 # AiReading Technical Specification
 
 ## Document Information
+
 - **Version**: 1.0
 - **Last Updated**: 2025-11-01
 - **Status**: Draft
@@ -44,46 +45,50 @@
 ### 1.2 Technology Stack Details
 
 #### Frontend Stack
-| Component | Technology | Version | Purpose |
-|-----------|-----------|---------|---------|
-| Framework | Next.js | 14+ | React framework with App Router |
-| UI Library | React | 18+ | Component library |
-| Styling | Tailwind CSS | 3.4+ | Utility-first CSS |
-| Component Library | shadcn/ui | Latest | Pre-built accessible components |
-| Type System | TypeScript | 5.0+ | Static typing |
-| State Management | Zustand/Redux Toolkit | TBD | Global state |
-| API Client | TanStack Query | 5.0+ | Server state management |
-| Forms | React Hook Form | 7.0+ | Form handling |
-| Validation | Zod | 3.0+ | Schema validation |
-| i18n | next-intl | 3.0+ | Internationalization |
-| Audio Player | Howler.js / React Player | Latest | Audio playback |
+
+| Component         | Technology               | Version | Purpose                         |
+| ----------------- | ------------------------ | ------- | ------------------------------- |
+| Framework         | Next.js                  | 14+     | React framework with App Router |
+| UI Library        | React                    | 18+     | Component library               |
+| Styling           | Tailwind CSS             | 3.4+    | Utility-first CSS               |
+| Component Library | shadcn/ui                | Latest  | Pre-built accessible components |
+| Type System       | TypeScript               | 5.0+    | Static typing                   |
+| State Management  | Zustand/Redux Toolkit    | TBD     | Global state                    |
+| API Client        | TanStack Query           | 5.0+    | Server state management         |
+| Forms             | React Hook Form          | 7.0+    | Form handling                   |
+| Validation        | Zod                      | 3.0+    | Schema validation               |
+| i18n              | next-intl                | 3.0+    | Internationalization            |
+| Audio Player      | Howler.js / React Player | Latest  | Audio playback                  |
 
 #### Backend Stack
-| Component | Technology | Version | Purpose |
-|-----------|-----------|---------|---------|
-| API Framework | FastAPI | 0.104+ | REST API (Option 1) |
-| Alternative | Node.js + Express | 18+ | REST API (Option 2) |
-| ORM | SQLAlchemy / Prisma | Latest | Database ORM |
-| Validation | Pydantic / Zod | Latest | Request/response validation |
-| WebSocket | Socket.io / FastAPI WS | Latest | Real-time communication |
-| Task Queue | Celery / Bull | Latest | Async job processing |
-| Caching | Redis | 7.0+ | Cache & sessions |
+
+| Component     | Technology             | Version | Purpose                     |
+| ------------- | ---------------------- | ------- | --------------------------- |
+| API Framework | FastAPI                | 0.104+  | REST API (Option 1)         |
+| Alternative   | Node.js + Express      | 18+     | REST API (Option 2)         |
+| ORM           | SQLAlchemy / Prisma    | Latest  | Database ORM                |
+| Validation    | Pydantic / Zod         | Latest  | Request/response validation |
+| WebSocket     | Socket.io / FastAPI WS | Latest  | Real-time communication     |
+| Task Queue    | Celery / Bull          | Latest  | Async job processing        |
+| Caching       | Redis                  | 7.0+    | Cache & sessions            |
 
 #### Database & Storage
-| Component | Technology | Version | Purpose |
-|-----------|-----------|---------|---------|
-| Primary DB | PostgreSQL | 15+ | Relational data |
-| Vector Extension | pgvector | 0.5+ | Embeddings storage |
-| Object Storage | MinIO / AWS S3 | Latest | Audio & files |
-| Cache | Redis | 7.0+ | Performance optimization |
+
+| Component        | Technology     | Version | Purpose                  |
+| ---------------- | -------------- | ------- | ------------------------ |
+| Primary DB       | PostgreSQL     | 15+     | Relational data          |
+| Vector Extension | pgvector       | 0.5+    | Embeddings storage       |
+| Object Storage   | MinIO / AWS S3 | Latest  | Audio & files            |
+| Cache            | Redis          | 7.0+    | Performance optimization |
 
 #### AI & ML Services
-| Service | Provider | Purpose |
-|---------|----------|---------|
-| LLM | OpenAI GPT-4 / Claude 3 / Gemini | Summarization & chat |
-| TTS | OpenAI TTS / ElevenLabs / Azure | Audio generation |
-| Translation | DeepL / NLLB | Multilingual support |
-| Embeddings | OpenAI text-embedding-3 | Vector search |
+
+| Service     | Provider                         | Purpose              |
+| ----------- | -------------------------------- | -------------------- |
+| LLM         | OpenAI GPT-4 / Claude 3 / Gemini | Summarization & chat |
+| TTS         | OpenAI TTS / ElevenLabs / Azure  | Audio generation     |
+| Translation | DeepL / NLLB                     | Multilingual support |
+| Embeddings  | OpenAI text-embedding-3          | Vector search        |
 
 ---
 
@@ -92,6 +97,7 @@
 ### 2.1 Core Tables
 
 #### users
+
 ```sql
 CREATE TABLE users (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -113,6 +119,7 @@ CREATE INDEX idx_users_username ON users(username);
 ```
 
 #### books
+
 ```sql
 CREATE TABLE books (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -142,6 +149,7 @@ CREATE INDEX idx_books_published_at ON books(published_at);
 ```
 
 #### chapters
+
 ```sql
 CREATE TABLE chapters (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -158,6 +166,7 @@ CREATE INDEX idx_chapters_book_id ON chapters(book_id);
 ```
 
 #### summaries
+
 ```sql
 CREATE TABLE summaries (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -178,6 +187,7 @@ CREATE INDEX idx_summaries_type ON summaries(type);
 ```
 
 #### audio_tracks
+
 ```sql
 CREATE TABLE audio_tracks (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -201,6 +211,7 @@ CREATE INDEX idx_audio_tracks_summary_id ON audio_tracks(summary_id);
 ```
 
 #### embeddings
+
 ```sql
 CREATE TABLE embeddings (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -218,6 +229,7 @@ CREATE INDEX ON embeddings USING ivfflat (embedding vector_cosine_ops);
 ```
 
 #### categories
+
 ```sql
 CREATE TABLE categories (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -234,6 +246,7 @@ CREATE INDEX idx_categories_slug ON categories(slug);
 ```
 
 #### book_categories
+
 ```sql
 CREATE TABLE book_categories (
   book_id UUID REFERENCES books(id) ON DELETE CASCADE,
@@ -246,6 +259,7 @@ CREATE INDEX idx_book_categories_category_id ON book_categories(category_id);
 ```
 
 #### collections
+
 ```sql
 CREATE TABLE collections (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -261,6 +275,7 @@ CREATE TABLE collections (
 ```
 
 #### collection_books
+
 ```sql
 CREATE TABLE collection_books (
   collection_id UUID REFERENCES collections(id) ON DELETE CASCADE,
@@ -271,6 +286,7 @@ CREATE TABLE collection_books (
 ```
 
 #### user_library
+
 ```sql
 CREATE TABLE user_library (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -290,6 +306,7 @@ CREATE INDEX idx_user_library_status ON user_library(status);
 ```
 
 #### notes
+
 ```sql
 CREATE TABLE notes (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -311,6 +328,7 @@ CREATE INDEX idx_notes_tags ON notes USING GIN(tags);
 ```
 
 #### chat_sessions
+
 ```sql
 CREATE TABLE chat_sessions (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -325,6 +343,7 @@ CREATE INDEX idx_chat_sessions_book_id ON chat_sessions(book_id);
 ```
 
 #### chat_messages
+
 ```sql
 CREATE TABLE chat_messages (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -340,6 +359,7 @@ CREATE INDEX idx_chat_messages_session_id ON chat_messages(session_id);
 ```
 
 #### placements
+
 ```sql
 CREATE TABLE placements (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -365,6 +385,7 @@ CREATE INDEX idx_placements_page_section ON placements(page, section);
 ### 3.1 Authentication & Authorization
 
 #### JWT Token Structure
+
 ```json
 {
   "user_id": "uuid",
@@ -378,6 +399,7 @@ CREATE INDEX idx_placements_page_section ON placements(page, section);
 #### Authentication Endpoints
 
 **POST /api/v1/auth/register**
+
 ```typescript
 // Request
 {
@@ -400,6 +422,7 @@ CREATE INDEX idx_placements_page_section ON placements(page, section);
 ```
 
 **POST /api/v1/auth/login**
+
 ```typescript
 // Request
 {
@@ -416,12 +439,14 @@ CREATE INDEX idx_placements_page_section ON placements(page, section);
 ```
 
 **POST /api/v1/auth/oauth/{provider}**
+
 - Providers: google, apple, facebook
 - Returns: Same as login response
 
 ### 3.2 Books API
 
 **GET /api/v1/books**
+
 ```typescript
 // Query params
 {
@@ -446,6 +471,7 @@ CREATE INDEX idx_placements_page_section ON placements(page, section);
 ```
 
 **GET /api/v1/books/:id**
+
 ```typescript
 // Response
 {
@@ -466,6 +492,7 @@ CREATE INDEX idx_placements_page_section ON placements(page, section);
 ```
 
 **GET /api/v1/books/:id/summaries**
+
 ```typescript
 // Response
 {
@@ -491,6 +518,7 @@ CREATE INDEX idx_placements_page_section ON placements(page, section);
 ```
 
 **GET /api/v1/books/:id/audio**
+
 ```typescript
 // Query params
 {
@@ -512,6 +540,7 @@ CREATE INDEX idx_placements_page_section ON placements(page, section);
 ### 3.3 Upload API
 
 **POST /api/v1/upload**
+
 ```typescript
 // Request (multipart/form-data)
 {
@@ -525,7 +554,7 @@ CREATE INDEX idx_placements_page_section ON placements(page, section);
     deep_summary: boolean;
     outline: boolean;
     tts: boolean;
-  };
+  }
 }
 
 // Response
@@ -537,6 +566,7 @@ CREATE INDEX idx_placements_page_section ON placements(page, section);
 ```
 
 **GET /api/v1/upload/status/:id**
+
 ```typescript
 // Response
 {
@@ -552,6 +582,7 @@ CREATE INDEX idx_placements_page_section ON placements(page, section);
 ### 3.4 Chat API
 
 **POST /api/v1/chat/book/:bookId**
+
 ```typescript
 // Request
 {
@@ -578,6 +609,7 @@ CREATE INDEX idx_placements_page_section ON placements(page, section);
 ```
 
 **GET /api/v1/chat/sessions/:bookId**
+
 ```typescript
 // Response
 {
@@ -593,6 +625,7 @@ CREATE INDEX idx_placements_page_section ON placements(page, section);
 ### 3.5 Homepage Feed API
 
 **GET /api/v1/home-feed**
+
 ```typescript
 // Response
 {
@@ -681,13 +714,13 @@ Upload → Text Extraction → Segmentation → Embedding → Summarization → 
 
 ### 4.2 Cost Estimation
 
-| Operation | Provider | Cost per Book |
-|-----------|----------|---------------|
-| Text Embeddings | OpenAI | $0.01 - 0.02 |
-| Summarization (4 types) | GPT-4 | $0.03 - 0.05 |
-| Translation (3 languages) | DeepL | $0.01 - 0.02 |
-| TTS (2 audio tracks) | OpenAI/ElevenLabs | $0.02 - 0.03 |
-| **Total** | | **$0.07 - 0.12** |
+| Operation                 | Provider          | Cost per Book    |
+| ------------------------- | ----------------- | ---------------- |
+| Text Embeddings           | OpenAI            | $0.01 - 0.02     |
+| Summarization (4 types)   | GPT-4             | $0.03 - 0.05     |
+| Translation (3 languages) | DeepL             | $0.01 - 0.02     |
+| TTS (2 audio tracks)      | OpenAI/ElevenLabs | $0.02 - 0.03     |
+| **Total**                 |                   | **$0.07 - 0.12** |
 
 Target: ≤ $0.10 per book
 
@@ -764,6 +797,7 @@ aireading-web/
 ### 5.2 Key Components Specification
 
 #### AppShell
+
 ```typescript
 // components/layout/AppShell.tsx
 interface AppShellProps {
@@ -784,6 +818,7 @@ export function AppShell({ children, showMiniPlayer = true }: AppShellProps) {
 ```
 
 #### BookCard
+
 ```typescript
 // components/book/BookCard.tsx
 interface BookCardProps {
@@ -805,6 +840,7 @@ export function BookCard({ book, variant = 'default', onPlay }: BookCardProps) {
 ```
 
 #### MiniPlayer
+
 ```typescript
 // components/layout/MiniPlayer.tsx
 interface MiniPlayerProps {
@@ -885,14 +921,11 @@ export const queryClient = new QueryClient({
 
 // lib/api/books.ts
 export const booksApi = {
-  getAll: (params: GetBooksParams) =>
-    apiClient.get<BooksResponse>('/books', { params }),
+  getAll: (params: GetBooksParams) => apiClient.get<BooksResponse>('/books', { params }),
 
-  getById: (id: string) =>
-    apiClient.get<Book>(`/books/${id}`),
+  getById: (id: string) => apiClient.get<Book>(`/books/${id}`),
 
-  getSummaries: (id: string) =>
-    apiClient.get<Summaries>(`/books/${id}/summaries`),
+  getSummaries: (id: string) => apiClient.get<Summaries>(`/books/${id}/summaries`),
 
   getAudio: (id: string, params: AudioParams) =>
     apiClient.get<AudioTrack>(`/books/${id}/audio`, { params }),
@@ -912,18 +945,21 @@ function useBook(id: string) {
 ## 6. Security & Compliance
 
 ### 6.1 Authentication
+
 - JWT tokens with 15-min access, 7-day refresh
 - OAuth 2.0 for third-party login
 - Password: bcrypt with 12 rounds
 - Rate limiting: 100 req/min per IP
 
 ### 6.2 Data Protection
+
 - HTTPS only (TLS 1.3)
 - Encrypted database fields for sensitive data
 - Regular backups (daily)
 - GDPR compliance: data export, right to deletion
 
 ### 6.3 Copyright Protection
+
 - User confirmation required for uploads
 - DMCA takedown process
 - Content moderation queue
@@ -934,6 +970,7 @@ function useBook(id: string) {
 ## 7. Performance Optimization
 
 ### 7.1 Frontend
+
 - Next.js SSR/SSG for SEO pages
 - Image optimization with next/image
 - Code splitting by route
@@ -941,6 +978,7 @@ function useBook(id: string) {
 - PWA with service worker
 
 ### 7.2 Backend
+
 - Redis caching for hot data (homepage feed)
 - Database query optimization (indexes)
 - CDN for static assets (CloudFlare/Vercel)
@@ -948,6 +986,7 @@ function useBook(id: string) {
 - Batch API requests where possible
 
 ### 7.3 AI Services
+
 - Cache LLM responses for common questions
 - Batch embedding generation
 - Use cheaper models for simple tasks
@@ -958,6 +997,7 @@ function useBook(id: string) {
 ## 8. Monitoring & Observability
 
 ### 8.1 Metrics to Track
+
 - API response times (p50, p95, p99)
 - Error rates by endpoint
 - User engagement (DAU, MAU, retention)
@@ -966,6 +1006,7 @@ function useBook(id: string) {
 - Database query performance
 
 ### 8.2 Tools
+
 - **Application Monitoring**: Sentry, DataDog
 - **Infrastructure**: Prometheus + Grafana
 - **User Analytics**: Mixpanel, PostHog
@@ -976,11 +1017,13 @@ function useBook(id: string) {
 ## 9. Deployment Strategy
 
 ### 9.1 Environments
+
 - **Development**: Local Docker Compose
 - **Staging**: Fly.io or Railway
 - **Production**: Kubernetes on AWS/GCP or Fly.io
 
 ### 9.2 CI/CD Pipeline
+
 ```yaml
 # .github/workflows/deploy.yml
 name: Deploy
@@ -1011,6 +1054,7 @@ jobs:
 ```
 
 ### 9.3 Rollback Strategy
+
 - Blue-green deployment
 - Automatic rollback on health check failure
 - Database migrations with down scripts
@@ -1020,6 +1064,7 @@ jobs:
 ## 10. Development Phases
 
 ### Phase 1: MVP (0-3 months)
+
 - [ ] User authentication
 - [ ] Book catalog and detail pages
 - [ ] Audio player (basic)
@@ -1028,6 +1073,7 @@ jobs:
 - [ ] English + Chinese support
 
 ### Phase 2: Enhancement (3-6 months)
+
 - [ ] Mobile apps (React Native)
 - [ ] User notes and knowledge cards
 - [ ] UGC upload and review system
@@ -1035,6 +1081,7 @@ jobs:
 - [ ] Thai + Indonesian languages
 
 ### Phase 3: Scale (6-12 months)
+
 - [ ] Enterprise API
 - [ ] AI instructor personalities
 - [ ] Knowledge graph recommendations
@@ -1046,18 +1093,21 @@ jobs:
 ## 11. Testing Strategy
 
 ### 11.1 Frontend Testing
+
 - **Unit**: Jest + React Testing Library
 - **Integration**: Playwright for critical flows
 - **Visual**: Chromatic or Percy
 - **Accessibility**: axe-core
 
 ### 11.2 Backend Testing
+
 - **Unit**: pytest (Python) or Jest (Node)
 - **Integration**: API endpoint tests
 - **Load**: k6 or Artillery
 - **Database**: Test with fixtures
 
 ### 11.3 AI Quality Testing
+
 - Human evaluation for 10% of generated content
 - Automated scoring (coherence, relevance)
 - A/B testing for different prompts
@@ -1068,6 +1118,7 @@ jobs:
 ## Appendix
 
 ### A. Glossary
+
 - **UGC**: User-Generated Content
 - **RAG**: Retrieval-Augmented Generation
 - **TTS**: Text-to-Speech
@@ -1075,6 +1126,7 @@ jobs:
 - **CMS**: Content Management System
 
 ### B. References
+
 - [Next.js Documentation](https://nextjs.org/docs)
 - [shadcn/ui](https://ui.shadcn.com/)
 - [FastAPI](https://fastapi.tiangolo.com/)

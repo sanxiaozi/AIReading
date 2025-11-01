@@ -1,6 +1,7 @@
 # AiReading 域名配置文档
 
 ## 官方域名
+
 **主域名**: `aireading.com`
 
 ---
@@ -10,6 +11,7 @@
 ### 主要记录
 
 #### A 记录（用于主域名和 www）
+
 ```
 类型    名称           值/目标
 A       @              [Vercel IP 地址]
@@ -17,6 +19,7 @@ A       www            [Vercel IP 地址]
 ```
 
 #### CNAME 记录（CDN 和服务）
+
 ```
 类型    名称           值/目标
 CNAME   api            api.aireading.com
@@ -25,12 +28,14 @@ CNAME   storage        storage.aireading.com
 ```
 
 ### 邮箱配置（可选）
+
 ```
 类型    名称           值/目标              优先级
 MX      @              mail.aireading.com   10
 ```
 
 ### SSL/TLS
+
 - 使用 Vercel 自动提供的 SSL 证书
 - 或使用 Let's Encrypt 免费证书
 - 强制 HTTPS 重定向
@@ -76,6 +81,7 @@ GOOGLE_OAUTH_REDIRECT_URI=https://aireading.com/auth/callback/google
 ## URL 结构规范
 
 ### 多语言路由
+
 ```
 https://aireading.com/en        # 英语版首页
 https://aireading.com/zh        # 中文版首页
@@ -84,6 +90,7 @@ https://aireading.com/id        # 印尼语版首页
 ```
 
 ### 核心页面
+
 ```
 https://aireading.com/[locale]/browse                    # 分类浏览
 https://aireading.com/[locale]/category/business         # 分类详情
@@ -95,6 +102,7 @@ https://aireading.com/[locale]/settings                  # 设置
 ```
 
 ### API 端点
+
 ```
 https://api.aireading.com/v1/books                # 书籍列表
 https://api.aireading.com/v1/books/:id            # 书籍详情
@@ -103,6 +111,7 @@ https://api.aireading.com/v1/chat/book/:id        # AI 对话
 ```
 
 ### 静态资源
+
 ```
 https://cdn.aireading.com/images/covers/book-123.jpg     # 书籍封面
 https://cdn.aireading.com/og/book-123.png                # OG 图片
@@ -114,12 +123,15 @@ https://storage.aireading.com/audio/book-123-short.mp3   # 音频文件
 ## SEO 配置
 
 ### Canonical URLs
+
 所有页面的 canonical URL 指向主域名：
+
 ```html
 <link rel="canonical" href="https://aireading.com/en/book/atomic-habits" />
 ```
 
 ### Sitemap
+
 ```
 https://aireading.com/sitemap.xml
 https://aireading.com/sitemap-en.xml
@@ -129,6 +141,7 @@ https://aireading.com/sitemap-id.xml
 ```
 
 ### Robots.txt
+
 ```
 https://aireading.com/robots.txt
 ```
@@ -138,6 +151,7 @@ https://aireading.com/robots.txt
 ## 社交媒体链接
 
 ### 官方账号（示例）
+
 - Twitter/X: https://twitter.com/aireading
 - Facebook: https://facebook.com/aireading
 - LinkedIn: https://linkedin.com/company/aireading
@@ -161,23 +175,24 @@ noreply@aireading.com       # 系统邮件（不接收回复）
 
 ## 子域名规划
 
-| 子域名 | 用途 | 示例 |
-|--------|------|------|
-| `www` | 主站（重定向到根域名） | www.aireading.com → aireading.com |
-| `api` | 后端 API 服务 | api.aireading.com/v1/books |
-| `cdn` | CDN 静态资源 | cdn.aireading.com/images/logo.png |
-| `storage` | 对象存储（音频文件） | storage.aireading.com/audio/123.mp3 |
-| `admin` | CMS 管理后台（内部） | admin.aireading.com |
-| `staging` | 预发布环境 | staging.aireading.com |
-| `dev` | 开发环境 | dev.aireading.com |
-| `docs` | 文档站点 | docs.aireading.com |
-| `status` | 系统状态页 | status.aireading.com |
+| 子域名    | 用途                   | 示例                                |
+| --------- | ---------------------- | ----------------------------------- |
+| `www`     | 主站（重定向到根域名） | www.aireading.com → aireading.com   |
+| `api`     | 后端 API 服务          | api.aireading.com/v1/books          |
+| `cdn`     | CDN 静态资源           | cdn.aireading.com/images/logo.png   |
+| `storage` | 对象存储（音频文件）   | storage.aireading.com/audio/123.mp3 |
+| `admin`   | CMS 管理后台（内部）   | admin.aireading.com                 |
+| `staging` | 预发布环境             | staging.aireading.com               |
+| `dev`     | 开发环境               | dev.aireading.com                   |
+| `docs`    | 文档站点               | docs.aireading.com                  |
+| `status`  | 系统状态页             | status.aireading.com                |
 
 ---
 
 ## Vercel 部署配置
 
 ### vercel.json
+
 ```json
 {
   "version": 2,
@@ -205,6 +220,7 @@ noreply@aireading.com       # 系统邮件（不接收回复）
 ```
 
 ### 自定义域名设置
+
 1. 在 Vercel 项目设置中添加域名：`aireading.com`
 2. 添加 www 重定向：`www.aireading.com` → `aireading.com`
 3. 配置 DNS 记录（Vercel 会提供具体值）
@@ -215,14 +231,17 @@ noreply@aireading.com       # 系统邮件（不接收回复）
 ## 安全配置
 
 ### HTTPS 强制重定向
+
 所有 HTTP 请求自动重定向到 HTTPS
 
 ### HSTS Header
+
 ```
 Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
 ```
 
 ### CSP (Content Security Policy)
+
 ```
 Content-Security-Policy: default-src 'self';
   script-src 'self' 'unsafe-inline' 'unsafe-eval' https://plausible.io;
@@ -239,14 +258,17 @@ Content-Security-Policy: default-src 'self';
 ## 监控与分析
 
 ### Google Search Console
+
 - 验证域名：aireading.com
 - 提交 sitemap：https://aireading.com/sitemap.xml
 
 ### Analytics
+
 - Plausible: aireading.com
 - Google Analytics 4: aireading.com
 
 ### Uptime Monitoring
+
 - UptimeRobot 监控：https://aireading.com
 - 检查频率：每 5 分钟
 
@@ -255,6 +277,7 @@ Content-Security-Policy: default-src 'self';
 ## 备份域名（可选）
 
 如果需要备用域名或品牌保护：
+
 ```
 aireading.net      # 备用域名
 aireading.io       # 技术社区域名
@@ -268,6 +291,7 @@ aireading.org      # 非盈利/教育域名
 ## CDN 配置（CloudFlare 可选）
 
 如果使用 CloudFlare：
+
 1. 添加域名到 CloudFlare
 2. 更新 DNS nameservers
 3. 启用以下功能：
@@ -284,6 +308,7 @@ aireading.org      # 非盈利/教育域名
 ## 检查清单
 
 部署前检查：
+
 - [ ] DNS 记录已配置
 - [ ] SSL 证书已生效
 - [ ] www 重定向到主域名
