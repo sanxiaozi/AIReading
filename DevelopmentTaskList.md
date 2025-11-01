@@ -27,13 +27,15 @@
 
 #### 前端项目初始化
 
-- [ ] **创建 Next.js 项目** (App Router)
+- [x] **创建 Next.js 项目** (App Router) ✅
   - 使用 `create-next-app` 初始化
   - 配置 TypeScript
   - 设置 ESLint + Prettier
   - 配置 Tailwind CSS
-  - **负责人**: [待分配]
+  - **负责人**: Claude AI
   - **工时**: 4h
+  - **完成时间**: 2025-11-01
+  - **提交**: 9ed8a88
 
 - [ ] **配置 shadcn/ui**
   - 安装 shadcn/ui CLI
