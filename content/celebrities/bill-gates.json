@@ -1,0 +1,67 @@
+{
+  "id": "bill-gates",
+  "recommendations": [
+    {
+      "bookId": 26,
+      "bookTitle": "Factfulness",
+      "bookTitle_zh": "事实",
+      "year": 2018,
+      "quote": "One of the most important books I've ever read—an indispensable guide to thinking clearly about the world.",
+      "quote_zh": "我读过的最重要的书之一——一本关于清晰思考世界的必读指南。",
+      "impact": "Gates was so impressed he bought copies for all U.S. college graduates that year. The book reinforced his data-driven approach to philanthropy.",
+      "impact_zh": "盖茨印象深刻，为当年所有美国大学毕业生购买了这本书。这本书强化了他数据驱动的慈善方式。"
+    },
+    {
+      "bookId": 23,
+      "bookTitle": "Thinking, Fast and Slow",
+      "bookTitle_zh": "思考，快与慢",
+      "year": 2012,
+      "quote": "Kahneman's work has influenced how I think about everything from negotiations to scientific research.",
+      "quote_zh": "卡尼曼的著作影响了我对从谈判到科学研究等各方面的思考方式。",
+      "impact": "Understanding cognitive biases helped Gates structure decision-making at the Gates Foundation to avoid common traps.",
+      "impact_zh": "理解认知偏见帮助盖茨在盖茨基金会构建决策流程，避免常见陷阱。"
+    },
+    {
+      "bookId": 25,
+      "bookTitle": "The Psychology of Money",
+      "bookTitle_zh": "金钱心理学",
+      "year": 2021,
+      "quote": "Morgan Housel is one of the best financial writers. This book gets at the heart of why smart people make dumb financial decisions.",
+      "quote_zh": "摩根·豪塞尔是最好的财经作家之一。这本书直击聪明人为何做出愚蠢财务决定的核心。",
+      "impact": "Reinforced Gates' belief that behavior matters more than knowledge in financial success.",
+      "impact_zh": "强化了盖茨关于行为比知识更重要的财务成功理念。"
+    },
+    {
+      "bookId": null,
+      "bookTitle": "Sapiens",
+      "bookTitle_zh": "人类简史",
+      "year": 2015,
+      "quote": "Harari takes you on a wild ride through all of human history, from the Stone Age to the age of AI.",
+      "quote_zh": "赫拉利带你穿越人类历史的狂野之旅，从石器时代到AI时代。",
+      "impact": "Expanded Gates' perspective on humanity's long-term trajectory and the challenges we face.",
+      "impact_zh": "拓展了盖茨对人类长期发展轨迹和面临挑战的视野。"
+    },
+    {
+      "bookId": null,
+      "bookTitle": "The Better Angels of Our Nature",
+      "bookTitle_zh": "人性中的善良天使",
+      "year": 2012,
+      "quote": "Pinker makes the case that we're living in the most peaceful time in human history. The data backs it up.",
+      "quote_zh": "平克论证我们生活在人类历史上最和平的时代。数据支持这一观点。",
+      "impact": "This book's optimistic data-driven worldview strongly aligns with Gates' approach to global health challenges.",
+      "impact_zh": "这本书乐观的数据驱动世界观与盖茨应对全球健康挑战的方式高度一致。"
+    }
+  ],
+  "readingHabits": {
+    "booksPerYear": 50,
+    "favoriteGenres": ["Science", "History", "Business", "Public Health"],
+    "readingTime": "Before bed, about an hour every night",
+    "notes": "Takes notes in margins, often reads multiple books simultaneously"
+  },
+  "readingHabits_zh": {
+    "booksPerYear": 50,
+    "favoriteGenres": ["科学", "历史", "商业", "公共卫生"],
+    "readingTime": "睡前阅读，每晚约一小时",
+    "notes": "在页边做笔记，经常同时阅读多本书"
+  }
+}

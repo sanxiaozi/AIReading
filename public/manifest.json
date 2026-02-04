@@ -1,0 +1,21 @@
+{
+  "name": "AiReading - AI Book Summaries",
+  "short_name": "AiReading",
+  "description": "Listen to AI-narrated book summaries. 50+ bestsellers in 15 minutes.",
+  "start_url": "/en/",
+  "display": "standalone",
+  "background_color": "#0a0a0a",
+  "theme_color": "#f59e0b",
+  "orientation": "portrait-primary",
+  "categories": ["books", "education", "entertainment"],
+  "lang": "en",
+  "dir": "ltr",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📚</text></svg>",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

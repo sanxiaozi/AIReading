@@ -1,0 +1,67 @@
+{
+  "id": "elon-musk",
+  "recommendations": [
+    {
+      "bookId": 11,
+      "bookTitle": "Zero to One",
+      "bookTitle_zh": "从0到1",
+      "year": 2014,
+      "quote": "Peter Thiel has built multiple breakthrough companies, and this book shows how to think about creating real innovation.",
+      "quote_zh": "彼得·蒂尔创建了多家突破性公司，这本书展示了如何思考真正的创新。",
+      "impact": "Reinforced Musk's focus on building companies that create entirely new categories rather than competing in existing ones.",
+      "impact_zh": "强化了马斯克专注于创建全新品类而非在现有市场竞争的理念。"
+    },
+    {
+      "bookId": 19,
+      "bookTitle": "Steve Jobs",
+      "bookTitle_zh": "史蒂夫·乔布斯传",
+      "year": 2011,
+      "quote": "Jobs showed what's possible when you refuse to compromise on quality and vision.",
+      "quote_zh": "乔布斯展示了当你拒绝在质量和愿景上妥协时，什么是可能的。",
+      "impact": "Influenced Musk's approach to product design and his insistence on controlling the entire user experience.",
+      "impact_zh": "影响了马斯克的产品设计方式和他对控制整个用户体验的坚持。"
+    },
+    {
+      "bookId": null,
+      "bookTitle": "The Hitchhiker's Guide to the Galaxy",
+      "bookTitle_zh": "银河系漫游指南",
+      "year": "Childhood",
+      "quote": "It taught me that the tough thing is figuring out what questions to ask. Once you do that, the rest is really easy.",
+      "quote_zh": "它教会我困难的是找出要问什么问题。一旦你做到了，其余的就很容易了。",
+      "impact": "Shaped Musk's philosophical approach to big questions and his somewhat absurdist humor.",
+      "impact_zh": "塑造了马斯克对待大问题的哲学态度和他略带荒诞的幽默感。"
+    },
+    {
+      "bookId": null,
+      "bookTitle": "Benjamin Franklin: An American Life",
+      "bookTitle_zh": "本杰明·富兰克林：美国人的一生",
+      "year": 2003,
+      "quote": "Franklin was an entrepreneur. He started from nothing. He was just a runaway kid.",
+      "quote_zh": "富兰克林是个企业家。他白手起家。他只是个离家出走的孩子。",
+      "impact": "Franklin's polymath approach—scientist, inventor, statesman, writer—mirrors Musk's multi-industry ambitions.",
+      "impact_zh": "富兰克林的博学家方式——科学家、发明家、政治家、作家——反映了马斯克的多行业雄心。"
+    },
+    {
+      "bookId": null,
+      "bookTitle": "Structures: Or Why Things Don't Fall Down",
+      "bookTitle_zh": "结构：或者为什么东西不会塌下来",
+      "year": "Formative",
+      "quote": "This book helped me understand engineering from first principles.",
+      "quote_zh": "这本书帮助我从第一性原理理解工程学。",
+      "impact": "Foundational to Musk's first-principles approach to rocket engineering at SpaceX.",
+      "impact_zh": "是马斯克在SpaceX运用第一性原理进行火箭工程的基础。"
+    }
+  ],
+  "readingHabits": {
+    "booksPerYear": "Unknown, but reads voraciously",
+    "favoriteGenres": ["Science Fiction", "Physics", "Biographies", "Engineering"],
+    "readingTime": "Reportedly read for 10 hours a day as a child",
+    "notes": "Known for reading entire encyclopedias, taught himself rocket science through books"
+  },
+  "readingHabits_zh": {
+    "booksPerYear": "未知，但阅读量很大",
+    "favoriteGenres": ["科幻", "物理学", "传记", "工程学"],
+    "readingTime": "据说童年时每天阅读10小时",
+    "notes": "以阅读整套百科全书闻名，通过书籍自学火箭科学"
+  }
+}

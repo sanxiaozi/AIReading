@@ -1,0 +1,57 @@
+{
+  "id": "warren-buffett",
+  "recommendations": [
+    {
+      "bookId": null,
+      "bookTitle": "The Intelligent Investor",
+      "bookTitle_zh": "聪明的投资者",
+      "year": 1949,
+      "quote": "By far the best book on investing ever written. Chapters 8 and 20 are the most important.",
+      "quote_zh": "迄今为止写得最好的投资书籍。第8章和第20章是最重要的。",
+      "impact": "This book introduced Buffett to value investing at age 19 and shaped his entire investment philosophy.",
+      "impact_zh": "这本书在巴菲特19岁时向他介绍了价值投资，塑造了他整个投资哲学。"
+    },
+    {
+      "bookId": 15,
+      "bookTitle": "How to Win Friends and Influence People",
+      "bookTitle_zh": "人性的弱点",
+      "year": "1930s",
+      "quote": "This book changed my life. It's principles about dealing with people are timeless.",
+      "quote_zh": "这本书改变了我的人生。它关于与人相处的原则是永恒的。",
+      "impact": "Buffett credits this book with developing his people skills, essential for business partnerships.",
+      "impact_zh": "巴菲特将自己人际交往能力的发展归功于这本书，这对商业伙伴关系至关重要。"
+    },
+    {
+      "bookId": null,
+      "bookTitle": "Business Adventures",
+      "bookTitle_zh": "商业冒险",
+      "year": 1969,
+      "quote": "Still the best business book I've ever read. I gave a copy to Bill Gates years ago.",
+      "quote_zh": "仍然是我读过的最好的商业书籍。多年前我送了一本给比尔·盖茨。",
+      "impact": "The stories about corporate successes and failures informed Buffett's approach to evaluating companies.",
+      "impact_zh": "关于企业成败的故事影响了巴菲特评估公司的方式。"
+    },
+    {
+      "bookId": null,
+      "bookTitle": "Poor Charlie's Almanack",
+      "bookTitle_zh": "穷查理宝典",
+      "year": 2005,
+      "quote": "Charlie is the smartest person I know. This book captures his wisdom about life and business.",
+      "quote_zh": "查理是我认识的最聪明的人。这本书汇集了他关于生活和商业的智慧。",
+      "impact": "Partner Charlie Munger's mental models framework has deeply influenced Berkshire's investment decisions.",
+      "impact_zh": "合伙人查理·芒格的多元思维模型框架深刻影响了伯克希尔的投资决策。"
+    }
+  ],
+  "readingHabits": {
+    "booksPerYear": "500-600 pages per day",
+    "favoriteGenres": ["Business", "Biographies", "Annual Reports", "Newspapers"],
+    "readingTime": "80% of his working day",
+    "notes": "Started with 600-1000 pages daily, now closer to 500. Reads several newspapers daily."
+  },
+  "readingHabits_zh": {
+    "booksPerYear": "每天500-600页",
+    "favoriteGenres": ["商业", "传记", "年报", "报纸"],
+    "readingTime": "工作日的80%",
+    "notes": "开始时每天600-1000页，现在接近500页。每天阅读多份报纸。"
+  }
+}

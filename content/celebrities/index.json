@@ -1,0 +1,99 @@
+{
+  "celebrities": [
+    {
+      "id": "bill-gates",
+      "name": "Bill Gates",
+      "name_zh": "比尔·盖茨",
+      "title": "Microsoft Co-founder",
+      "title_zh": "微软联合创始人",
+      "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Bill_Gates_2017_%28cropped%29.jpg/220px-Bill_Gates_2017_%28cropped%29.jpg",
+      "category": "business",
+      "bio": "Bill Gates co-founded Microsoft and became one of the wealthiest people in history. Now focused on philanthropy through the Bill & Melinda Gates Foundation, he reads 50+ books per year and shares his recommendations on GatesNotes. He credits reading as essential to his continuous learning.",
+      "bio_zh": "比尔·盖茨与人共同创立了微软，成为历史上最富有的人之一。现在通过比尔及梅琳达·盖茨基金会专注于慈善事业，每年阅读50多本书，并在GatesNotes上分享他的推荐。他认为阅读是持续学习的关键。"
+    },
+    {
+      "id": "elon-musk",
+      "name": "Elon Musk",
+      "name_zh": "埃隆·马斯克",
+      "title": "Tesla & SpaceX CEO",
+      "title_zh": "特斯拉、SpaceX CEO",
+      "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Elon_Musk_Royal_Society_%28crop2%29.jpg/220px-Elon_Musk_Royal_Society_%28crop2%29.jpg",
+      "category": "business",
+      "bio": "Elon Musk is the CEO of Tesla, SpaceX, and X (formerly Twitter). As a child, he reportedly read for 10 hours a day. He taught himself rocket science through textbooks and credits science fiction, especially Isaac Asimov's Foundation series, with inspiring his vision of humanity's future among the stars.",
+      "bio_zh": "埃隆·马斯克是特斯拉、SpaceX和X（前Twitter）的CEO。据报道，他童年时每天阅读10小时。他通过教科书自学火箭科学，并将科幻小说，特别是阿西莫夫的《基地》系列，视为启发他关于人类星际未来愿景的灵感来源。"
+    },
+    {
+      "id": "warren-buffett",
+      "name": "Warren Buffett",
+      "name_zh": "沃伦·巴菲特",
+      "title": "Berkshire Hathaway CEO",
+      "title_zh": "伯克希尔·哈撒韦CEO",
+      "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Warren_Buffett_at_the_2015_SelectUSA_Investment_Summit.jpg/220px-Warren_Buffett_at_the_2015_SelectUSA_Investment_Summit.jpg",
+      "category": "business",
+      "bio": "Warren Buffett, the 'Oracle of Omaha,' is one of the most successful investors in history. He spends 80% of his working day reading—500-1000 pages daily in his early career. He discovered value investing through Benjamin Graham's 'The Intelligent Investor' at age 19, which he calls 'the best book on investing ever written.'",
+      "bio_zh": "沃伦·巴菲特，被称为'奥马哈先知'，是历史上最成功的投资者之一。他每天花80%的工作时间阅读——早期职业生涯每天阅读500-1000页。19岁时，他通过本杰明·格雷厄姆的《聪明的投资者》发现了价值投资，他称之为'有史以来最好的投资书籍'。"
+    },
+    {
+      "id": "barack-obama",
+      "name": "Barack Obama",
+      "name_zh": "巴拉克·奥巴马",
+      "title": "44th U.S. President",
+      "title_zh": "美国第44任总统",
+      "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/President_Barack_Obama.jpg/220px-President_Barack_Obama.jpg",
+      "category": "politics",
+      "bio": "Barack Obama served as the 44th President of the United States. An avid reader, he shares annual lists of his favorite books covering history, fiction, memoir, and social issues. His reading shaped his worldview and communication style, and he often quotes authors in his speeches.",
+      "bio_zh": "巴拉克·奥巴马曾担任美国第44任总统。作为一位热衷阅读的人，他每年分享自己最喜欢的书籍清单，涵盖历史、小说、回忆录和社会议题。阅读塑造了他的世界观和沟通风格，他经常在演讲中引用作者的话。"
+    },
+    {
+      "id": "oprah-winfrey",
+      "name": "Oprah Winfrey",
+      "name_zh": "奥普拉·温弗瑞",
+      "title": "Media Executive & Philanthropist",
+      "title_zh": "媒体高管、慈善家",
+      "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Oprah_in_2014.jpg/220px-Oprah_in_2014.jpg",
+      "category": "media",
+      "bio": "Oprah Winfrey is a media mogul and philanthropist. Her book club, launched in 1996, has transformed countless titles into bestsellers and created a global reading community. When Oprah recommends a book, it often sells millions of copies. She credits books with saving her life and opening her mind.",
+      "bio_zh": "奥普拉·温弗瑞是媒体大亨和慈善家。她于1996年创立的读书俱乐部将无数书籍变成畅销书，创建了全球阅读社区。当奥普拉推荐一本书时，它通常会售出数百万册。她认为书籍拯救了她的生命并开阔了她的思维。"
+    },
+    {
+      "id": "charlie-munger",
+      "name": "Charlie Munger",
+      "name_zh": "查理·芒格",
+      "title": "Berkshire Hathaway Vice Chairman",
+      "title_zh": "伯克希尔·哈撒韦副董事长",
+      "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Charlie_Munger_%28cropped%29.jpg/220px-Charlie_Munger_%28cropped%29.jpg",
+      "category": "business",
+      "bio": "Charlie Munger was Warren Buffett's longtime partner and Vice Chairman of Berkshire Hathaway. Known for his 'mental models' approach to decision-making, he developed his framework through voracious reading across multiple disciplines. He famously said: 'In my whole life, I have known no wise people who didn't read all the time.'",
+      "bio_zh": "查理·芒格是沃伦·巴菲特的长期合作伙伴和伯克希尔·哈撒韦的副董事长。他以决策的'多元思维模型'方法而闻名，通过跨多个学科的大量阅读发展了这一框架。他有一句名言：'在我的一生中，我认识的所有聪明人都是不停阅读的人。'"
+    },
+    {
+      "id": "mark-zuckerberg",
+      "name": "Mark Zuckerberg",
+      "name_zh": "马克·扎克伯格",
+      "title": "Meta CEO",
+      "title_zh": "Meta CEO",
+      "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Mark_Zuckerberg_F8_2019_Keynote_%2832830578717%29_%28cropped%29.jpg/220px-Mark_Zuckerberg_F8_2019_Keynote_%2832830578717%29_%28cropped%29.jpg",
+      "category": "business",
+      "bio": "Mark Zuckerberg founded Facebook (now Meta) and is one of the youngest billionaires in history. In 2015, he started 'A Year of Books' challenge, committing to read a new book every two weeks. His selections focus on different cultures, beliefs, and histories to broaden his perspective on building products for a global audience.",
+      "bio_zh": "马克·扎克伯格创立了Facebook（现Meta），是历史上最年轻的亿万富翁之一。2015年，他发起了'读书年'挑战，承诺每两周读一本新书。他的选择集中在不同的文化、信仰和历史上，以拓宽他为全球用户构建产品的视野。"
+    },
+    {
+      "id": "naval-ravikant",
+      "name": "Naval Ravikant",
+      "name_zh": "纳瓦尔·拉维坎特",
+      "title": "AngelList Co-founder",
+      "title_zh": "AngelList联合创始人",
+      "avatar": "https://pbs.twimg.com/profile_images/1256841238298292232/ycqwaMI2_400x400.jpg",
+      "category": "business",
+      "bio": "Naval Ravikant is an entrepreneur, investor, and philosopher who co-founded AngelList. His reading recommendations on wealth, happiness, and life philosophy have influenced millions through Twitter and podcasts. He advocates reading foundational texts deeply rather than skimming many books, and re-reading classics until they become part of you.",
+      "bio_zh": "纳瓦尔·拉维坎特是企业家、投资者和哲学家，共同创立了AngelList。他关于财富、幸福和人生哲学的阅读推荐通过Twitter和播客影响了数百万人。他主张深入阅读基础性文本而不是浅读许多书，并反复阅读经典直到它们成为你的一部分。"
+    }
+  ],
+  "categories": [
+    { "id": "business", "name": "Business Leaders", "name_zh": "商界领袖" },
+    { "id": "politics", "name": "Political Figures", "name_zh": "政界人物" },
+    { "id": "media", "name": "Media & Entertainment", "name_zh": "媒体娱乐" },
+    { "id": "tech", "name": "Tech Innovators", "name_zh": "科技创新者" },
+    { "id": "sports", "name": "Athletes", "name_zh": "体育明星" }
+  ]
+}
