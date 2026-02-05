@@ -1,0 +1,87 @@
+{
+  "auth": {
+    "login": {
+      "title": "欢迎回来",
+      "subtitle": "登录您的 AIreading 账户",
+      "email": "邮箱",
+      "emailPlaceholder": "请输入邮箱",
+      "password": "密码",
+      "passwordPlaceholder": "请输入密码",
+      "rememberMe": "记住我",
+      "forgotPassword": "忘记密码？",
+      "submit": "登录",
+      "noAccount": "还没有账户？",
+      "signUp": "注册",
+      "signingIn": "登录中...",
+      "errors": {
+        "invalidEmail": "请输入有效的邮箱地址",
+        "emailRequired": "邮箱不能为空",
+        "passwordRequired": "密码不能为空",
+        "passwordTooShort": "密码至少需要8个字符",
+        "invalidCredentials": "邮箱或密码错误",
+        "serverError": "出错了，请稍后再试"
+      }
+    },
+    "register": {
+      "title": "创建账户",
+      "subtitle": "加入 AIreading，开启您的学习之旅",
+      "username": "用户名",
+      "usernamePlaceholder": "请输入用户名",
+      "email": "邮箱",
+      "emailPlaceholder": "请输入邮箱",
+      "password": "密码",
+      "passwordPlaceholder": "请设置密码",
+      "confirmPassword": "确认密码",
+      "confirmPasswordPlaceholder": "请再次输入密码",
+      "terms": "我同意",
+      "termsLink": "服务条款",
+      "and": "和",
+      "privacyLink": "隐私政策",
+      "submit": "创建账户",
+      "hasAccount": "已有账户？",
+      "signIn": "登录",
+      "creatingAccount": "创建账户中...",
+      "errors": {
+        "usernameRequired": "用户名不能为空",
+        "usernameTooShort": "用户名至少需要3个字符",
+        "invalidEmail": "请输入有效的邮箱地址",
+        "emailRequired": "邮箱不能为空",
+        "passwordRequired": "密码不能为空",
+        "passwordTooShort": "密码至少需要8个字符",
+        "passwordWeak": "密码必须包含至少一个大写字母、一个小写字母和一个数字",
+        "passwordMismatch": "两次输入的密码不一致",
+        "termsRequired": "您必须接受服务条款和隐私政策",
+        "emailExists": "该邮箱已被注册",
+        "serverError": "出错了，请稍后再试"
+      },
+      "passwordStrength": {
+        "label": "密码强度：",
+        "weak": "弱",
+        "medium": "中",
+        "strong": "强"
+      }
+    }
+  },
+  "bookReviews": {
+    "title": "读者评论",
+    "writeReview": "写下你的评论",
+    "yourRating": "你的评分",
+    "yourReview": "你的评论",
+    "reviewPlaceholder": "分享你对这本书的看法...",
+    "submit": "发布评论",
+    "submitting": "发布中...",
+    "loginRequired": "登录后即可发表评论",
+    "loginButton": "立即登录",
+    "noReviews": "还没有评论",
+    "beFirst": "成为第一个评论这本书的人！",
+    "helpful": "有帮助",
+    "today": "今天",
+    "yesterday": "昨天",
+    "daysAgo": "{days}天前"
+  },
+  "celebrityRecommendations": {
+    "title": "名人推荐",
+    "subtitle": "来看看这些知名人士对这本书的推荐",
+    "seeMore": "查看更多推荐"
+  }
+}

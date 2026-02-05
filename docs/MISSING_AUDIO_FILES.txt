@@ -1,0 +1,241 @@
+# 缺失音频文件完整列表
+# 生成时间: 2025-02-05
+# 总计: 174 个文件需要生成
+
+# === P1 优先级书籍 (24个文件) ===
+
+# ID 3 - 人类简史 (Sapiens)
+public/audio/3/zh_short.mp3
+public/audio/3/zh_medium.mp3
+public/audio/3/zh_long.mp3
+public/audio/3/en_short.mp3
+public/audio/3/en_medium.mp3
+public/audio/3/en_long.mp3
+
+# ID 4 - 刻意练习 (Peak)
+public/audio/4/zh_short.mp3
+public/audio/4/zh_medium.mp3
+public/audio/4/zh_long.mp3
+public/audio/4/en_short.mp3
+public/audio/4/en_medium.mp3
+public/audio/4/en_long.mp3
+
+# ID 5 - 影响力 (Influence)
+public/audio/5/zh_short.mp3
+public/audio/5/zh_medium.mp3
+public/audio/5/zh_long.mp3
+public/audio/5/en_short.mp3
+public/audio/5/en_medium.mp3
+public/audio/5/en_long.mp3
+
+# ID 48 - 原子习惯 (Atomic Habits)
+public/audio/48/zh_short.mp3
+public/audio/48/zh_medium.mp3
+public/audio/48/zh_long.mp3
+public/audio/48/en_short.mp3
+public/audio/48/en_medium.mp3
+public/audio/48/en_long.mp3
+
+# === P2 优先级书籍 (102个文件) ===
+
+# ID 6 - 高效能人士的七个习惯
+public/audio/6/zh_short.mp3
+public/audio/6/zh_medium.mp3
+public/audio/6/zh_long.mp3
+public/audio/6/en_short.mp3
+public/audio/6/en_medium.mp3
+public/audio/6/en_long.mp3
+
+# ID 7 - 穷查理宝典
+public/audio/7/zh_short.mp3
+public/audio/7/zh_medium.mp3
+public/audio/7/zh_long.mp3
+public/audio/7/en_short.mp3
+public/audio/7/en_medium.mp3
+public/audio/7/en_long.mp3
+
+# ID 8 - 自控力
+public/audio/8/zh_short.mp3
+public/audio/8/zh_medium.mp3
+public/audio/8/zh_long.mp3
+public/audio/8/en_short.mp3
+public/audio/8/en_medium.mp3
+public/audio/8/en_long.mp3
+
+# ID 9 - 非暴力沟通
+public/audio/9/zh_short.mp3
+public/audio/9/zh_medium.mp3
+public/audio/9/zh_long.mp3
+public/audio/9/en_short.mp3
+public/audio/9/en_medium.mp3
+public/audio/9/en_long.mp3
+
+# ID 29 - 埃隆·马斯克传
+public/audio/29/zh_short.mp3
+public/audio/29/zh_medium.mp3
+public/audio/29/zh_long.mp3
+public/audio/29/en_short.mp3
+public/audio/29/en_medium.mp3
+public/audio/29/en_long.mp3
+
+# ID 30 - 鞋狗
+public/audio/30/zh_short.mp3
+public/audio/30/zh_medium.mp3
+public/audio/30/zh_long.mp3
+public/audio/30/en_short.mp3
+public/audio/30/en_medium.mp3
+public/audio/30/en_long.mp3
+
+# ID 32 - 自私的基因
+public/audio/32/zh_short.mp3
+public/audio/32/zh_medium.mp3
+public/audio/32/zh_long.mp3
+public/audio/32/en_short.mp3
+public/audio/32/en_medium.mp3
+public/audio/32/en_long.mp3
+
+# ID 33 - 时间简史
+public/audio/33/zh_short.mp3
+public/audio/33/zh_medium.mp3
+public/audio/33/zh_long.mp3
+public/audio/33/en_short.mp3
+public/audio/33/en_medium.mp3
+public/audio/33/en_long.mp3
+
+# ID 37 - 小王子
+public/audio/37/zh_short.mp3
+public/audio/37/zh_medium.mp3
+public/audio/37/zh_long.mp3
+public/audio/37/en_short.mp3
+public/audio/37/en_medium.mp3
+public/audio/37/en_long.mp3
+
+# ID 38 - 追风筝的人
+public/audio/38/zh_short.mp3
+public/audio/38/zh_medium.mp3
+public/audio/38/zh_long.mp3
+public/audio/38/en_short.mp3
+public/audio/38/en_medium.mp3
+public/audio/38/en_long.mp3
+
+# ID 39 - 百年孤独
+public/audio/39/zh_short.mp3
+public/audio/39/zh_medium.mp3
+public/audio/39/zh_long.mp3
+public/audio/39/en_short.mp3
+public/audio/39/en_medium.mp3
+public/audio/39/en_long.mp3
+
+# ID 40 - 1984
+public/audio/40/zh_short.mp3
+public/audio/40/zh_medium.mp3
+public/audio/40/zh_long.mp3
+public/audio/40/en_short.mp3
+public/audio/40/en_medium.mp3
+public/audio/40/en_long.mp3
+
+# ID 44 - 如何阅读一本书
+public/audio/44/zh_short.mp3
+public/audio/44/zh_medium.mp3
+public/audio/44/zh_long.mp3
+public/audio/44/en_short.mp3
+public/audio/44/en_medium.mp3
+public/audio/44/en_long.mp3
+
+# ID 47 - 深度工作
+public/audio/47/zh_short.mp3
+public/audio/47/zh_medium.mp3
+public/audio/47/zh_long.mp3
+public/audio/47/en_short.mp3
+public/audio/47/en_medium.mp3
+public/audio/47/en_long.mp3
+
+# ID 49 - 纳瓦尔宝典
+public/audio/49/zh_short.mp3
+public/audio/49/zh_medium.mp3
+public/audio/49/zh_long.mp3
+public/audio/49/en_short.mp3
+public/audio/49/en_medium.mp3
+public/audio/49/en_long.mp3
+
+# ID 50 - 认知觉醒
+public/audio/50/zh_short.mp3
+public/audio/50/zh_medium.mp3
+public/audio/50/zh_long.mp3
+public/audio/50/en_short.mp3
+public/audio/50/en_medium.mp3
+public/audio/50/en_long.mp3
+
+# === P3 优先级书籍 (48个文件) ===
+
+# ID 31 - 基因传
+public/audio/31/zh_short.mp3
+public/audio/31/zh_medium.mp3
+public/audio/31/zh_long.mp3
+public/audio/31/en_short.mp3
+public/audio/31/en_medium.mp3
+public/audio/31/en_long.mp3
+
+# ID 34 - 上帝掷骰子吗
+public/audio/34/zh_short.mp3
+public/audio/34/zh_medium.mp3
+public/audio/34/zh_long.mp3
+public/audio/34/en_short.mp3
+public/audio/34/en_medium.mp3
+public/audio/34/en_long.mp3
+
+# ID 35 - 失控
+public/audio/35/zh_short.mp3
+public/audio/35/zh_medium.mp3
+public/audio/35/zh_long.mp3
+public/audio/35/en_short.mp3
+public/audio/35/en_medium.mp3
+public/audio/35/en_long.mp3
+
+# ID 36 - 奇点临近
+public/audio/36/zh_short.mp3
+public/audio/36/zh_medium.mp3
+public/audio/36/zh_long.mp3
+public/audio/36/en_short.mp3
+public/audio/36/en_medium.mp3
+public/audio/36/en_long.mp3
+
+# ID 41 - 动物农场
+public/audio/41/zh_short.mp3
+public/audio/41/zh_medium.mp3
+public/audio/41/zh_long.mp3
+public/audio/41/en_short.mp3
+public/audio/41/en_medium.mp3
+public/audio/41/en_long.mp3
+
+# ID 42 - 了不起的盖茨比
+public/audio/42/zh_short.mp3
+public/audio/42/zh_medium.mp3
+public/audio/42/zh_long.mp3
+public/audio/42/en_short.mp3
+public/audio/42/en_medium.mp3
+public/audio/42/en_long.mp3
+
+# ID 43 - 月亮与六便士
+public/audio/43/zh_short.mp3
+public/audio/43/zh_medium.mp3
+public/audio/43/zh_long.mp3
+public/audio/43/en_short.mp3
+public/audio/43/en_medium.mp3
+public/audio/43/en_long.mp3
+
+# ID 45 - 学会提问
+public/audio/45/zh_short.mp3
+public/audio/45/zh_medium.mp3
+public/audio/45/zh_long.mp3
+public/audio/45/en_short.mp3
+public/audio/45/en_medium.mp3
+public/audio/45/en_long.mp3
+
+# ID 46 - 金字塔原理
+public/audio/46/zh_short.mp3
+public/audio/46/zh_medium.mp3
+public/audio/46/zh_long.mp3
+public/audio/46/en_short.mp3
+public/audio/46/en_medium.mp3
+public/audio/46/en_long.mp3

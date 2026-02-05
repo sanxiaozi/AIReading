@@ -49,3 +49,4 @@ next-env.d.ts
 
 # large audio files (optional - can track with git-lfs)
 # public/audio/
+data/*.db*

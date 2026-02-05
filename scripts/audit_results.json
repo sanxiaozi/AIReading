@@ -1,0 +1,847 @@
+[
+  {
+    "book_id": 1,
+    "locale": "zh",
+    "title": "Unknown",
+    "has_issues": false,
+    "issue_count": 0,
+    "issues": []
+  },
+  {
+    "book_id": 1,
+    "locale": "en",
+    "title": "Unknown",
+    "has_issues": false,
+    "issue_count": 0,
+    "issues": []
+  },
+  {
+    "book_id": 2,
+    "locale": "zh",
+    "title": "Unknown",
+    "has_issues": false,
+    "issue_count": 0,
+    "issues": []
+  },
+  {
+    "book_id": 2,
+    "locale": "en",
+    "title": "Unknown",
+    "has_issues": false,
+    "issue_count": 0,
+    "issues": []
+  },
+  {
+    "book_id": 3,
+    "locale": "zh",
+    "title": "Unknown",
+    "has_issues": false,
+    "issue_count": 0,
+    "issues": []
+  },
+  {
+    "book_id": 3,
+    "locale": "en",
+    "title": "Unknown",
+    "has_issues": false,
+    "issue_count": 0,
+    "issues": []
+  },
+  {
+    "book_id": 4,
+    "locale": "zh",
+    "title": "Unknown",
+    "has_issues": false,
+    "issue_count": 0,
+    "issues": []
+  },
+  {
+    "book_id": 4,
+    "locale": "en",
+    "title": "Unknown",
+    "has_issues": false,
+    "issue_count": 0,
+    "issues": []
+  },
+  {
+    "book_id": 5,
+    "locale": "zh",
+    "title": "Unknown",
+    "has_issues": false,
+    "issue_count": 0,
+    "issues": []
+  },
+  {
+    "book_id": 5,
+    "locale": "en",
+    "title": "Unknown",
+    "has_issues": false,
+    "issue_count": 0,
+    "issues": []
+  },
+  {
+    "book_id": 6,
+    "locale": "zh",
+    "title": "Unknown",
+    "has_issues": false,
+    "issue_count": 0,
+    "issues": []
+  },
+  {
+    "book_id": 6,
+    "locale": "en",
+    "title": "Unknown",
+    "has_issues": false,
+    "issue_count": 0,
+    "issues": []
+  },
+  {
+    "book_id": 7,
+    "locale": "zh",
+    "title": "Unknown",
+    "has_issues": false,
+    "issue_count": 0,
+    "issues": []
+  },
+  {
+    "book_id": 7,
+    "locale": "en",
+    "title": "Unknown",
+    "has_issues": false,
+    "issue_count": 0,
+    "issues": []
+  },
+  {
+    "book_id": 8,
+    "locale": "zh",
+    "title": "Unknown",
+    "has_issues": false,
+    "issue_count": 0,
+    "issues": []
+  },
+  {
+    "book_id": 8,
+    "locale": "en",
+    "title": "Unknown",
+    "has_issues": true,
+    "issue_count": 1,
+    "issues": [
+      {
+        "type": "high_sentence_overlap",
+        "duplicate_count": 2,
+        "total_medium_sentences": 6,
+        "ratio": 0.3333333333333333
+      }
+    ]
+  },
+  {
+    "book_id": 9,
+    "locale": "zh",
+    "title": "Unknown",
+    "has_issues": false,
+    "issue_count": 0,
+    "issues": []
+  },
+  {
+    "book_id": 9,
+    "locale": "en",
+    "title": "Unknown",
+    "has_issues": false,
+    "issue_count": 0,
+    "issues": []
+  },
+  {
+    "book_id": 10,
+    "locale": "zh",
+    "title": "Unknown",
+    "has_issues": false,
+    "issue_count": 0,
+    "issues": []
+  },
+  {
+    "book_id": 10,
+    "locale": "en",
+    "title": "Unknown",
+    "has_issues": false,
+    "issue_count": 0,
+    "issues": []
+  },
+  {
+    "book_id": 11,
+    "locale": "zh",
+    "title": "Unknown",
+    "has_issues": false,
+    "issue_count": 0,
+    "issues": []
+  },
+  {
+    "book_id": 11,
+    "locale": "en",
+    "title": "Unknown",
+    "has_issues": false,
+    "issue_count": 0,
+    "issues": []
+  },
+  {
+    "book_id": 12,
+    "locale": "zh",
+    "title": "Unknown",
+    "has_issues": false,
+    "issue_count": 0,
+    "issues": []
+  },
+  {
+    "book_id": 12,
+    "locale": "en",
+    "title": "Unknown",
+    "has_issues": false,
+    "issue_count": 0,
+    "issues": []
+  },
+  {
+    "book_id": 13,
+    "locale": "zh",
+    "title": "Unknown",
+    "has_issues": false,
+    "issue_count": 0,
+    "issues": []
+  },
+  {
+    "book_id": 13,
+    "locale": "en",
+    "title": "Unknown",
+    "has_issues": false,
+    "issue_count": 0,
+    "issues": []
+  },
+  {
+    "book_id": 14,
+    "locale": "zh",
+    "title": "Unknown",
+    "has_issues": false,
+    "issue_count": 0,
+    "issues": []
+  },
+  {
+    "book_id": 14,
+    "locale": "en",
+    "title": "Unknown",
+    "has_issues": true,
+    "issue_count": 1,
+    "issues": [
+      {
+        "type": "medium_long_duplicate",
+        "similarity": 0.9089201877934272,
+        "medium_para": 4,
+        "long_para": 5,
+        "text_preview": "To succeed with disruptive innovations, Christensen recommends creating autonomous business units th..."
+      }
+    ]
+  },
+  {
+    "book_id": 15,
+    "locale": "zh",
+    "title": "Unknown",
+    "has_issues": false,
+    "issue_count": 0,
+    "issues": []
+  },
+  {
+    "book_id": 15,
+    "locale": "en",
+    "title": "Unknown",
+    "has_issues": false,
+    "issue_count": 0,
+    "issues": []
+  },
+  {
+    "book_id": 16,
+    "locale": "zh",
+    "title": "Unknown",
+    "has_issues": false,
+    "issue_count": 0,
+    "issues": []
+  },
+  {
+    "book_id": 16,
+    "locale": "en",
+    "title": "Unknown",
+    "has_issues": false,
+    "issue_count": 0,
+    "issues": []
+  },
+  {
+    "book_id": 17,
+    "locale": "zh",
+    "title": "Unknown",
+    "has_issues": false,
+    "issue_count": 0,
+    "issues": []
+  },
+  {
+    "book_id": 17,
+    "locale": "en",
+    "title": "Unknown",
+    "has_issues": false,
+    "issue_count": 0,
+    "issues": []
+  },
+  {
+    "book_id": 18,
+    "locale": "zh",
+    "title": "Unknown",
+    "has_issues": false,
+    "issue_count": 0,
+    "issues": []
+  },
+  {
+    "book_id": 18,
+    "locale": "en",
+    "title": "Unknown",
+    "has_issues": false,
+    "issue_count": 0,
+    "issues": []
+  },
+  {
+    "book_id": 19,
+    "locale": "zh",
+    "title": "Unknown",
+    "has_issues": false,
+    "issue_count": 0,
+    "issues": []
+  },
+  {
+    "book_id": 19,
+    "locale": "en",
+    "title": "Unknown",
+    "has_issues": false,
+    "issue_count": 0,
+    "issues": []
+  },
+  {
+    "book_id": 20,
+    "locale": "zh",
+    "title": "Unknown",
+    "has_issues": false,
+    "issue_count": 0,
+    "issues": []
+  },
+  {
+    "book_id": 20,
+    "locale": "en",
+    "title": "Unknown",
+    "has_issues": false,
+    "issue_count": 0,
+    "issues": []
+  },
+  {
+    "book_id": 21,
+    "locale": "zh",
+    "title": "Unknown",
+    "has_issues": false,
+    "issue_count": 0,
+    "issues": []
+  },
+  {
+    "book_id": 21,
+    "locale": "en",
+    "title": "Unknown",
+    "has_issues": true,
+    "issue_count": 2,
+    "issues": [
+      {
+        "type": "medium_long_duplicate",
+        "similarity": 0.8670886075949367,
+        "medium_para": 0,
+        "long_para": 0,
+        "text_preview": "The book Guns, Germs, and Steel, written by Jared Diamond, explores the reasons behind the differing..."
+      },
+      {
+        "type": "high_sentence_overlap",
+        "duplicate_count": 4,
+        "total_medium_sentences": 7,
+        "ratio": 0.5714285714285714
+      }
+    ]
+  },
+  {
+    "book_id": 22,
+    "locale": "zh",
+    "title": "Unknown",
+    "has_issues": false,
+    "issue_count": 0,
+    "issues": []
+  },
+  {
+    "book_id": 22,
+    "locale": "en",
+    "title": "Unknown",
+    "has_issues": false,
+    "issue_count": 0,
+    "issues": []
+  },
+  {
+    "book_id": 23,
+    "locale": "zh",
+    "title": "Unknown",
+    "has_issues": false,
+    "issue_count": 0,
+    "issues": []
+  },
+  {
+    "book_id": 23,
+    "locale": "en",
+    "title": "Unknown",
+    "has_issues": false,
+    "issue_count": 0,
+    "issues": []
+  },
+  {
+    "book_id": 24,
+    "locale": "zh",
+    "title": "Unknown",
+    "has_issues": false,
+    "issue_count": 0,
+    "issues": []
+  },
+  {
+    "book_id": 24,
+    "locale": "en",
+    "title": "Unknown",
+    "has_issues": false,
+    "issue_count": 0,
+    "issues": []
+  },
+  {
+    "book_id": 25,
+    "locale": "zh",
+    "title": "Unknown",
+    "has_issues": false,
+    "issue_count": 0,
+    "issues": []
+  },
+  {
+    "book_id": 25,
+    "locale": "en",
+    "title": "Unknown",
+    "has_issues": false,
+    "issue_count": 0,
+    "issues": []
+  },
+  {
+    "book_id": 26,
+    "locale": "zh",
+    "title": "Unknown",
+    "has_issues": false,
+    "issue_count": 0,
+    "issues": []
+  },
+  {
+    "book_id": 26,
+    "locale": "en",
+    "title": "Unknown",
+    "has_issues": false,
+    "issue_count": 0,
+    "issues": []
+  },
+  {
+    "book_id": 27,
+    "locale": "zh",
+    "title": "Unknown",
+    "has_issues": false,
+    "issue_count": 0,
+    "issues": []
+  },
+  {
+    "book_id": 27,
+    "locale": "en",
+    "title": "Unknown",
+    "has_issues": false,
+    "issue_count": 0,
+    "issues": []
+  },
+  {
+    "book_id": 28,
+    "locale": "zh",
+    "title": "Unknown",
+    "has_issues": false,
+    "issue_count": 0,
+    "issues": []
+  },
+  {
+    "book_id": 28,
+    "locale": "en",
+    "title": "Unknown",
+    "has_issues": false,
+    "issue_count": 0,
+    "issues": []
+  },
+  {
+    "book_id": 29,
+    "locale": "zh",
+    "title": "Unknown",
+    "has_issues": false,
+    "issue_count": 0,
+    "issues": []
+  },
+  {
+    "book_id": 29,
+    "locale": "en",
+    "title": "Unknown",
+    "has_issues": false,
+    "issue_count": 0,
+    "issues": []
+  },
+  {
+    "book_id": 30,
+    "locale": "zh",
+    "title": "Unknown",
+    "has_issues": false,
+    "issue_count": 0,
+    "issues": []
+  },
+  {
+    "book_id": 30,
+    "locale": "en",
+    "title": "Unknown",
+    "has_issues": false,
+    "issue_count": 0,
+    "issues": []
+  },
+  {
+    "book_id": 31,
+    "locale": "zh",
+    "title": "Unknown",
+    "has_issues": false,
+    "issue_count": 0,
+    "issues": []
+  },
+  {
+    "book_id": 31,
+    "locale": "en",
+    "title": "Unknown",
+    "has_issues": false,
+    "issue_count": 0,
+    "issues": []
+  },
+  {
+    "book_id": 32,
+    "locale": "zh",
+    "title": "Unknown",
+    "has_issues": false,
+    "issue_count": 0,
+    "issues": []
+  },
+  {
+    "book_id": 32,
+    "locale": "en",
+    "title": "Unknown",
+    "has_issues": false,
+    "issue_count": 0,
+    "issues": []
+  },
+  {
+    "book_id": 33,
+    "locale": "zh",
+    "title": "Unknown",
+    "has_issues": false,
+    "issue_count": 0,
+    "issues": []
+  },
+  {
+    "book_id": 33,
+    "locale": "en",
+    "title": "Unknown",
+    "has_issues": false,
+    "issue_count": 0,
+    "issues": []
+  },
+  {
+    "book_id": 34,
+    "locale": "zh",
+    "title": "Unknown",
+    "has_issues": false,
+    "issue_count": 0,
+    "issues": []
+  },
+  {
+    "book_id": 34,
+    "locale": "en",
+    "title": "Unknown",
+    "has_issues": false,
+    "issue_count": 0,
+    "issues": []
+  },
+  {
+    "book_id": 35,
+    "locale": "zh",
+    "title": "Unknown",
+    "has_issues": false,
+    "issue_count": 0,
+    "issues": []
+  },
+  {
+    "book_id": 35,
+    "locale": "en",
+    "title": "Unknown",
+    "has_issues": false,
+    "issue_count": 0,
+    "issues": []
+  },
+  {
+    "book_id": 36,
+    "locale": "zh",
+    "title": "Unknown",
+    "has_issues": false,
+    "issue_count": 0,
+    "issues": []
+  },
+  {
+    "book_id": 36,
+    "locale": "en",
+    "title": "Unknown",
+    "has_issues": false,
+    "issue_count": 0,
+    "issues": []
+  },
+  {
+    "book_id": 37,
+    "locale": "zh",
+    "title": "Unknown",
+    "has_issues": false,
+    "issue_count": 0,
+    "issues": []
+  },
+  {
+    "book_id": 37,
+    "locale": "en",
+    "title": "Unknown",
+    "has_issues": false,
+    "issue_count": 0,
+    "issues": []
+  },
+  {
+    "book_id": 38,
+    "locale": "zh",
+    "title": "Unknown",
+    "has_issues": false,
+    "issue_count": 0,
+    "issues": []
+  },
+  {
+    "book_id": 38,
+    "locale": "en",
+    "title": "Unknown",
+    "has_issues": false,
+    "issue_count": 0,
+    "issues": []
+  },
+  {
+    "book_id": 39,
+    "locale": "zh",
+    "title": "Unknown",
+    "has_issues": false,
+    "issue_count": 0,
+    "issues": []
+  },
+  {
+    "book_id": 39,
+    "locale": "en",
+    "title": "Unknown",
+    "has_issues": false,
+    "issue_count": 0,
+    "issues": []
+  },
+  {
+    "book_id": 40,
+    "locale": "zh",
+    "title": "Unknown",
+    "has_issues": false,
+    "issue_count": 0,
+    "issues": []
+  },
+  {
+    "book_id": 40,
+    "locale": "en",
+    "title": "Unknown",
+    "has_issues": false,
+    "issue_count": 0,
+    "issues": []
+  },
+  {
+    "book_id": 41,
+    "locale": "zh",
+    "title": "Unknown",
+    "has_issues": false,
+    "issue_count": 0,
+    "issues": []
+  },
+  {
+    "book_id": 41,
+    "locale": "en",
+    "title": "Unknown",
+    "has_issues": false,
+    "issue_count": 0,
+    "issues": []
+  },
+  {
+    "book_id": 42,
+    "locale": "zh",
+    "title": "Unknown",
+    "has_issues": false,
+    "issue_count": 0,
+    "issues": []
+  },
+  {
+    "book_id": 42,
+    "locale": "en",
+    "title": "Unknown",
+    "has_issues": false,
+    "issue_count": 0,
+    "issues": []
+  },
+  {
+    "book_id": 43,
+    "locale": "zh",
+    "title": "Unknown",
+    "has_issues": false,
+    "issue_count": 0,
+    "issues": []
+  },
+  {
+    "book_id": 43,
+    "locale": "en",
+    "title": "Unknown",
+    "has_issues": false,
+    "issue_count": 0,
+    "issues": []
+  },
+  {
+    "book_id": 44,
+    "locale": "zh",
+    "title": "Unknown",
+    "has_issues": false,
+    "issue_count": 0,
+    "issues": []
+  },
+  {
+    "book_id": 44,
+    "locale": "en",
+    "title": "Unknown",
+    "has_issues": false,
+    "issue_count": 0,
+    "issues": []
+  },
+  {
+    "book_id": 45,
+    "locale": "zh",
+    "title": "Unknown",
+    "has_issues": false,
+    "issue_count": 0,
+    "issues": []
+  },
+  {
+    "book_id": 45,
+    "locale": "en",
+    "title": "Unknown",
+    "has_issues": false,
+    "issue_count": 0,
+    "issues": []
+  },
+  {
+    "book_id": 46,
+    "locale": "zh",
+    "title": "Unknown",
+    "has_issues": false,
+    "issue_count": 0,
+    "issues": []
+  },
+  {
+    "book_id": 46,
+    "locale": "en",
+    "title": "Unknown",
+    "has_issues": false,
+    "issue_count": 0,
+    "issues": []
+  },
+  {
+    "book_id": 47,
+    "locale": "zh",
+    "title": "Unknown",
+    "has_issues": false,
+    "issue_count": 0,
+    "issues": []
+  },
+  {
+    "book_id": 47,
+    "locale": "en",
+    "title": "Unknown",
+    "has_issues": false,
+    "issue_count": 0,
+    "issues": []
+  },
+  {
+    "book_id": 48,
+    "locale": "zh",
+    "title": "Unknown",
+    "has_issues": false,
+    "issue_count": 0,
+    "issues": []
+  },
+  {
+    "book_id": 48,
+    "locale": "en",
+    "title": "Unknown",
+    "has_issues": true,
+    "issue_count": 1,
+    "issues": [
+      {
+        "type": "medium_long_duplicate",
+        "similarity": 0.9019607843137255,
+        "medium_para": 2,
+        "long_para": 22,
+        "text_preview": "The Four Laws are reversed to break bad habits:..."
+      }
+    ]
+  },
+  {
+    "book_id": 49,
+    "locale": "zh",
+    "title": "Unknown",
+    "has_issues": false,
+    "issue_count": 0,
+    "issues": []
+  },
+  {
+    "book_id": 49,
+    "locale": "en",
+    "title": "Unknown",
+    "has_issues": true,
+    "issue_count": 1,
+    "issues": [
+      {
+        "type": "medium_long_duplicate",
+        "similarity": 0.851063829787234,
+        "medium_para": 5,
+        "long_para": 18,
+        "text_preview": "Naval provides frameworks for making better decisions. He advocates for thinking clearly and rationa..."
+      }
+    ]
+  },
+  {
+    "book_id": 50,
+    "locale": "zh",
+    "title": "Unknown",
+    "has_issues": false,
+    "issue_count": 0,
+    "issues": []
+  },
+  {
+    "book_id": 50,
+    "locale": "en",
+    "title": "Unknown",
+    "has_issues": false,
+    "issue_count": 0,
+    "issues": []
+  }
+]

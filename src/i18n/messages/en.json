@@ -1,0 +1,87 @@
+{
+  "auth": {
+    "login": {
+      "title": "Welcome Back",
+      "subtitle": "Sign in to your AIreading account",
+      "email": "Email",
+      "emailPlaceholder": "Enter your email",
+      "password": "Password",
+      "passwordPlaceholder": "Enter your password",
+      "rememberMe": "Remember me",
+      "forgotPassword": "Forgot password?",
+      "submit": "Sign In",
+      "noAccount": "Don't have an account?",
+      "signUp": "Sign up",
+      "signingIn": "Signing in...",
+      "errors": {
+        "invalidEmail": "Please enter a valid email address",
+        "emailRequired": "Email is required",
+        "passwordRequired": "Password is required",
+        "passwordTooShort": "Password must be at least 8 characters",
+        "invalidCredentials": "Invalid email or password",
+        "serverError": "Something went wrong. Please try again."
+      }
+    },
+    "register": {
+      "title": "Create Account",
+      "subtitle": "Join AIreading and start your learning journey",
+      "username": "Username",
+      "usernamePlaceholder": "Choose a username",
+      "email": "Email",
+      "emailPlaceholder": "Enter your email",
+      "password": "Password",
+      "passwordPlaceholder": "Create a password",
+      "confirmPassword": "Confirm Password",
+      "confirmPasswordPlaceholder": "Confirm your password",
+      "terms": "I agree to the",
+      "termsLink": "Terms of Service",
+      "and": "and",
+      "privacyLink": "Privacy Policy",
+      "submit": "Create Account",
+      "hasAccount": "Already have an account?",
+      "signIn": "Sign in",
+      "creatingAccount": "Creating account...",
+      "errors": {
+        "usernameRequired": "Username is required",
+        "usernameTooShort": "Username must be at least 3 characters",
+        "invalidEmail": "Please enter a valid email address",
+        "emailRequired": "Email is required",
+        "passwordRequired": "Password is required",
+        "passwordTooShort": "Password must be at least 8 characters",
+        "passwordWeak": "Password must contain at least one uppercase letter, one lowercase letter, and one number",
+        "passwordMismatch": "Passwords do not match",
+        "termsRequired": "You must accept the terms and privacy policy",
+        "emailExists": "This email is already registered",
+        "serverError": "Something went wrong. Please try again."
+      },
+      "passwordStrength": {
+        "label": "Password strength:",
+        "weak": "Weak",
+        "medium": "Medium",
+        "strong": "Strong"
+      }
+    }
+  },
+  "bookReviews": {
+    "title": "Reader Reviews",
+    "writeReview": "Write a Review",
+    "yourRating": "Your Rating",
+    "yourReview": "Your Review",
+    "reviewPlaceholder": "Share your thoughts about this book...",
+    "submit": "Post Review",
+    "submitting": "Posting...",
+    "loginRequired": "Please log in to leave a review",
+    "loginButton": "Log In",
+    "noReviews": "No reviews yet",
+    "beFirst": "Be the first to review this book!",
+    "helpful": "Helpful",
+    "today": "Today",
+    "yesterday": "Yesterday",
+    "daysAgo": "{days} days ago"
+  },
+  "celebrityRecommendations": {
+    "title": "Celebrity Recommendations",
+    "subtitle": "See what influential people say about this book",
+    "seeMore": "See More Recommendations"
+  }
+}

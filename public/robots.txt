@@ -1,0 +1,22 @@
+# AIreading Robots.txt
+# Website: https://aireading.app
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://aireading.app/sitemap.xml
+
+# Disallow admin and API paths (if any in the future)
+Disallow: /api/
+Disallow: /_next/
+
+# Allow search engines to crawl all book pages
+Allow: /zh/book/
+Allow: /en/book/
+
+# Allow category and library pages
+Allow: /zh/category/
+Allow: /en/category/
+Allow: /zh/library/
+Allow: /en/library/

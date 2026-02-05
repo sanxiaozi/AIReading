@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>AIreading 社交媒体素材生成器</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #1a1a1a;
+            color: white;
+            padding: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .container {
+            display: grid;
+            gap: 40px;
+        }
+        .section {
+            background: #252525;
+            padding: 30px;
+            border-radius: 12px;
+        }
+        h1 {
+            margin-top: 0;
+            color: #00acee;
+        }
+        canvas {
+            border: 2px solid #444;
+            border-radius: 8px;
+            margin: 20px 0;
+            display: block;
+            max-width: 100%;
+        }
+        button {
+            background: #00acee;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        button:hover {
+            background: #008ccc;
+        }
+        .info {
+            color: #999;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="section">
+            <h1>📸 AIreading - 头像（400x400px）</h1>
+            <p class="info">右键点击 "查看/下载" 菜单 -> "另存为图片"</p>
+            <canvas id="avatar" width="400" height="400"></canvas>
+            <button onclick="downloadAvatar()">📥下载头像</button>
+        </div>
+        
+        <div class="section">
+            <h1>🖼️ 横幅（1500x500px）</h1>
+            <p class="info">主横幅缩略 "Built by AI Agents"</p>
+            <canvas id="banner" width="1500" height="500"></canvas>
+            <button onclick="downloadBanner()">📥下载横幅</button>
+        </div>
+    </div>
+    
+    <script>
+        // 绘制头像
+        function drawAvatar() {
+            const canvas = document.getElementById('avatar');
+            const ctx = canvas.getContext('2d');
+            
+            // 渐变背景
+            const gradient = ctx.createLinearGradient(0, 0, 400, 400);
+            gradient.addColorStop(0, '#00acee');
+            gradient.addColorStop(1, '#008ccc');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, 400, 400);
+            
+            // 绘制 AI 图标轮廓
+            ctx.strokeStyle = 'white';
+            ctx.lineWidth = 4;
+            ctx.lineCap = 'round';
+            
+            // 绘制人工智能脑像（右侧）
+            ctx.beginPath();
+            ctx.arc(120, 150, 30, 0, Math.PI * 2); // 左眼
+            ctx.arc(280, 150, 30, 0, Math.PI * 2); // 右眼
+            ctx.stroke();
+            
+            // 嘴巴
+            ctx.beginPath();
+            ctx.arc(200, 250, 80, 0.2 * Math.PI, 0.8 * Math.PI);
+            ctx.stroke();
+            
+            // 文字"AI"
+            ctx.fillStyle = 'white';
+            ctx.font = 'bold 80px -apple-system, BlinkMacSystemFont';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText('AI', 200, 120);
+        }
+        
+        // 绘制横幅
+        function drawBanner() {
+            const canvas = document.getElementById('banner');
+            const ctx = canvas.getContext('2d');
+            
+            // 背景渐变
+            const gradient = ctx.createLinearGradient(0, 0, 1500, 0);
+            gradient.addColorStop(0, '#0a0a0a');
+            gradient.addColorStop(0.5, '#1a1a1a');
+            gradient.addColorStop(1, '#0a0a0a');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, 1500, 500);
+            
+            // 科技线条背景
+            ctx.strokeStyle = 'rgba(0, 172, 238, 0.2)';
+            ctx.lineWidth = 1;
+            for (let i = 0; i < 1500; i += 50) {
+                for (let j = 0; j < 500; j += 50) {
+                    ctx.beginPath();
+                    ctx.moveTo(i, j);
+                    ctx.lineTo(i + 50, j);
+                    ctx.moveTo(i, j);
+                    ctx.lineTo(i, j + 50);
+                    ctx.stroke();
+                }
+            }
+            
+            // 主标题
+            ctx.fillStyle = 'white';
+            ctx.font = 'bold 100px -apple-system, BlinkMacSystemFont';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText('AIreading', 750, 180);
+            
+            // 子标题
+            ctx.fillStyle = '#00acee';
+            ctx.font = '600 36px -apple-system, BlinkMacSystemFont';
+            ctx.fillText('Built Entirely by AI Agents', 750, 300);
+            
+            // 小图标
+            ctx.font = '30px -apple-system';
+            ctx.fillText('📚 50+ books  •  🎧 AI narration  •  🔄 Fully automated', 750, 380);
+        }
+        
+        // 初始化绘制
+        drawAvatar();
+        drawBanner();
+        
+        // 下载函数
+        function downloadAvatar() {
+            const canvas = document.getElementById('avatar');
+            const link = document.createElement('a');
+            link.download = 'aireading-avatar.png';
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+        }
+        
+        function downloadBanner() {
+            const canvas = document.getElementById('banner');
+            const link = document.createElement('a');
+            link.download = 'aireading-banner.png';
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+        }
+    </script>
+</body>
+</html>
