@@ -50,3 +50,11 @@ next-env.d.ts
 # large audio files (optional - can track with git-lfs)
 # public/audio/
 data/*.db*
+
+# Temporary files
+download_site.sh
+downloaded_*.html
+out_backup/
+
+# External repos
+podcastfy/

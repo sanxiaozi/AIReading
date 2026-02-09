@@ -3,6 +3,7 @@
 import { useState, FormEvent, useEffect } from 'react';
 import Link from 'next/link';
 import { useTranslations, type Locale } from '@/lib/i18n';
+import { useAuth } from '@/contexts/AuthContext';
 
 interface RegisterFormProps {
   locale: Locale;
@@ -12,6 +13,7 @@ type PasswordStrength = 'weak' | 'medium' | 'strong';
 
 export default function RegisterForm({ locale }: RegisterFormProps) {
   const { t } = useTranslations(locale);
+  const { register: registerUser } = useAuth();
   const [formData, setFormData] = useState({
     username: '',
     email: '',
@@ -102,25 +104,11 @@ export default function RegisterForm({ locale }: RegisterFormProps) {
     setErrors({});
 
     try {
-      // TODO: 实现实际的注册API调用
-      // const response = await fetch('/api/auth/register', {
-      //   method: 'POST',
-      //   headers: { 'Content-Type': 'application/json' },
-      //   body: JSON.stringify({
-      //     username: formData.username,
-      //     email: formData.email,
-      //     password: formData.password,
-      //     locale: locale,
-      //   }),
-      // });
-
-      // 模拟API调用
-      await new Promise((resolve) => setTimeout(resolve, 1500));
-
-      // TODO: 处理注册成功后的跳转
-      console.log('Registration successful', formData);
+      await registerUser(formData.email, formData.password, formData.username);
     } catch (error) {
-      setErrors({ general: t('auth.register.errors.serverError') });
+      const errorMessage =
+        error instanceof Error ? error.message : t('auth.register.errors.serverError');
+      setErrors({ general: errorMessage });
     } finally {
       setIsLoading(false);
     }

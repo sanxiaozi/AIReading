@@ -1,4 +1,7 @@
 {
+  "common": {
+    "loading": "Loading..."
+  },
   "auth": {
     "login": {
       "title": "Welcome Back",
@@ -83,5 +86,21 @@
     "title": "Celebrity Recommendations",
     "subtitle": "See what influential people say about this book",
     "seeMore": "See More Recommendations"
+  },
+  "profile": {
+    "title": "My Profile",
+    "backToHome": "Back to Home",
+    "noUsername": "Anonymous User",
+    "memberSince": "Member since",
+    "lastLogin": "Last login",
+    "logout": "Logout",
+    "favorites": "Favorites",
+    "listenHistory": "Listen History",
+    "totalListeningTime": "Total Time",
+    "myFavorites": "My Favorites",
+    "viewAll": "View All",
+    "noFavorites": "No favorites yet. Start exploring and save your favorite books!",
+    "recentlyListened": "Recently Listened",
+    "noHistory": "No listening history yet. Start listening to your first book!"
   }
 }

@@ -3,6 +3,7 @@
 import { useState, FormEvent } from 'react';
 import Link from 'next/link';
 import { useTranslations, type Locale } from '@/lib/i18n';
+import { useAuth } from '@/contexts/AuthContext';
 
 interface LoginFormProps {
   locale: Locale;
@@ -10,6 +11,7 @@ interface LoginFormProps {
 
 export default function LoginForm({ locale }: LoginFormProps) {
   const { t } = useTranslations(locale);
+  const { login } = useAuth();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [rememberMe, setRememberMe] = useState(false);
@@ -48,20 +50,11 @@ export default function LoginForm({ locale }: LoginFormProps) {
     setErrors({});
 
     try {
-      // TODO: 实现实际的登录API调用
-      // const response = await fetch('/api/auth/login', {
-      //   method: 'POST',
-      //   headers: { 'Content-Type': 'application/json' },
-      //   body: JSON.stringify({ email, password, rememberMe }),
-      // });
-
-      // 模拟API调用
-      await new Promise((resolve) => setTimeout(resolve, 1500));
-
-      // TODO: 处理登录成功后的跳转
-      console.log('Login successful', { email, rememberMe });
+      await login(email, password, rememberMe);
     } catch (error) {
-      setErrors({ general: t('auth.login.errors.serverError') });
+      const errorMessage =
+        error instanceof Error ? error.message : t('auth.login.errors.serverError');
+      setErrors({ general: errorMessage });
     } finally {
       setIsLoading(false);
     }

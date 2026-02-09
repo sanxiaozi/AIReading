@@ -1,152 +1,150 @@
 /**
- * 认证工具函数
+ * JWT 认证工具
+ * @module lib/auth
  */
 
-interface LoginInput {
+import { SignJWT, jwtVerify } from 'jose';
+import { NextRequest, NextResponse } from 'next/server';
+import { User } from './models/user';
+
+// JWT 配置
+const JWT_SECRET = new TextEncoder().encode(
+  process.env.JWT_SECRET || 'your-secret-key-change-this-in-production'
+);
+const JWT_ALGORITHM = 'HS256';
+const JWT_EXPIRATION = '7d'; // 7天过期
+
+export interface JWTPayload {
+  userId: number;
   email: string;
-  password: string;
-  rememberMe?: boolean;
-}
-
-interface RegisterInput {
-  email: string;
-  password: string;
-  username?: string;
-  locale?: string;
-}
-
-interface User {
-  id: number;
-  email: string;
-  username?: string;
-  avatar_url?: string;
-  locale: string;
-  theme: string;
-  playback_speed: number;
-  subscription_tier: 'free' | 'pro' | 'premium';
-  is_active: number;
-  created_at: number;
-  updated_at: number;
-  last_login_at?: number;
-}
-
-interface AuthResponse {
-  user: User;
-  token: string;
+  exp?: number;
+  iat?: number;
+  [key: string]: any;
 }
 
 /**
- * 用户登录
+ * 生成 JWT Token
  */
-export async function login(input: LoginInput): Promise<AuthResponse> {
-  const response = await fetch('/api/auth/login', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(input),
-  });
+export async function generateToken(user: Pick<User, 'id' | 'email'>): Promise<string> {
+  const payload: JWTPayload = {
+    userId: user.id,
+    email: user.email,
+  };
 
-  if (!response.ok) {
-    const error = await response.json();
-    throw new Error(error.error || 'Login failed');
-  }
+  const token = await new SignJWT(payload)
+    .setProtectedHeader({ alg: JWT_ALGORITHM })
+    .setIssuedAt()
+    .setExpirationTime(JWT_EXPIRATION)
+    .sign(JWT_SECRET);
 
-  return response.json();
+  return token;
 }
 
 /**
- * 用户注册
+ * 验证 JWT Token
  */
-export async function register(input: RegisterInput): Promise<AuthResponse> {
-  const response = await fetch('/api/auth/register', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(input),
-  });
-
-  if (!response.ok) {
-    const error = await response.json();
-    throw new Error(error.error || 'Registration failed');
-  }
-
-  return response.json();
-}
-
-/**
- * 用户登出
- */
-export async function logout(): Promise<void> {
-  const response = await fetch('/api/auth/logout', {
-    method: 'POST',
-  });
-
-  if (!response.ok) {
-    throw new Error('Logout failed');
-  }
-}
-
-/**
- * 获取当前用户信息
- */
-export async function getCurrentUser(): Promise<User | null> {
+export async function verifyToken(token: string): Promise<JWTPayload> {
   try {
-    const response = await fetch('/api/auth/me');
+    const { payload } = await jwtVerify(token, JWT_SECRET, {
+      algorithms: [JWT_ALGORITHM],
+    });
 
-    if (!response.ok) {
-      return null;
-    }
-
-    const data = await response.json();
-    return data.user;
+    return payload as JWTPayload;
   } catch (error) {
-    console.error('Get current user error:', error);
-    return null;
+    throw new Error('Invalid or expired token');
   }
+}
+
+/**
+ * 从请求中提取 Token
+ */
+export function extractToken(request: NextRequest): string | null {
+  // 从 Authorization header 提取
+  const authHeader = request.headers.get('Authorization');
+  if (authHeader?.startsWith('Bearer ')) {
+    return authHeader.substring(7);
+  }
+
+  // 从 Cookie 提取（可选）
+  const cookieToken = request.cookies.get('token')?.value;
+  if (cookieToken) {
+    return cookieToken;
+  }
+
+  return null;
+}
+
+/**
+ * API 路由认证中间件
+ * 用于保护需要登录的 API 路由
+ */
+export function requireAuth(
+  handler: (
+    request: NextRequest,
+    context: { params?: any; user: JWTPayload }
+  ) => Promise<NextResponse>
+) {
+  return async (request: NextRequest, context: { params?: any }): Promise<NextResponse> => {
+    try {
+      // 提取 token
+      const token = extractToken(request);
+      if (!token) {
+        return NextResponse.json(
+          { error: 'Authentication required', code: 'AUTH_REQUIRED' },
+          { status: 401 }
+        );
+      }
+
+      // 验证 token
+      const payload = await verifyToken(token);
+
+      // 将用户信息传递给处理器
+      return handler(request, { ...context, user: payload });
+    } catch (error) {
+      return NextResponse.json(
+        { error: 'Invalid or expired token', code: 'INVALID_TOKEN' },
+        { status: 401 }
+      );
+    }
+  };
 }
 
 /**
  * 验证邮箱格式
  */
 export function isValidEmail(email: string): boolean {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
 }
 
 /**
  * 验证密码强度
- * @returns {object} { isValid: boolean, strength: 'weak' | 'medium' | 'strong' }
+ * 要求：至少8个字符，包含大小写字母和数字
  */
-export function validatePasswordStrength(password: string): {
-  isValid: boolean;
-  strength: 'weak' | 'medium' | 'strong';
-} {
-  if (!password || password.length < 8) {
-    return { isValid: false, strength: 'weak' };
+export function isValidPassword(password: string): { valid: boolean; error?: string } {
+  if (password.length < 8) {
+    return { valid: false, error: 'Password must be at least 8 characters long' };
   }
 
-  let strength = 0;
-
-  // Length
-  if (password.length >= 8) strength++;
-  if (password.length >= 12) strength++;
-
-  // Character variety
-  if (/[a-z]/.test(password)) strength++;
-  if (/[A-Z]/.test(password)) strength++;
-  if (/[0-9]/.test(password)) strength++;
-  if (/[^a-zA-Z0-9]/.test(password)) strength++;
-
-  const hasRequiredChars = /(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/.test(password);
-
-  let strengthLevel: 'weak' | 'medium' | 'strong' = 'weak';
-  if (strength <= 2) {
-    strengthLevel = 'weak';
-  } else if (strength <= 4) {
-    strengthLevel = 'medium';
-  } else {
-    strengthLevel = 'strong';
+  if (!/[a-z]/.test(password)) {
+    return { valid: false, error: 'Password must contain at least one lowercase letter' };
   }
 
-  return {
-    isValid: hasRequiredChars && password.length >= 8,
-    strength: strengthLevel,
-  };
+  if (!/[A-Z]/.test(password)) {
+    return { valid: false, error: 'Password must contain at least one uppercase letter' };
+  }
+
+  if (!/[0-9]/.test(password)) {
+    return { valid: false, error: 'Password must contain at least one number' };
+  }
+
+  return { valid: true };
+}
+
+/**
+ * 清理用户数据（移除敏感信息）
+ */
+export function sanitizeUser(user: User): Omit<User, 'password_hash'> {
+  const { password_hash, ...sanitized } = user;
+  return sanitized;
 }

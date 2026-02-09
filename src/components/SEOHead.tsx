@@ -198,19 +198,49 @@ export function generateBookMetadata({ book, locale, baseUrl = 'https://aireadin
 
 /**
  * 生成首页 SEO 配置
+ * 优化日期: 2024-02-09
+ * 基于关键词研究优化，包含高价值关键词
  */
 export function generateHomeMetadata(locale: 'en' | 'zh', baseUrl = 'https://aireading.app'): Metadata {
   const title = locale === 'zh'
-    ? 'AI读书 - AI智能讲书，15分钟听完一本书'
-    : 'AIreading - AI-Powered Book Summaries in 15 Minutes'
+    ? 'AI读书 - AI书籍摘要，15分钟听完一本书 | 智能讲书App'
+    : 'AIreading - AI Book Summaries in 15 Minutes | Smart Book Summary App'
   
   const description = locale === 'zh'
-    ? '通过AI技术，将经典书籍浓缩为15分钟精华内容。涵盖商业、自我提升、心理学等多个领域，让知识获取更高效。'
-    : 'AI-powered book summaries that distill classic books into 15-minute insights. Covering business, self-improvement, psychology, and more.'
+    ? '通过AI智能技术，将经典书籍浓缩为15分钟精华摘要。涵盖商业管理、自我提升、心理学、投资理财等领域。碎片时间高效学习，让知识获取更轻松。免费试读，即刻开始。'
+    : 'AI-powered book summaries that distill bestselling books into 15-minute insights. Covering business, self-improvement, psychology, finance, and more. Learn faster with bite-sized knowledge. Free to start.'
   
   const keywords = locale === 'zh'
-    ? ['AI读书', '书籍摘要', '15分钟读书', '高效阅读', '知识管理', 'AI讲书']
-    : ['AI reading', 'book summaries', 'quick reads', 'efficient learning', 'knowledge management']
+    ? [
+      // 核心品牌词
+      'AI读书', 'AIreading',
+      // 产品功能词（高搜索量）
+      '书籍摘要', 'AI书籍摘要', '15分钟读书', 'AI讲书',
+      // 用户场景词
+      '快速读书', '高效阅读', '碎片化学习', '听书App',
+      // 用户需求词
+      '知识管理', '自我提升', '终身学习',
+      // 技术差异化
+      'AI智能读书', '智能讲书',
+      // 竞品对比词（长尾）
+      '书籍精华', '书籍解读', '好书推荐'
+    ]
+    : [
+      // 核心品牌词
+      'AIreading', 'AI reading app',
+      // 产品功能词（高搜索量）
+      'AI book summary', 'book summaries', '15 minute books',
+      // 用户场景词
+      'quick book summary', 'book summary app', 'audiobook summary',
+      // 用户需求词
+      'microlearning', 'bite-sized learning', 'efficient learning',
+      // 技术差异化
+      'AI book reader', 'AI-powered summaries',
+      // 品类词
+      'book insights', 'knowledge management', 'self improvement app',
+      // 竞品对比词
+      'Blinkist alternative', 'book summary service'
+    ]
 
   return generateMetadata({
     title,
@@ -219,6 +249,9 @@ export function generateHomeMetadata(locale: 'en' | 'zh', baseUrl = 'https://air
     canonical: `${baseUrl}/${locale}/`,
     ogType: 'website',
     ogImage: `${baseUrl}/og-images/home-${locale}.jpg`,
+    ogImageAlt: locale === 'zh' 
+      ? 'AI读书 - 智能书籍摘要平台' 
+      : 'AIreading - AI Book Summary Platform',
     locale: locale === 'zh' ? 'zh_CN' : 'en_US',
     alternates: {
       languages: {
@@ -227,6 +260,8 @@ export function generateHomeMetadata(locale: 'en' | 'zh', baseUrl = 'https://air
         'x-default': `${baseUrl}/en/`,
       },
     },
+    twitterCard: 'summary_large_image',
+    twitterSite: '@aireading_app',
   })
 }
 
