@@ -7,9 +7,15 @@ Allow: /
 # Sitemap
 Sitemap: https://aireading.app/sitemap.xml
 
-# Disallow admin and API paths (if any in the future)
+# Disallow admin and API paths
 Disallow: /api/
 Disallow: /_next/
+
+# Disallow digest (private daily digest)
+Disallow: /digest
+Disallow: /en/digest
+Disallow: /zh/digest
+Disallow: /digest-data.json
 
 # Allow search engines to crawl all book pages
 Allow: /zh/book/

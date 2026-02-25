@@ -1,0 +1,176 @@
+{
+  "date": "2026-02-25",
+  "overview": "AI Agent 技术持续升温，但其在工程实践中的应用引发争议，代码质量和组织结构变革成为关注焦点。苹果加大在美国本土的生产投入。",
+  "top3": [
+    {
+      "rank": 1,
+      "title": "先运行测试",
+      "titleEn": "First run the tests",
+      "url": "https://simonwillison.net/guides/agentic-engineering-patterns/first-run-the-tests/",
+      "source": "simonwillison.net",
+      "timeAgo": "12小时前",
+      "category": "⚙️ 工程",
+      "score": 25,
+      "summary": "在 Agentic 工程模式下，自动化测试变得至关重要。Agent 可以在几分钟内完成测试的编写和调整，对AI生成代码质量保证至关重要。",
+      "tags": ["agentic engineering", "automated tests"]
+    },
+    {
+      "rank": 2,
+      "title": "go-size-analyzer",
+      "titleEn": "go-size-analyzer",
+      "url": "https://simonwillison.net/2026/Feb/24/go-size-analyzer/",
+      "source": "simonwillison.net",
+      "timeAgo": "8小时前",
+      "category": "🛠 工具 / 开源",
+      "score": 23,
+      "summary": "Go二进制依赖分析工具，通过树形图可视化Go二进制文件中捆绑的依赖项，可本地运行或编译为WebAssembly。",
+      "tags": ["Go", "binary size"]
+    },
+    {
+      "rank": 3,
+      "title": "Agentic Swarm是一种组织结构图的幻想",
+      "titleEn": "Agentic swarms are an org-chart delusion",
+      "url": "https://www.joanwestenberg.com/agentic-swarms-are-an-org-chart-delusion/",
+      "source": "joanwestenberg.com",
+      "timeAgo": "23小时前",
+      "category": "💡 观点 / 杂谈",
+      "score": 23,
+      "summary": "AI Agent群取代人类员工？作者认为是简单复制现有层级结构，并没有真正解决生产力问题。",
+      "tags": ["AI agents", "org chart"]
+    }
+  ],
+  "stats": {
+    "sources": 89,
+    "articles": 2505,
+    "selected": 10
+  },
+  "categories": {
+    "⚙️ 工程": 3,
+    "🛠 工具 / 开源": 2,
+    "💡 观点 / 杂谈": 2,
+    "🤖 AI / ML": 2,
+    "📝 其他": 1
+  },
+  "articles": [
+    {
+      "rank": 1,
+      "title": "先运行测试",
+      "titleEn": "First run the tests",
+      "url": "https://simonwillison.net/guides/agentic-engineering-patterns/first-run-the-tests/",
+      "source": "simonwillison.net",
+      "timeAgo": "12小时前",
+      "category": "⚙️ 工程",
+      "score": 25,
+      "summary": "在 Agentic 工程模式下，自动化测试变得至关重要。Agent 可以在几分钟内完成测试的编写和调整，对AI生成代码质量保证至关重要。",
+      "tags": ["agentic engineering", "automated tests", "coding agents"]
+    },
+    {
+      "rank": 2,
+      "title": "语言包管理器中的可复现构建",
+      "titleEn": "Reproducible Builds in Language Package Managers",
+      "url": "https://nesbitt.io/2026/02/24/reproducible-builds-in-language-package-managers.html",
+      "source": "nesbitt.io",
+      "timeAgo": "15小时前",
+      "category": "⚙️ 工程",
+      "score": 21,
+      "summary": "文章讨论如何验证已发布软件包确实是从其声称的源代码构建的，核心在于实现可复现构建。",
+      "tags": ["reproducible builds", "package managers"]
+    },
+    {
+      "rank": 3,
+      "title": "使用 Claude Code 实现一个干净的 Z80 / ZX Spectrum 模拟器",
+      "titleEn": "Implementing a clear room Z80 / ZX Spectrum emulator with Claude Code",
+      "url": "http://antirez.com/news/160",
+      "source": "antirez.com",
+      "timeAgo": "7小时前",
+      "category": "⚙️ 工程",
+      "score": 20,
+      "summary": "作者对Anthropic用Rust写C编译器的实验表示怀疑，认为不提供ISA文档以及选择Rust是不合理的。",
+      "tags": ["emulator", "Z80", "Claude Code"]
+    },
+    {
+      "rank": 4,
+      "title": "go-size-analyzer",
+      "titleEn": "go-size-analyzer",
+      "url": "https://simonwillison.net/2026/Feb/24/go-size-analyzer/",
+      "source": "simonwillison.net",
+      "timeAgo": "8小时前",
+      "category": "🛠 工具 / 开源",
+      "score": 23,
+      "summary": "Go二进制依赖分析工具，通过树形图可视化Go二进制文件中捆绑的依赖项。",
+      "tags": ["Go", "binary size", "analyzer"]
+    },
+    {
+      "rank": 5,
+      "title": "Agentic Swarm是一种组织结构图的幻想",
+      "titleEn": "Agentic swarms are an org-chart delusion",
+      "url": "https://www.joanwestenberg.com/agentic-swarms-are-an-org-chart-delusion/",
+      "source": "joanwestenberg.com",
+      "timeAgo": "23小时前",
+      "category": "💡 观点 / 杂谈",
+      "score": 23,
+      "summary": "AI Agent群取代人类员工？作者认为是简单复制现有层级结构。",
+      "tags": ["AI agents", "org chart", "productivity"]
+    },
+    {
+      "rank": 6,
+      "title": "2025年的苹果：Six Colors成绩单",
+      "titleEn": "Apple in 2025: The Six Colors Report Card",
+      "url": "https://sixcolors.com/post/2026/02/2025reportcard/",
+      "source": "sixcolors.com",
+      "timeAgo": "3小时前",
+      "category": "💡 观点 / 杂谈",
+      "score": 21,
+      "summary": "Six Colors发布年度报告，回顾苹果公司过去一年的表现。",
+      "tags": ["Apple", "report card"]
+    },
+    {
+      "rank": 7,
+      "title": "一个AI Agent发表攻击性文章针对拒绝其代码提交的软件库维护者",
+      "titleEn": "An OpenClaw AI Agent Wrote a Hit Piece",
+      "url": "https://theshamblog.com/an-ai-agent-published-a-hit-piece-on-me/",
+      "source": "theshamblog.com",
+      "timeAgo": "7小时前",
+      "category": "🤖 AI / ML",
+      "score": 21,
+      "summary": "Matplotlib维护者透露，开源项目面临大量低质量代码贡献，AI Agent被拒绝后发表攻击性文章。",
+      "tags": ["AI Agent", "Open Source"]
+    },
+    {
+      "rank": 8,
+      "title": "OpenAI收购OpenClaw并聘请Peter Steinberger",
+      "titleEn": "OpenAI Acquired OpenClaw",
+      "url": "https://x.com/sama/status/2023150230905159801",
+      "source": "x.com",
+      "timeAgo": "7小时前",
+      "category": "🤖 AI / ML",
+      "score": 21,
+      "summary": "OpenAI宣布收购OpenClaw并聘请Peter Steinberger来推动下一代个人Agent的发展。",
+      "tags": ["OpenAI", "OpenClaw"]
+    },
+    {
+      "rank": 9,
+      "title": "苹果今年晚些时候将在休斯顿开始生产Mac Mini",
+      "titleEn": "Apple Will Begin Manufacturing Mac Minis in Houston",
+      "url": "https://www.apple.com/newsroom/2026/02/apple-accelerates-us-manufacturing-with-mac-mini-production/",
+      "source": "apple.com",
+      "timeAgo": "5小时前",
+      "category": "📝 其他",
+      "score": 22,
+      "summary": "苹果宣布将大幅扩展休斯顿工厂运营，首次将Mac mini生产转移到美国。",
+      "tags": ["Apple", "Mac Mini", "manufacturing"]
+    },
+    {
+      "rank": 10,
+      "title": "Sentry iOS崩溃报告实践研讨会",
+      "titleEn": "Hands-On Workshop: Fix It Faster",
+      "url": "https://sentry.io/resources/ios-workshop-jan-2026/",
+      "source": "sentry.io",
+      "timeAgo": "2分钟前",
+      "category": "🛠 工具 / 开源",
+      "score": 20,
+      "summary": "Sentry提供iOS应用崩溃报告、追踪和日志的实践研讨会。",
+      "tags": ["Sentry", "iOS", "crash reporting"]
+    }
+  ]
+}
