@@ -1,10 +1,5 @@
 /**
- * AudioPlayer Component
- * 音频播放器组件示例
- * 
- * 使用方法：
- * import { AudioPlayer } from '@/components/AudioPlayer';
- * <AudioPlayer bookId={29} language="zh" version="short" />
+ * AudioPlayer Component (legacy - use BookAudioPlayer for the new UI)
  */
 
 'use client';
@@ -14,15 +9,13 @@ import { useEffect, useRef, useState } from 'react';
 
 interface AudioPlayerProps {
   bookId: string | number;
-  language?: 'zh' | 'en';
-  version?: 'short' | 'medium' | 'long';
+  version?: 'short' | 'long';
   autoPlay?: boolean;
   className?: string;
 }
 
 export function AudioPlayer({
   bookId,
-  language = 'zh',
   version = 'long',
   autoPlay = false,
   className = '',
@@ -34,8 +27,7 @@ export function AudioPlayer({
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  // 获取音频 URL
-  const audioUrl = getAudioUrl(bookId, language, version);
+  const audioUrl = getAudioUrl(bookId, version);
 
   useEffect(() => {
     const audio = audioRef.current;
@@ -53,7 +45,7 @@ export function AudioPlayer({
     const handlePlay = () => setIsPlaying(true);
     const handlePause = () => setIsPlaying(false);
     const handleEnded = () => setIsPlaying(false);
-    
+
     const handleError = () => {
       setError('音频加载失败，请稍后重试');
       setIsLoading(false);
@@ -79,7 +71,6 @@ export function AudioPlayer({
   const togglePlayPause = () => {
     const audio = audioRef.current;
     if (!audio) return;
-
     if (isPlaying) {
       audio.pause();
     } else {
@@ -95,104 +86,33 @@ export function AudioPlayer({
 
   if (error) {
     return (
-      <div className={`audio-player-error ${className}`}>
-        <p>{error}</p>
+      <div className={`p-4 bg-red-900/20 border border-red-500/30 rounded-xl text-red-400 ${className}`}>
+        {error}
       </div>
     );
   }
 
   return (
-    <div className={`audio-player ${className}`}>
+    <div className={`flex items-center gap-4 p-4 bg-white/5 rounded-xl ${className}`}>
       <audio
         ref={audioRef}
         src={audioUrl}
         preload="metadata"
         autoPlay={autoPlay}
       />
-      
-      <div className="controls">
-        <button
-          onClick={togglePlayPause}
-          disabled={isLoading}
-          aria-label={isPlaying ? 'Pause' : 'Play'}
-        >
-          {isLoading ? '加载中...' : isPlaying ? '⏸' : '▶'}
-        </button>
-        
-        <div className="time-display">
-          <span>{formatTime(currentTime)}</span>
-          <span> / </span>
-          <span>{formatTime(duration)}</span>
-        </div>
+
+      <button
+        onClick={togglePlayPause}
+        disabled={isLoading}
+        className="w-12 h-12 rounded-full bg-purple-600 hover:bg-purple-500 disabled:bg-gray-700 flex items-center justify-center text-xl transition-all"
+        aria-label={isPlaying ? 'Pause' : 'Play'}
+      >
+        {isLoading ? '⏳' : isPlaying ? '⏸' : '▶'}
+      </button>
+
+      <div className="font-mono text-sm text-gray-400">
+        {formatTime(currentTime)} / {formatTime(duration)}
       </div>
-
-      <style jsx>{`
-        .audio-player {
-          display: flex;
-          align-items: center;
-          gap: 1rem;
-          padding: 1rem;
-          background: #f5f5f5;
-          border-radius: 8px;
-        }
-
-        .controls {
-          display: flex;
-          align-items: center;
-          gap: 1rem;
-        }
-
-        button {
-          width: 48px;
-          height: 48px;
-          border-radius: 50%;
-          border: none;
-          background: #007bff;
-          color: white;
-          font-size: 20px;
-          cursor: pointer;
-          transition: background 0.2s;
-        }
-
-        button:hover:not(:disabled) {
-          background: #0056b3;
-        }
-
-        button:disabled {
-          background: #ccc;
-          cursor: not-allowed;
-        }
-
-        .time-display {
-          font-family: monospace;
-          font-size: 14px;
-          color: #666;
-        }
-
-        .audio-player-error {
-          padding: 1rem;
-          background: #fee;
-          border: 1px solid #fcc;
-          border-radius: 8px;
-          color: #c00;
-        }
-      `}</style>
     </div>
   );
 }
-
-/**
- * 使用示例:
- * 
- * // 基础用法
- * <AudioPlayer bookId={29} />
- * 
- * // 完整配置
- * <AudioPlayer 
- *   bookId={3} 
- *   language="zh" 
- *   version="short" 
- *   autoPlay={false}
- *   className="my-custom-player"
- * />
- */

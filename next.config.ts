@@ -1,7 +1,7 @@
 import type {NextConfig} from "next";
 
 const nextConfig: NextConfig = {
-  trailingSlash: true,
+  // No static export - we need API routes
 };
 
 export default nextConfig;

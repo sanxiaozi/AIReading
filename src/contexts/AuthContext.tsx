@@ -30,10 +30,9 @@ interface AuthContextType {
   user: User | null;
   isAuthenticated: boolean;
   isLoading: boolean;
-  login: (email: string, password: string, rememberMe?: boolean) => Promise<void>;
+  login: (email: string, password: string) => Promise<void>;
   register: (email: string, password: string, username?: string) => Promise<void>;
   logout: () => Promise<void>;
-  refreshUser: () => Promise<void>;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -45,7 +44,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [isLoading, setIsLoading] = useState(true);
   const router = useRouter();
 
-  // Load user on mount
   useEffect(() => {
     loadUser();
   }, []);
@@ -57,7 +55,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         setIsLoading(false);
         return;
       }
-
       const currentUser = await authAPI.getCurrentUser();
       setUser(currentUser);
     } catch (error) {
@@ -69,47 +66,21 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   };
 
   const login = useCallback(
-    async (email: string, password: string, rememberMe?: boolean) => {
-      try {
-        const response = await authAPI.login({ email, password, rememberMe });
-        
-        // Save token
-        localStorage.setItem(TOKEN_KEY, response.token);
-        
-        // Set user
-        setUser(response.user);
-        
-        // Redirect to home
-        router.push(`/${response.user.locale || 'en'}`);
-      } catch (error) {
-        console.error('Login error:', error);
-        throw error;
-      }
+    async (email: string, password: string) => {
+      const response = await authAPI.login({ email, password });
+      localStorage.setItem(TOKEN_KEY, response.token);
+      setUser(response.user);
+      router.push('/');
     },
     [router]
   );
 
   const register = useCallback(
     async (email: string, password: string, username?: string) => {
-      try {
-        const response = await authAPI.register({
-          email,
-          password,
-          username,
-        });
-        
-        // Save token
-        localStorage.setItem(TOKEN_KEY, response.token);
-        
-        // Set user
-        setUser(response.user);
-        
-        // Redirect to home
-        router.push(`/${response.user.locale || 'en'}`);
-      } catch (error) {
-        console.error('Register error:', error);
-        throw error;
-      }
+      const response = await authAPI.register({ email, password, username });
+      localStorage.setItem(TOKEN_KEY, response.token);
+      setUser(response.user);
+      router.push('/');
     },
     [router]
   );
@@ -120,25 +91,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     } catch (error) {
       console.error('Logout error:', error);
     } finally {
-      // Clear token and user
       localStorage.removeItem(TOKEN_KEY);
       setUser(null);
-      
-      // Redirect to home
-      router.push('/en');
+      router.push('/');
     }
   }, [router]);
-
-  const refreshUser = useCallback(async () => {
-    try {
-      const currentUser = await authAPI.getCurrentUser();
-      setUser(currentUser);
-    } catch (error) {
-      console.error('Refresh user error:', error);
-      localStorage.removeItem(TOKEN_KEY);
-      setUser(null);
-    }
-  }, []);
 
   return (
     <AuthContext.Provider
@@ -149,7 +106,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         login,
         register,
         logout,
-        refreshUser,
       }}
     >
       {children}

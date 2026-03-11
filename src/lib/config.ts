@@ -1,24 +1,24 @@
 /**
  * Application Configuration
- * 应用配置文件
  */
 
 // 音频 CDN 配置
-export const AUDIO_CDN_URL = process.env.NEXT_PUBLIC_AUDIO_CDN_URL || 'https://trading.aireading.com';
+export const AUDIO_CDN_URL = process.env.NEXT_PUBLIC_AUDIO_CDN_URL || '';
 
 /**
  * 获取音频文件 URL
  * @param bookId 书籍 ID
- * @param language 语言代码 (zh, en)
- * @param version 版本 (short, medium, long)
+ * @param version 版本 (short | long)
+ * @param lang 语言代码 (zh | en)，默认中文
  * @returns 完整的音频 URL
  */
 export function getAudioUrl(
   bookId: string | number,
-  language: 'zh' | 'en' = 'zh',
-  version: 'short' | 'medium' | 'long' = 'long'
+  version: 'short' | 'long' = 'short',
+  lang: string = 'zh'
 ): string {
-  return `${AUDIO_CDN_URL}/audio/${bookId}/${language}_${version}.mp3`;
+  const base = AUDIO_CDN_URL || '';
+  return `${base}/${lang}/${bookId}/${version}.m4a`;
 }
 
 /**
@@ -26,31 +26,8 @@ export function getAudioUrl(
  */
 export const SITE_CONFIG = {
   name: 'AIreading',
-  url: 'https://aireading.com',
-  description: 'AI-powered book summaries',
-  
-  // 社交媒体
-  social: {
-    twitter: '@aireading_app',
-  },
-  
-  // API 配置
-  api: {
-    timeout: 10000, // 10 seconds
-  },
+  description: '用耳朵读好书',
 } as const;
 
-/**
- * 开发环境检测
- */
 export const isDevelopment = process.env.NODE_ENV === 'development';
 export const isProduction = process.env.NODE_ENV === 'production';
-
-/**
- * 功能开关
- */
-export const FEATURES = {
-  enableAnalytics: isProduction,
-  enablePWA: true,
-  enableAudioCache: true,
-} as const;
