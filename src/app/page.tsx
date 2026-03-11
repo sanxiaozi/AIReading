@@ -128,6 +128,7 @@ export default function HomePage() {
 
 function BookCard({ book }: { book: Book }) {
   const coverUrl = `/covers/${book.id}/cover.jpg`;
+  const [imgFailed, setImgFailed] = useState(false);
 
   return (
     <Link
@@ -136,28 +137,25 @@ function BookCard({ book }: { book: Book }) {
     >
       {/* Cover */}
       <div className="aspect-[3/4] bg-gradient-to-br from-purple-900/40 to-blue-900/40 relative overflow-hidden">
-        <Image
-          src={coverUrl}
-          alt={book.title}
-          fill
-          className="object-cover"
-          onError={(e) => {
-            // Hide broken image, show gradient fallback
-            (e.target as HTMLImageElement).style.display = 'none';
-          }}
-          sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, (max-width: 1024px) 25vw, 20vw"
-          unoptimized
-        />
-        {/* Fallback text on cover */}
-        <div className="absolute inset-0 flex items-center justify-center p-2 opacity-0 group-hover:opacity-0">
-          <span className="text-3xl">📖</span>
-        </div>
-        <div className="absolute inset-0 flex flex-col items-center justify-center p-3 text-center">
-          <span className="text-4xl mb-2">📖</span>
-          <span className="text-xs text-white/60 leading-tight line-clamp-3">
-            {book.title}
-          </span>
-        </div>
+        {!imgFailed && (
+          <Image
+            src={coverUrl}
+            alt={book.title}
+            fill
+            className="object-cover"
+            onError={() => setImgFailed(true)}
+            sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, (max-width: 1024px) 25vw, 20vw"
+            unoptimized
+          />
+        )}
+        {/* 只有图片加载失败才显示 fallback */}
+        {imgFailed && (
+          <div className="absolute inset-0 flex flex-col items-center justify-center p-3 text-center">
+            <span className="text-xs text-white/60 leading-tight line-clamp-3">
+              {book.title}
+            </span>
+          </div>
+        )}
       </div>
 
       {/* Info */}

@@ -144,12 +144,8 @@ export function BookDetailClient({ book, summary, keyTakeaways = [] }: Props) {
               alt={book.title}
               fill
               className="object-cover"
-              onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
               unoptimized
             />
-            <div className="absolute inset-0 flex items-center justify-center text-5xl select-none">
-              📖
-            </div>
           </div>
 
           {/* 分类标签 */}
@@ -309,7 +305,6 @@ export function BookDetailClient({ book, summary, keyTakeaways = [] }: Props) {
           {/* 封面 */}
           <div className="w-10 h-10 rounded-lg overflow-hidden shrink-0 relative bg-purple-900/40">
             <Image src={coverUrl} alt={book.title} fill className="object-cover" unoptimized />
-            <div className="absolute inset-0 flex items-center justify-center text-xl">📖</div>
           </div>
 
           {/* 书名 + 进度 */}
