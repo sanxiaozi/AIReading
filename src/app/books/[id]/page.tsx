@@ -43,11 +43,13 @@ export default async function BookDetailPage({ params }: PageProps) {
 
   const content = getBookContent(bookId);
   const summary = content?.summary_short || '暂无简介';
+  const keyTakeaways = content?.keyTakeaways || [];
 
   return (
     <BookDetailClient
       book={book}
       summary={summary}
+      keyTakeaways={keyTakeaways}
     />
   );
 }

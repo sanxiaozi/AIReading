@@ -1,13 +1,24 @@
 'use client';
 
 import { useEffect, useRef, useState, useCallback } from 'react';
+import Image from 'next/image';
 import { getAudioUrl } from '@/lib/config';
 
 interface BookAudioPlayerProps {
   bookId: string | number;
+  bookTitle: string;
+  coverUrl: string;
+  onTrialEnd?: () => void; // 试听结束回调（未登录）
+  isAuthenticated: boolean;
 }
 
-export function BookAudioPlayer({ bookId }: BookAudioPlayerProps) {
+export function BookAudioPlayer({
+  bookId,
+  bookTitle,
+  coverUrl,
+  onTrialEnd,
+  isAuthenticated,
+}: BookAudioPlayerProps) {
   const audioRef = useRef<HTMLAudioElement>(null);
   const [version, setVersion] = useState<'short' | 'long'>('short');
   const [isPlaying, setIsPlaying] = useState(false);
@@ -15,10 +26,11 @@ export function BookAudioPlayer({ bookId }: BookAudioPlayerProps) {
   const [duration, setDuration] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [trialEnded, setTrialEnded] = useState(false);
 
+  const TRIAL_SECONDS = 30;
   const audioUrl = getAudioUrl(bookId, version);
 
-  // Reset state when version or bookId changes
   useEffect(() => {
     const audio = audioRef.current;
     if (!audio) return;
@@ -27,6 +39,7 @@ export function BookAudioPlayer({ bookId }: BookAudioPlayerProps) {
     setDuration(0);
     setIsLoading(true);
     setError(null);
+    setTrialEnded(false);
     audio.load();
   }, [audioUrl]);
 
@@ -34,18 +47,21 @@ export function BookAudioPlayer({ bookId }: BookAudioPlayerProps) {
     const audio = audioRef.current;
     if (!audio) return;
 
-    const onLoadedMetadata = () => {
-      setDuration(audio.duration);
-      setIsLoading(false);
+    const onLoadedMetadata = () => { setDuration(audio.duration); setIsLoading(false); };
+    const onTimeUpdate = () => {
+      setCurrentTime(audio.currentTime);
+      // 未登录试听限制
+      if (!isAuthenticated && audio.currentTime >= TRIAL_SECONDS) {
+        audio.pause();
+        setIsPlaying(false);
+        setTrialEnded(true);
+        onTrialEnd?.();
+      }
     };
-    const onTimeUpdate = () => setCurrentTime(audio.currentTime);
     const onPlay = () => setIsPlaying(true);
     const onPause = () => setIsPlaying(false);
     const onEnded = () => setIsPlaying(false);
-    const onError = () => {
-      setError('音频加载失败，文件可能尚未上传');
-      setIsLoading(false);
-    };
+    const onError = () => { setError('音频加载失败，文件可能尚未上传'); setIsLoading(false); };
     const onCanPlay = () => setIsLoading(false);
 
     audio.addEventListener('loadedmetadata', onLoadedMetadata);
@@ -55,7 +71,6 @@ export function BookAudioPlayer({ bookId }: BookAudioPlayerProps) {
     audio.addEventListener('pause', onPause);
     audio.addEventListener('ended', onEnded);
     audio.addEventListener('error', onError);
-
     return () => {
       audio.removeEventListener('loadedmetadata', onLoadedMetadata);
       audio.removeEventListener('canplay', onCanPlay);
@@ -65,25 +80,25 @@ export function BookAudioPlayer({ bookId }: BookAudioPlayerProps) {
       audio.removeEventListener('ended', onEnded);
       audio.removeEventListener('error', onError);
     };
-  }, [audioUrl]);
+  }, [audioUrl, isAuthenticated, onTrialEnd]);
 
   const togglePlay = useCallback(() => {
     const audio = audioRef.current;
-    if (!audio) return;
+    if (!audio || trialEnded) return;
     if (isPlaying) {
       audio.pause();
     } else {
-      audio.play().catch(() => setError('播放失败，请检查音频文件'));
+      audio.play().catch(() => setError('播放失败'));
     }
-  }, [isPlaying]);
+  }, [isPlaying, trialEnded]);
 
   const handleSeek = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     const audio = audioRef.current;
-    if (!audio) return;
+    if (!audio || !isAuthenticated) return;
     const time = Number(e.target.value);
     audio.currentTime = time;
     setCurrentTime(time);
-  }, []);
+  }, [isAuthenticated]);
 
   const formatTime = (t: number) => {
     if (!isFinite(t)) return '0:00';
@@ -92,79 +107,153 @@ export function BookAudioPlayer({ bookId }: BookAudioPlayerProps) {
     return `${m}:${s.toString().padStart(2, '0')}`;
   };
 
+  const progressMax = isAuthenticated ? (duration || 0) : TRIAL_SECONDS;
+  const progressValue = Math.min(currentTime, progressMax);
+
   return (
-    <div className="bg-white/5 border border-white/10 rounded-2xl p-6 space-y-5">
+    <div className="space-y-4">
       {/* Version toggle */}
       <div className="flex gap-2">
-        <button
-          onClick={() => setVersion('short')}
-          className={`flex-1 py-2.5 rounded-xl text-sm font-medium transition-all ${
-            version === 'short'
-              ? 'bg-purple-600 text-white shadow-lg'
-              : 'bg-white/10 text-gray-400 hover:bg-white/20'
-          }`}
-        >
-          ⚡ 精华版
-          <span className="block text-xs opacity-70 font-normal mt-0.5">1-3 分钟</span>
-        </button>
-        <button
-          onClick={() => setVersion('long')}
-          className={`flex-1 py-2.5 rounded-xl text-sm font-medium transition-all ${
-            version === 'long'
-              ? 'bg-purple-600 text-white shadow-lg'
-              : 'bg-white/10 text-gray-400 hover:bg-white/20'
-          }`}
-        >
-          📖 完整版
-          <span className="block text-xs opacity-70 font-normal mt-0.5">15-30 分钟</span>
-        </button>
+        {(['short', 'long'] as const).map((v) => (
+          <button
+            key={v}
+            onClick={() => setVersion(v)}
+            className={`flex-1 py-2.5 rounded-xl text-sm font-medium transition-all ${
+              version === v
+                ? 'bg-purple-600 text-white shadow-lg'
+                : 'bg-white/10 text-gray-400 hover:bg-white/20'
+            }`}
+          >
+            {v === 'short' ? '⚡ 精华版' : '📖 完整版'}
+            <span className="block text-xs opacity-70 font-normal mt-0.5">
+              {v === 'short' ? '1-3 分钟' : '15-30 分钟'}
+            </span>
+          </button>
+        ))}
       </div>
 
-      {/* Hidden audio element */}
       <audio ref={audioRef} src={audioUrl} preload="metadata" />
 
       {error ? (
-        <div className="text-center py-4 text-red-400 text-sm bg-red-400/10 rounded-xl">
-          {error}
-        </div>
+        <div className="text-center py-4 text-red-400 text-sm bg-red-400/10 rounded-xl">{error}</div>
       ) : (
-        <>
-          {/* Progress bar */}
-          <div className="space-y-1">
-            <input
-              type="range"
-              min={0}
-              max={duration || 0}
-              value={currentTime}
-              onChange={handleSeek}
-              disabled={isLoading || duration === 0}
-              className="w-full h-1.5 accent-purple-500 cursor-pointer disabled:cursor-not-allowed"
-            />
+        <div className="bg-white/5 border border-white/10 rounded-2xl p-5">
+          {/* 试听结束提示 */}
+          {trialEnded && (
+            <div className="text-center py-2 mb-4 text-yellow-400 text-sm bg-yellow-400/10 rounded-xl">
+              🔒 试听已结束，登录后收听完整版
+            </div>
+          )}
+
+          {/* Progress */}
+          <div className="space-y-1 mb-4">
+            <div className="relative">
+              <input
+                type="range"
+                min={0}
+                max={progressMax}
+                value={progressValue}
+                onChange={handleSeek}
+                disabled={isLoading || !isAuthenticated}
+                className="w-full h-1.5 accent-purple-500 cursor-pointer disabled:cursor-not-allowed"
+              />
+              {/* 试听限制标记 */}
+              {!isAuthenticated && duration > 0 && (
+                <div
+                  className="absolute top-0 h-full w-0.5 bg-yellow-400/60"
+                  style={{ left: `${(TRIAL_SECONDS / duration) * 100}%` }}
+                />
+              )}
+            </div>
             <div className="flex justify-between text-xs text-gray-500">
               <span>{formatTime(currentTime)}</span>
-              <span>{formatTime(duration)}</span>
+              <span>
+                {!isAuthenticated && !trialEnded
+                  ? `试听 ${formatTime(TRIAL_SECONDS)}`
+                  : formatTime(duration)}
+              </span>
             </div>
           </div>
 
-          {/* Controls */}
+          {/* Play button */}
           <div className="flex items-center justify-center">
             <button
               onClick={togglePlay}
-              disabled={isLoading}
+              disabled={isLoading || trialEnded}
               className="w-14 h-14 rounded-full bg-purple-600 hover:bg-purple-500 disabled:bg-gray-700 disabled:cursor-not-allowed flex items-center justify-center text-2xl transition-all shadow-lg hover:scale-105 active:scale-95"
-              aria-label={isPlaying ? '暂停' : '播放'}
             >
-              {isLoading ? (
-                <span className="text-base animate-spin">⏳</span>
-              ) : isPlaying ? (
-                '⏸'
-              ) : (
-                '▶'
-              )}
+              {isLoading ? <span className="text-base animate-spin">⏳</span>
+                : isPlaying ? '⏸' : '▶'}
             </button>
           </div>
-        </>
+        </div>
       )}
+    </div>
+  );
+}
+
+// ─── 悬浮播放器（页面底部，播放时出现）───
+interface FloatingPlayerProps {
+  bookTitle: string;
+  coverUrl: string;
+  isPlaying: boolean;
+  currentTime: number;
+  duration: number;
+  onToggle: () => void;
+  onClose: () => void;
+}
+
+export function FloatingPlayer({
+  bookTitle,
+  coverUrl,
+  isPlaying,
+  currentTime,
+  duration,
+  onToggle,
+  onClose,
+}: FloatingPlayerProps) {
+  const formatTime = (t: number) => {
+    if (!isFinite(t)) return '0:00';
+    const m = Math.floor(t / 60);
+    const s = Math.floor(t % 60);
+    return `${m}:${s.toString().padStart(2, '0')}`;
+  };
+
+  const progress = duration > 0 ? (currentTime / duration) * 100 : 0;
+
+  return (
+    <div className="fixed bottom-0 left-0 right-0 z-50 bg-[#111827]/95 backdrop-blur-md border-t border-white/10 px-4 py-3 flex items-center gap-3 shadow-2xl">
+      {/* 关闭 */}
+      <button onClick={onClose} className="text-gray-400 hover:text-white text-lg shrink-0">✕</button>
+
+      {/* 封面 */}
+      <div className="w-10 h-10 rounded-lg overflow-hidden shrink-0 relative bg-purple-900/40">
+        <Image src={coverUrl} alt={bookTitle} fill className="object-cover" unoptimized />
+      </div>
+
+      {/* 书名 + 进度 */}
+      <div className="flex-1 min-w-0">
+        <p className="text-sm text-white font-medium truncate">{bookTitle}</p>
+        <div className="flex items-center gap-2 mt-1">
+          <div className="flex-1 h-1 bg-white/20 rounded-full overflow-hidden">
+            <div
+              className="h-full bg-purple-500 rounded-full transition-all"
+              style={{ width: `${progress}%` }}
+            />
+          </div>
+          <span className="text-xs text-gray-400 shrink-0">
+            {formatTime(currentTime)} / {formatTime(duration)}
+          </span>
+        </div>
+      </div>
+
+      {/* 播放/暂停 */}
+      <button
+        onClick={onToggle}
+        className="w-10 h-10 rounded-full bg-purple-600 hover:bg-purple-500 flex items-center justify-center text-lg shrink-0 transition-all"
+      >
+        {isPlaying ? '⏸' : '▶'}
+      </button>
     </div>
   );
 }
