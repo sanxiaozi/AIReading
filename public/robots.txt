@@ -1,11 +1,11 @@
 # AIreading Robots.txt
-# Website: https://aireading.app
+# Website: https://aireading.com
 
 User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://aireading.app/sitemap.xml
+Sitemap: https://aireading.com/sitemap.xml
 
 # Disallow admin and API paths
 Disallow: /api/
