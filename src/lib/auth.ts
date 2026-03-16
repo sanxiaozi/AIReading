@@ -144,7 +144,12 @@ export function isValidPassword(password: string): { valid: boolean; error?: str
 /**
  * 清理用户数据（移除敏感信息）
  */
-export function sanitizeUser(user: User): Omit<User, 'password_hash'> {
+export function sanitizeUser(user: User): Omit<User, 'password_hash'> & { name: string; user_tier: string } {
   const { password_hash, ...sanitized } = user;
-  return sanitized;
+  return {
+    ...sanitized,
+    // Mobile app expects `name` and `user_tier`
+    name: user.username || user.email.split('@')[0],
+    user_tier: user.subscription_tier,
+  };
 }

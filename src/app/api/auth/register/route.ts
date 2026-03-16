@@ -11,7 +11,9 @@ export async function POST(request: NextRequest) {
   try {
     // 解析请求体
     const body = await request.json();
-    const { email, password, username } = body;
+    // Accept both `name` (mobile) and `username` (web)
+    const { email, password, username, name } = body;
+    const resolvedUsername = username || name;
 
     // 验证必填字段
     if (!email || !password) {
@@ -51,7 +53,7 @@ export async function POST(request: NextRequest) {
     const user = await createUser({
       email,
       password,
-      username: username || undefined,
+      username: resolvedUsername || undefined,
     });
 
     // 生成 JWT token
