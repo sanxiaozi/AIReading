@@ -7,10 +7,10 @@ import { SignJWT, jwtVerify } from 'jose';
 import { NextRequest, NextResponse } from 'next/server';
 import { User } from './models/user';
 
-// JWT 配置
-const JWT_SECRET = new TextEncoder().encode(
-  process.env.JWT_SECRET || 'your-secret-key-change-this-in-production'
-);
+// 从 auth-server 导入统一的 JWT_SECRET（必须在使用前导入）
+import { JWT_SECRET } from './auth-server';
+export { JWT_SECRET } from './auth-server';
+
 const JWT_ALGORITHM = 'HS256';
 const JWT_EXPIRATION = '7d'; // 7天过期
 

@@ -8,16 +8,12 @@ interface BookAudioPlayerProps {
   bookId: string | number;
   bookTitle: string;
   coverUrl: string;
-  onTrialEnd?: () => void; // 试听结束回调（未登录）
-  isAuthenticated: boolean;
 }
 
 export function BookAudioPlayer({
   bookId,
   bookTitle,
   coverUrl,
-  onTrialEnd,
-  isAuthenticated,
 }: BookAudioPlayerProps) {
   const audioRef = useRef<HTMLAudioElement>(null);
   const [version, setVersion] = useState<'short' | 'long'>('short');
@@ -26,9 +22,8 @@ export function BookAudioPlayer({
   const [duration, setDuration] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [trialEnded, setTrialEnded] = useState(false);
 
-  const TRIAL_SECONDS = 30;
+  const TRIAL_SECONDS = 999999; // 已取消登录限制，所有用户可完整播放
   const audioUrl = getAudioUrl(bookId, version);
 
   useEffect(() => {
@@ -39,7 +34,6 @@ export function BookAudioPlayer({
     setDuration(0);
     setIsLoading(true);
     setError(null);
-    setTrialEnded(false);
     audio.load();
   }, [audioUrl]);
 
@@ -50,13 +44,7 @@ export function BookAudioPlayer({
     const onLoadedMetadata = () => { setDuration(audio.duration); setIsLoading(false); };
     const onTimeUpdate = () => {
       setCurrentTime(audio.currentTime);
-      // 未登录试听限制
-      if (!isAuthenticated && audio.currentTime >= TRIAL_SECONDS) {
-        audio.pause();
-        setIsPlaying(false);
-        setTrialEnded(true);
-        onTrialEnd?.();
-      }
+      // 已取消登录限制，所有用户可完整播放
     };
     const onPlay = () => setIsPlaying(true);
     const onPause = () => setIsPlaying(false);
@@ -80,25 +68,25 @@ export function BookAudioPlayer({
       audio.removeEventListener('ended', onEnded);
       audio.removeEventListener('error', onError);
     };
-  }, [audioUrl, isAuthenticated, onTrialEnd]);
+  }, [audioUrl]);
 
   const togglePlay = useCallback(() => {
     const audio = audioRef.current;
-    if (!audio || trialEnded) return;
+    if (!audio) return;
     if (isPlaying) {
       audio.pause();
     } else {
       audio.play().catch(() => setError('播放失败'));
     }
-  }, [isPlaying, trialEnded]);
+  }, [isPlaying]);
 
   const handleSeek = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     const audio = audioRef.current;
-    if (!audio || !isAuthenticated) return;
+    if (!audio) return;
     const time = Number(e.target.value);
     audio.currentTime = time;
     setCurrentTime(time);
-  }, [isAuthenticated]);
+  }, []);
 
   const formatTime = (t: number) => {
     if (!isFinite(t)) return '0:00';
@@ -107,8 +95,8 @@ export function BookAudioPlayer({
     return `${m}:${s.toString().padStart(2, '0')}`;
   };
 
-  const progressMax = isAuthenticated ? (duration || 0) : TRIAL_SECONDS;
-  const progressValue = Math.min(currentTime, progressMax);
+  const progressMax = duration || 0;
+  const progressValue = currentTime;
 
   return (
     <div className="space-y-4">
@@ -138,13 +126,6 @@ export function BookAudioPlayer({
         <div className="text-center py-4 text-red-400 text-sm bg-red-400/10 rounded-xl">{error}</div>
       ) : (
         <div className="bg-white/5 border border-white/10 rounded-2xl p-5">
-          {/* 试听结束提示 */}
-          {trialEnded && (
-            <div className="text-center py-2 mb-4 text-yellow-400 text-sm bg-yellow-400/10 rounded-xl">
-              🔒 试听已结束，登录后收听完整版
-            </div>
-          )}
-
           {/* Progress */}
           <div className="space-y-1 mb-4">
             <div className="relative">
@@ -154,24 +135,13 @@ export function BookAudioPlayer({
                 max={progressMax}
                 value={progressValue}
                 onChange={handleSeek}
-                disabled={isLoading || !isAuthenticated}
+                disabled={isLoading}
                 className="w-full h-1.5 accent-purple-500 cursor-pointer disabled:cursor-not-allowed"
               />
-              {/* 试听限制标记 */}
-              {!isAuthenticated && duration > 0 && (
-                <div
-                  className="absolute top-0 h-full w-0.5 bg-yellow-400/60"
-                  style={{ left: `${(TRIAL_SECONDS / duration) * 100}%` }}
-                />
-              )}
             </div>
             <div className="flex justify-between text-xs text-gray-500">
               <span>{formatTime(currentTime)}</span>
-              <span>
-                {!isAuthenticated && !trialEnded
-                  ? `试听 ${formatTime(TRIAL_SECONDS)}`
-                  : formatTime(duration)}
-              </span>
+              <span>{formatTime(duration)}</span>
             </div>
           </div>
 
@@ -179,7 +149,7 @@ export function BookAudioPlayer({
           <div className="flex items-center justify-center">
             <button
               onClick={togglePlay}
-              disabled={isLoading || trialEnded}
+              disabled={isLoading}
               className="w-14 h-14 rounded-full bg-purple-600 hover:bg-purple-500 disabled:bg-gray-700 disabled:cursor-not-allowed flex items-center justify-center text-2xl transition-all shadow-lg hover:scale-105 active:scale-95"
             >
               {isLoading ? <span className="text-base animate-spin">⏳</span>

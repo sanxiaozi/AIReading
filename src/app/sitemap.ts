@@ -105,9 +105,8 @@ function generateEntries(baseUrl: string): SitemapEntry[] {
     });
   });
 
-  // 已发布书籍页面
+  // 书籍页面。当前书单没有 published 字段，默认全部纳入 sitemap。
   booklist.books
-    .filter(book => book.published)
     .forEach(book => {
       const bookPath = `/books/${book.id}`;
       entries.push({

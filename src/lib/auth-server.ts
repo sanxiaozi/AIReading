@@ -6,8 +6,9 @@
 import { NextRequest } from 'next/server';
 import { jwtVerify } from 'jose';
 
-const JWT_SECRET = new TextEncoder().encode(
-  process.env.JWT_SECRET || 'your-secret-key-change-in-production'
+// 导出 JWT_SECRET 供其他模块使用，确保与 lib/auth.ts 一致
+export const JWT_SECRET = new TextEncoder().encode(
+  process.env.JWT_SECRET || 'your-secret-key-change-this-in-production'
 );
 
 interface AuthPayload {

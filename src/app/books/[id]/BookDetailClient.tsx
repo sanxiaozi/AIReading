@@ -1,11 +1,10 @@
 'use client';
 
-import Link from 'next/link';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useState, useRef, useEffect, useCallback } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { Navbar } from '@/components/Navbar';
-import { BookAudioPlayer, FloatingPlayer } from '@/components/BookAudioPlayer';
 import { getAudioUrl } from '@/lib/config';
 
 interface Book {
@@ -20,6 +19,7 @@ interface Props {
   book: Book;
   summary: string;
   keyTakeaways?: string[];
+  locale?: 'zh' | 'en';
 }
 
 const CATEGORY_MAP: Record<string, string> = {
@@ -32,9 +32,15 @@ const CATEGORY_MAP: Record<string, string> = {
   'self-help': '个人成长',
 };
 
-export function BookDetailClient({ book, summary, keyTakeaways = [] }: Props) {
-  const { isAuthenticated, isLoading } = useAuth();
+export function BookDetailClient({
+  book,
+  summary,
+  keyTakeaways = [],
+  locale = 'zh',
+}: Props) {
+  const { isLoading } = useAuth();
   const coverUrl = `/covers/${book.id}/cover.jpg`;
+  const homeHref = locale === 'zh' ? '/' : `/${locale}`;
 
   // 悬浮播放器状态
   const [showFloating, setShowFloating] = useState(false);
@@ -42,11 +48,10 @@ export function BookDetailClient({ book, summary, keyTakeaways = [] }: Props) {
   const [floatingTime, setFloatingTime] = useState(0);
   const [floatingDuration, setFloatingDuration] = useState(0);
   const [version, setVersion] = useState<'short' | 'long'>('short');
-  const [showLoginPrompt, setShowLoginPrompt] = useState(false);
 
   // 共享 audio ref（传给两个播放器同步状态）
   const audioRef = useRef<HTMLAudioElement>(null);
-  const audioUrl = getAudioUrl(book.id, version);
+  const audioUrl = getAudioUrl(book.id, version, locale);
 
   // 初始化 audio 元素
   useEffect(() => {
@@ -54,11 +59,6 @@ export function BookDetailClient({ book, summary, keyTakeaways = [] }: Props) {
     if (!audio) return;
     const onTime = () => {
       setFloatingTime(audio.currentTime);
-      if (!isAuthenticated && audio.currentTime >= 30) {
-        audio.pause();
-        setFloatingPlaying(false);
-        setShowLoginPrompt(true);
-      }
     };
     const onMeta = () => setFloatingDuration(audio.duration);
     const onPlay = () => { setFloatingPlaying(true); setShowFloating(true); };
@@ -77,7 +77,7 @@ export function BookDetailClient({ book, summary, keyTakeaways = [] }: Props) {
       audio.removeEventListener('pause', onPause);
       audio.removeEventListener('ended', onEnded);
     };
-  }, [isAuthenticated]);
+  }, []);
 
   useEffect(() => {
     const audio = audioRef.current;
@@ -95,17 +95,16 @@ export function BookDetailClient({ book, summary, keyTakeaways = [] }: Props) {
 
   const handleSeek = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     const audio = audioRef.current;
-    if (!audio || !isAuthenticated) return;
+    if (!audio) return;
     audio.currentTime = Number(e.target.value);
-  }, [isAuthenticated]);
+  }, []);
 
   const formatTime = (t: number) => {
     if (!isFinite(t)) return '0:00';
     return `${Math.floor(t / 60)}:${String(Math.floor(t % 60)).padStart(2, '0')}`;
   };
 
-  const TRIAL_SECONDS = 30;
-  const progressMax = isAuthenticated ? (floatingDuration || 0) : TRIAL_SECONDS;
+  const progressMax = floatingDuration || 0;
 
   return (
     <div className="min-h-screen bg-[#070A12]">
@@ -131,7 +130,7 @@ export function BookDetailClient({ book, summary, keyTakeaways = [] }: Props) {
         <div className="relative z-10 max-w-3xl mx-auto px-4 pt-10 pb-12 flex flex-col items-center text-center">
           {/* 返回 */}
           <Link
-            href="/"
+            href={homeHref}
             className="self-start inline-flex items-center gap-1 text-sm text-gray-400 hover:text-white transition-colors mb-8"
           >
             ← 返回书单
@@ -202,67 +201,31 @@ export function BookDetailClient({ book, summary, keyTakeaways = [] }: Props) {
             </div>
           ) : (
             <div className="bg-white/5 border border-white/10 rounded-2xl p-5">
-              {/* 试听结束提示 */}
-              {showLoginPrompt && (
-                <div className="mb-4 p-3 rounded-xl bg-yellow-400/10 border border-yellow-400/20 text-center">
-                  <p className="text-yellow-300 text-sm mb-2">🔒 免费试听已结束</p>
-                  <div className="flex gap-2 justify-center">
-                    <Link href="/login" className="px-4 py-1.5 rounded-lg bg-purple-600 hover:bg-purple-500 text-white text-sm font-medium transition-colors">
-                      立即登录
-                    </Link>
-                    <Link href="/register" className="px-4 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-white text-sm transition-colors">
-                      免费注册
-                    </Link>
-                  </div>
-                </div>
-              )}
-
               {/* 进度条 */}
               <div className="space-y-1 mb-4">
-                <div className="relative">
-                  <input
-                    type="range"
-                    min={0}
-                    max={progressMax}
-                    value={Math.min(floatingTime, progressMax)}
-                    onChange={handleSeek}
-                    disabled={!isAuthenticated}
-                    className="w-full h-1.5 accent-purple-500 cursor-pointer disabled:cursor-not-allowed"
-                  />
-                  {/* 试听截止线 */}
-                  {!isAuthenticated && floatingDuration > 0 && (
-                    <div
-                      className="absolute top-0 h-full w-0.5 bg-yellow-400/70 pointer-events-none"
-                      style={{ left: `${(TRIAL_SECONDS / floatingDuration) * 100}%` }}
-                    />
-                  )}
-                </div>
+                <input
+                  type="range"
+                  min={0}
+                  max={progressMax}
+                  value={floatingTime}
+                  onChange={handleSeek}
+                  className="w-full h-1.5 accent-purple-500 cursor-pointer"
+                />
                 <div className="flex justify-between text-xs text-gray-500">
                   <span>{formatTime(floatingTime)}</span>
-                  <span>
-                    {!isAuthenticated
-                      ? `免费试听 ${TRIAL_SECONDS}s`
-                      : formatTime(floatingDuration)}
-                  </span>
+                  <span>{formatTime(floatingDuration)}</span>
                 </div>
               </div>
 
               {/* 播放按钮 */}
               <div className="flex items-center justify-center">
                 <button
-                  onClick={showLoginPrompt ? undefined : togglePlay}
-                  disabled={showLoginPrompt}
-                  className="w-14 h-14 rounded-full bg-purple-600 hover:bg-purple-500 disabled:bg-gray-700 disabled:cursor-not-allowed flex items-center justify-center text-2xl transition-all shadow-lg hover:scale-105 active:scale-95"
+                  onClick={togglePlay}
+                  className="w-14 h-14 rounded-full bg-purple-600 hover:bg-purple-500 flex items-center justify-center text-2xl transition-all shadow-lg hover:scale-105 active:scale-95"
                 >
                   {floatingPlaying ? '⏸' : '▶'}
                 </button>
               </div>
-
-              {!isAuthenticated && !showLoginPrompt && (
-                <p className="text-center text-xs text-gray-500 mt-3">
-                  可免费试听 30 秒 · 登录后解锁完整版
-                </p>
-              )}
             </div>
           )}
         </div>
