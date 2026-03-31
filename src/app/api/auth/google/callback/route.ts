@@ -9,8 +9,8 @@ import db from '@/lib/db';
 
 const GOOGLE_CLIENT_ID = process.env.GOOGLE_CLIENT_ID!;
 const GOOGLE_CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET!;
-const REDIRECT_URI = 'https://aireading.com/api/auth/google/callback';
-const SITE_URL = 'https://aireading.com';
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://aireading.com';
+const REDIRECT_URI = `${SITE_URL}/api/auth/google/callback`;
 
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
