@@ -10,22 +10,22 @@ import { sanitizeUser } from '@/lib/auth';
 import { JWT_SECRET } from '@/lib/auth-server';
 
 export async function GET(request: NextRequest) {
+  // 从 Authorization header 或 cookie 获取 token
+  const authHeader = request.headers.get('Authorization');
+  let token = authHeader?.replace('Bearer ', '');
+  
+  if (!token) {
+    token = request.cookies.get('auth-token')?.value;
+  }
+
+  if (!token) {
+    return NextResponse.json(
+      { error: 'Unauthorized', code: 'MISSING_TOKEN' },
+      { status: 401 }
+    );
+  }
+
   try {
-    // 从 Authorization header 或 cookie 获取 token
-    const authHeader = request.headers.get('Authorization');
-    let token = authHeader?.replace('Bearer ', '');
-    
-    if (!token) {
-      token = request.cookies.get('auth-token')?.value;
-    }
-
-    if (!token) {
-      return NextResponse.json(
-        { error: 'Unauthorized', code: 'MISSING_TOKEN' },
-        { status: 401 }
-      );
-    }
-
     // 验证 token
     const { payload } = await jwtVerify(token, JWT_SECRET);
     const userId = payload.userId as number;
@@ -55,10 +55,16 @@ export async function GET(request: NextRequest) {
       user: sanitizedUser,
     });
   } catch (error) {
-    console.error('Get current user error:', error);
+    // 详细记录错误，方便排查
+    const errorMessage = error instanceof Error ? error.message : String(error);
+    console.error('Get current user error:', {
+      message: errorMessage,
+      tokenPrefix: token ? token.substring(0, 20) + '...' : 'none',
+      errorName: error instanceof Error ? error.name : 'Unknown',
+    });
 
     return NextResponse.json(
-      { error: 'Unauthorized', code: 'INVALID_TOKEN' },
+      { error: 'Unauthorized', code: 'INVALID_TOKEN', detail: errorMessage },
       { status: 401 }
     );
   }

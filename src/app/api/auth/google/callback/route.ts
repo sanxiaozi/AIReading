@@ -74,17 +74,22 @@ export async function GET(request: NextRequest) {
     const token = await generateToken(user!);
 
     // 5. 返回一个中间页，把 token 写入 localStorage 再跳转
+    // 使用 data 属性传递 token，避免 JavaScript 字符串转义问题
     const html = `<!DOCTYPE html>
 <html>
 <head><meta charset="utf-8"><title>登录中...</title></head>
-<body>
+<body data-token="${token.replace(/"/g, '\\"')}">
 <script>
-  try {
-    localStorage.setItem('aireading_token', ${JSON.stringify(token)});
-    window.location.href = '/';
-  } catch(e) {
-    window.location.href = '/login?error=google_failed';
-  }
+  (function() {
+    try {
+      var token = document.body.getAttribute('data-token');
+      localStorage.setItem('aireading_token', token);
+      window.location.href = '/';
+    } catch(e) {
+      console.error('Token save error:', e);
+      window.location.href = '/login?error=google_failed';
+    }
+  })();
 </script>
 <p style="font-family:sans-serif;text-align:center;margin-top:40px;color:#666">登录中，请稍候...</p>
 </body>
