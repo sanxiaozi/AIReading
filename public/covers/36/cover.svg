@@ -1,0 +1,23 @@
+<svg width="600" height="800" viewBox="0 0 600 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="600" height="800" rx="32" fill="#071016"/>
+  <rect x="24" y="24" width="552" height="752" rx="24" fill="url(#bg36)"/>
+  <rect x="56" y="56" width="488" height="688" rx="18" fill="rgba(8,12,22,0.14)" stroke="rgba(255,255,255,0.14)"/>
+  <rect x="82" y="92" width="122" height="22" rx="11" fill="#8FE8FF"/>
+  <text x="100" y="108" fill="#042530" font-size="14" font-family="Arial, sans-serif" font-weight="700">SCIENCE</text>
+  <text x="82" y="212" fill="#F2FBFF" font-size="58" font-family="Arial, sans-serif" font-weight="700">奇点临近</text>
+  <text x="84" y="284" fill="#99E6FF" font-size="28" font-family="Georgia, serif" letter-spacing="3">THE SINGULARITY IS NEAR</text>
+  <text x="84" y="352" fill="#D8E5F2" font-size="24" font-family="Arial, sans-serif">Ray Kurzweil</text>
+  <circle cx="436" cy="520" r="118" fill="rgba(131,255,238,0.10)" stroke="rgba(171,255,245,0.25)"/>
+  <circle cx="436" cy="520" r="72" fill="rgba(131,255,238,0.10)" stroke="rgba(171,255,245,0.25)"/>
+  <circle cx="436" cy="520" r="24" fill="#A3FFF1"/>
+  <path d="M160 600H316" stroke="rgba(255,255,255,0.16)" stroke-width="4" stroke-linecap="round"/>
+  <path d="M160 632H284" stroke="rgba(255,255,255,0.1)" stroke-width="4" stroke-linecap="round"/>
+  <text x="84" y="710" fill="#C6D4E3" font-size="24" font-family="Arial, sans-serif" letter-spacing="4">AIREADING EDITION</text>
+  <defs>
+    <linearGradient id="bg36" x1="60" y1="30" x2="542" y2="762" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#05394D"/>
+      <stop offset="0.45" stop-color="#102439"/>
+      <stop offset="1" stop-color="#151129"/>
+    </linearGradient>
+  </defs>
+</svg>

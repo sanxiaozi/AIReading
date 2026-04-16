@@ -1,0 +1,21 @@
+<svg width="600" height="800" viewBox="0 0 600 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="600" height="800" rx="32" fill="#0E1726"/>
+  <rect x="24" y="24" width="552" height="752" rx="24" fill="url(#bg25)"/>
+  <rect x="56" y="56" width="488" height="688" rx="18" fill="rgba(7,10,18,0.18)" stroke="rgba(255,255,255,0.18)"/>
+  <rect x="82" y="92" width="132" height="22" rx="11" fill="#E2B562"/>
+  <text x="100" y="108" fill="#241509" font-size="14" font-family="Arial, sans-serif" font-weight="700">HISTORY</text>
+  <text x="82" y="210" fill="#F7F0E3" font-size="58" font-family="Arial, sans-serif" font-weight="700">明朝</text>
+  <text x="82" y="282" fill="#F7F0E3" font-size="58" font-family="Arial, sans-serif" font-weight="700">那些事儿</text>
+  <text x="84" y="354" fill="#F2C879" font-size="28" font-family="Georgia, serif" letter-spacing="3">MING DYNASTY STORIES</text>
+  <line x1="84" y1="408" x2="516" y2="408" stroke="rgba(255,255,255,0.18)"/>
+  <text x="84" y="468" fill="#D7DBE4" font-size="24" font-family="Arial, sans-serif">当年明月</text>
+  <text x="84" y="690" fill="#BFC8D8" font-size="24" font-family="Arial, sans-serif" letter-spacing="4">AIREADING EDITION</text>
+  <path d="M430 126C481.915 152.631 517 206.714 517 269C517 357.366 445.366 429 357 429C302.467 429 254.311 401.68 225.428 360.025C250.271 374.874 279.31 383.4 310.34 383.4C401.948 383.4 476.2 309.148 476.2 217.54C476.2 185.684 467.219 155.926 451.653 130.663L430 126Z" fill="rgba(255,255,255,0.1)"/>
+  <defs>
+    <linearGradient id="bg25" x1="54" y1="48" x2="546" y2="752" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#6A2B1E"/>
+      <stop offset="0.48" stop-color="#2F1A25"/>
+      <stop offset="1" stop-color="#111B2A"/>
+    </linearGradient>
+  </defs>
+</svg>

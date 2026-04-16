@@ -70,20 +70,21 @@ export async function GET(request: NextRequest) {
         .run(now, googleUser.picture || null, user!.id);
     }
 
-    // 4. 生成 JWT token
+    // 4. 生成 JWT token（包含完整用户信息，不依赖数据库查询）
     const token = await generateToken(user!);
 
-    // 5. 返回一个中间页，把 token 写入 localStorage 再跳转
-    // 使用 data 属性传递 token，避免 JavaScript 字符串转义问题
+    // 5. 通过 Set-Cookie 设置 token，同时写 localStorage，双保险
     const html = `<!DOCTYPE html>
 <html>
 <head><meta charset="utf-8"><title>登录中...</title></head>
-<body data-token="${token.replace(/"/g, '\\"')}">
+<body>
 <script>
   (function() {
     try {
-      var token = document.body.getAttribute('data-token');
-      localStorage.setItem('aireading_token', token);
+      var token = document.cookie.match(/auth-token=([^;]+)/);
+      if (token) {
+        localStorage.setItem('aireading_token', decodeURIComponent(token[1]));
+      }
       window.location.href = '/';
     } catch(e) {
       console.error('Token save error:', e);
@@ -95,10 +96,21 @@ export async function GET(request: NextRequest) {
 </body>
 </html>`;
 
-    return new NextResponse(html, {
+    const response = new NextResponse(html, {
       status: 200,
       headers: { 'Content-Type': 'text/html; charset=utf-8' },
     });
+
+    // 设置 HttpOnly Cookie（7天有效期）
+    response.cookies.set('auth-token', token, {
+      httpOnly: false, // 允许 JS 读取，方便从 cookie 复制到 localStorage
+      secure: true,
+      sameSite: 'lax',
+      maxAge: 60 * 60 * 24 * 7, // 7天
+      path: '/',
+    });
+
+    return response;
 
   } catch (err) {
     console.error('Google OAuth error:', err);

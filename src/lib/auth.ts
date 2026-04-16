@@ -17,6 +17,10 @@ const JWT_EXPIRATION = '7d'; // 7天过期
 export interface JWTPayload {
   userId: number;
   email: string;
+  username?: string;
+  avatar_url?: string;
+  locale?: string;
+  subscription_tier?: string;
   exp?: number;
   iat?: number;
   [key: string]: any;
@@ -24,11 +28,16 @@ export interface JWTPayload {
 
 /**
  * 生成 JWT Token
+ * 把完整用户信息存入 payload，这样即使数据库重置（Vercel 无状态），登录状态也不会失效
  */
-export async function generateToken(user: Pick<User, 'id' | 'email'>): Promise<string> {
+export async function generateToken(user: Pick<User, 'id' | 'email' | 'username' | 'avatar_url' | 'locale' | 'subscription_tier'>): Promise<string> {
   const payload: JWTPayload = {
     userId: user.id,
     email: user.email,
+    username: user.username,
+    avatar_url: user.avatar_url || undefined,
+    locale: user.locale || 'zh',
+    subscription_tier: user.subscription_tier || 'free',
   };
 
   const token = await new SignJWT(payload)

@@ -1,0 +1,24 @@
+<svg width="600" height="800" viewBox="0 0 600 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="600" height="800" rx="32" fill="#171219"/>
+  <rect x="24" y="24" width="552" height="752" rx="24" fill="url(#bg42)"/>
+  <rect x="56" y="56" width="488" height="688" rx="18" fill="rgba(12,10,18,0.16)" stroke="rgba(255,255,255,0.14)"/>
+  <rect x="82" y="92" width="120" height="22" rx="11" fill="#F7D88F"/>
+  <text x="100" y="108" fill="#342100" font-size="14" font-family="Arial, sans-serif" font-weight="700">FICTION</text>
+  <text x="82" y="190" fill="#FFF7EC" font-size="54" font-family="Arial, sans-serif" font-weight="700">了不起的</text>
+  <text x="82" y="258" fill="#FFF7EC" font-size="54" font-family="Arial, sans-serif" font-weight="700">盖茨比</text>
+  <text x="84" y="326" fill="#FFD78F" font-size="28" font-family="Georgia, serif" letter-spacing="3">THE GREAT GATSBY</text>
+  <text x="84" y="386" fill="#D8DEE8" font-size="24" font-family="Arial, sans-serif">F. Scott Fitzgerald</text>
+  <path d="M390 474C390 430.922 424.922 396 468 396H490V620H468C424.922 620 390 585.078 390 542V474Z" fill="rgba(255,255,255,0.08)"/>
+  <circle cx="470" cy="436" r="10" fill="#FFD78F"/>
+  <circle cx="434" cy="480" r="7" fill="#FFD78F"/>
+  <circle cx="488" cy="520" r="8" fill="#FFD78F"/>
+  <circle cx="446" cy="578" r="11" fill="#FFD78F"/>
+  <text x="84" y="710" fill="#C6CEDA" font-size="24" font-family="Arial, sans-serif" letter-spacing="4">AIREADING EDITION</text>
+  <defs>
+    <linearGradient id="bg42" x1="54" y1="42" x2="542" y2="758" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#24426B"/>
+      <stop offset="0.52" stop-color="#44243D"/>
+      <stop offset="1" stop-color="#1C1723"/>
+    </linearGradient>
+  </defs>
+</svg>

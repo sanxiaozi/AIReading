@@ -1,0 +1,24 @@
+<svg width="600" height="800" viewBox="0 0 600 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="600" height="800" rx="32" fill="#0C1620"/>
+  <rect x="24" y="24" width="552" height="752" rx="24" fill="url(#bg49)"/>
+  <rect x="56" y="56" width="488" height="688" rx="18" fill="rgba(7,10,18,0.14)" stroke="rgba(255,255,255,0.16)"/>
+  <rect x="82" y="92" width="136" height="22" rx="11" fill="#A7F3D0"/>
+  <text x="100" y="108" fill="#073B2F" font-size="14" font-family="Arial, sans-serif" font-weight="700">BUSINESS</text>
+  <text x="82" y="200" fill="#F5F7FB" font-size="58" font-family="Arial, sans-serif" font-weight="700">纳瓦尔宝典</text>
+  <text x="84" y="270" fill="#B7F0D8" font-size="24" font-family="Georgia, serif" letter-spacing="2">THE ALMANACK OF NAVAL RAVIKANT</text>
+  <text x="84" y="332" fill="#D9E1EC" font-size="24" font-family="Arial, sans-serif">Eric Jorgenson</text>
+  <rect x="82" y="424" width="436" height="188" rx="20" fill="rgba(255,255,255,0.06)"/>
+  <text x="112" y="492" fill="#F1F5F9" font-size="22" font-family="Arial, sans-serif">Wealth</text>
+  <text x="112" y="536" fill="#F1F5F9" font-size="22" font-family="Arial, sans-serif">Judgment</text>
+  <text x="112" y="580" fill="#F1F5F9" font-size="22" font-family="Arial, sans-serif">Leverage</text>
+  <path d="M370 470L482 582" stroke="#A7F3D0" stroke-width="8" stroke-linecap="round"/>
+  <path d="M482 470L370 582" stroke="#A7F3D0" stroke-width="8" stroke-linecap="round"/>
+  <text x="84" y="706" fill="#D1D9E6" font-size="24" font-family="Arial, sans-serif" letter-spacing="4">AIREADING EDITION</text>
+  <defs>
+    <linearGradient id="bg49" x1="60" y1="28" x2="544" y2="760" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#103A52"/>
+      <stop offset="0.48" stop-color="#162A3D"/>
+      <stop offset="1" stop-color="#13211D"/>
+    </linearGradient>
+  </defs>
+</svg>

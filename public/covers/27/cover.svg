@@ -1,0 +1,22 @@
+<svg width="600" height="800" viewBox="0 0 600 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="600" height="800" rx="32" fill="#131A24"/>
+  <rect x="24" y="24" width="552" height="752" rx="24" fill="url(#bg27)"/>
+  <rect x="56" y="56" width="488" height="688" rx="18" fill="rgba(7,10,18,0.16)" stroke="rgba(255,255,255,0.16)"/>
+  <rect x="82" y="92" width="152" height="22" rx="11" fill="#D8D1C0"/>
+  <text x="100" y="108" fill="#252013" font-size="14" font-family="Arial, sans-serif" font-weight="700">BIOGRAPHY</text>
+  <text x="82" y="214" fill="#F5F2EB" font-size="56" font-family="Arial, sans-serif" font-weight="700">曾国藩传</text>
+  <text x="84" y="286" fill="#D9C6A3" font-size="26" font-family="Georgia, serif" letter-spacing="2">BIOGRAPHY OF ZENG GUOFAN</text>
+  <line x1="84" y1="336" x2="516" y2="336" stroke="rgba(255,255,255,0.18)"/>
+  <text x="84" y="394" fill="#D7DBE4" font-size="24" font-family="Arial, sans-serif">张宏杰</text>
+  <rect x="82" y="472" width="436" height="154" rx="18" fill="rgba(255,255,255,0.06)"/>
+  <text x="108" y="530" fill="#F3EFE8" font-size="22" font-family="Arial, sans-serif">人物 · 历史 · 时代</text>
+  <text x="108" y="574" fill="#C8CED9" font-size="18" font-family="Arial, sans-serif">A calm, archival placeholder cover</text>
+  <text x="108" y="704" fill="#C8CED9" font-size="24" font-family="Arial, sans-serif" letter-spacing="4">AIREADING EDITION</text>
+  <defs>
+    <linearGradient id="bg27" x1="60" y1="34" x2="536" y2="760" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#324861"/>
+      <stop offset="0.55" stop-color="#2D2430"/>
+      <stop offset="1" stop-color="#171D27"/>
+    </linearGradient>
+  </defs>
+</svg>
